@@ -6,7 +6,7 @@
 % Frontespizio
 %**************************************************************
 \newcommand{\myName}{Lisa Parma}                                    % autore
-\newcommand{\myTitle}{Una tesi bellissima}
+\newcommand{\myTitle}{Teamwork: una applicazione mobile per Zextras Suite}
 \newcommand{\mySupervisor}{Francesco Ranzato}                        % relatore
 \newcommand{\myCoSupervisor}{Nome Cognome}                      % co-relatore
 % decomment line 12 or 13
@@ -256,3 +256,18 @@
 }
 
 \newcommand{\classdesc}[2]{\item[\textbf{#1:}] #2}
+
+
+
+%**************************************************************
+% Comandi per il fix
+%**************************************************************
+
+\newcommand{\fixme}[2][1=]}{
+\todo[inline, backgroundcolor=red!10,bordercolor=red]{#1}
+}
+
+\newcommand{\note}[1]{
+	\todo[ backgroundcolor=yellow!20]{#1}
+}
+
