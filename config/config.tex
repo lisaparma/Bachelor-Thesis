@@ -263,11 +263,15 @@
 % Comandi per il fix
 %**************************************************************
 
-\newcommand{\fixme}[2][1=]}{
-\todo[inline, backgroundcolor=red!10,bordercolor=red]{#1}
+\newcommand{\fixme}[2]{
+	\texthl{#1}
+	\todo[bordercolor=red!, backgroundcolor=red!10]{#2}
 }
 
 \newcommand{\note}[1]{
-	\todo[ backgroundcolor=yellow!20]{#1}
+	\todo[backgroundcolor=yellow!20]{#1}
 }
 
+\newcommand{\unsure}[1]{
+	\todo[inline, backgroundcolor=orange!25,bordercolor=orange!]{#1}
+}
