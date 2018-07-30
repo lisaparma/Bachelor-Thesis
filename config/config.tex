@@ -262,20 +262,20 @@
 %**************************************************************
 % Comandi per il fix
 %**************************************************************
+\newcommand{\note}[1]{
+	\todo[inline, backgroundcolor=orange!25,bordercolor=orange!]{#1}
+}
 
-\newcommand{\fixme}[2]{
+\newcommand{\unsure}[1]{
+	\texthl{#1}
+}
+
+\newcommand{\mmh}[2]{
 	\texthl{#1}
 	\todo[bordercolor=red!, backgroundcolor=red!10]{#2}
 }
 
-\newcommand{\boh}[1]{
-	\texthl{#1}
-}
-
-\newcommand{\note}[1]{
+\newcommand{\postit}[1]{
 	\todo[backgroundcolor=yellow!20]{#1}
 }
 
-\newcommand{\unsure}[1]{
-	\todo[inline, backgroundcolor=orange!25,bordercolor=orange!]{#1}
-}
