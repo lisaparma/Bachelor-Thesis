@@ -10,3 +10,5 @@
 *.fdb_latexmk 
 *.dvi
 *.synctex.gz
+*.ist
+*.lof
