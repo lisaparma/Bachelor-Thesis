@@ -12,3 +12,10 @@
 *.synctex.gz
 *.ist
 *.lof
+
+*.acn
+*.bbl
+*.bcf
+*.blg
+*.glo
+*.xml
