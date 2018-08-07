@@ -1,4 +1,4 @@
-# Bechelor-Thesis
+# Bachelor-Thesis
 The thesis for my Bachelor's degree at the University of Padua.
 
 ## :exclamation::warning::exclamation: Work in Progress :exclamation::warning::exclamation:
