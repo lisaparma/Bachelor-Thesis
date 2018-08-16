@@ -9,12 +9,12 @@
 	\label{fig:logoZextras}
 \end{figure}
 L'attività di stage descritta in questo elaborato è stata svolta presso l'azienda Zextras s.r.l. nella sede principale di Torri Di Quartesolo (VI). \\
-Questa società è nata nel 2011 con l'obbiettivo di espandere le possibilità della \mmh{collaboration suite Zimbra}{cos'è? dico qui due paroline anche? Io metterei un riferimento alla sezione sotto e basta}.
-In pochi anni è riuscita a rendere la propria suite di prodotti l'estensione professionale per Zimbra Open Source più avanzata tra le soluzioni di collaborazione sul mercato. I loro prodotti sono riconosciuti come ottimali anche dalla \mmh{community Zimbra}{Avrà u nome no? Ho cercato ma non ho trovato un nome. Al massimo potresti mettere ``community di utenti che utillizzano i software Zimbra''} e ciò ha portato ad una collaborazione per lo sviluppo di alcuni prodotti open source e per Zimbra Suite Plus.
-Ad oggi l'azienda presenta sedi secondarie in paesi, quali Francia, Brasile, Russia e Stati Uniti e, inoltre, possiede partner in tutto il mondo.\\
+Questa società è nata nel 2011 con l'obbiettivo di espandere le possibilità della suite di prodotti di collaborazione Zimbra (sez. \ref{subsec:Zimbra}): ha dato vita così a Zextras Suite (sez. \ref{subsec:Zextras}), una serie di prodotti che migliorano i servizi Zimbra e offrono funzionalità importanti per un uso lavorativo del software.
+In pochi anni è riuscita a rendere la propria suite di prodotti l'estensione professionale per Zimbra Open Source più avanzata tra le soluzioni di collaborazione sul mercato. I loro prodotti sono riconosciuti come ottimali anche dall'azienda proprietaria Synacor, la quale ha portato ad una collaborazione per lo sviluppo di alcuni prodotti open source e per Zimbra Suite Plus.
+Ad oggi l'azienda presenta sedi secondarie in paesi, quali Francia, Brasile, Russia e Stati Uniti;  inoltre, possiede partner in tutto il mondo.\\
 
 
-\subsection{Zimbra}
+\subsection{Zimbra} \label{subsec:Zimbra}
 \begin{figure}[H] 
 	\centering
 	\includegraphics[scale=0.2]{zimbra}
@@ -40,7 +40,7 @@ Zimbra è disponibile in due versioni:
 \end{itemize}
 
 
-\subsection{Zextras Suite}
+\subsection{Zextras Suite} \label{subsec:Zextras}
 Zextras Suite è un Add-On per Zimbra Collaboration: i suoi prodotti sono progettati per espandere le funzioni di Zimbra Open Source Edition in maniera a se stante rispetto i moduli Zimbra Network Edition. Infatti Zextras Suite non è distribuito assieme ad alcun binario o sorgente sotto il copyright di Zimbra. \\
 Le principali innovazioni che sono state portate nel mondo Zimbra riguardano la sicurezza dei dati, la mobilità e la gestione dello storage.\\
 La suite comprende i seguenti prodotti:
@@ -61,22 +61,17 @@ La suite comprende i seguenti prodotti:
 Come rappresentato in figura~\ref{fig:modulizextras}, Zextras suite è un'estensione modulare per Zimbra Open Source che può essere applicata secondo le proprie esigenze. Proprio per questo risulta la migliore scelta per un uso professionale di Zimbra.
 
 \section{Metodo di lavoro}
-La necessità di sviluppare progetti particolarmente complessi che si contrappone all'esigenza di mantenere una certa flessibilità e trasparenza ha portato l'azienda a preferire l'utilizzo di un ciclo di sviluppo del software di tipo \emph{agile}, a discapito di metodi di management più tradizionali che spesso rischiano di rallentare e disperdere le risorse.\note{È una frase di dubbia moralità secondo me, potresti mettere qualcosa del tipo: ``rispetto a metodi di management più tradizionali, incentrati sui processi di sviluppo ma non reattivi ai cambiamenti. Questi, infatti, causerebbero una maggior dispersione di risorse, soprattutto nel caso di una forte interazione con il cliente.''}
-La filosofia dello sviluppo agile si basa su quattro pilastri fondamentali che caratterizzano. \\ Esse sono:
+La necessità di sviluppare progetti particolarmente complessi che si unisce all'esigenza di mantenere una certa flessibilità e trasparenza, ha portato l'azienda a preferire l'utilizzo di un ciclo di sviluppo del software di tipo \emph{agile}, rispetto a metodi di management più tradizionali incentrati sui processi di sviluppo ma non reattivi ai cambiamenti. Questi, infatti, causerebbero una maggior dispersione di risorse, soprattutto nel caso di una forte interazione con il cliente.\\
+La filosofia dello sviluppo agile si basa su quattro pilastri fondamentali che caratterizzano.  Esse sono:
 \begin{itemize}
-	\item gli individui e le interazioni più che i processi e gli strumenti;
-	\item  il software funzionante più che la documentazione esaustiva;
-	\item la collaborazione col cliente più che la negoziazione dei contratti;
-	\item  rispondere al cambiamento più che seguire un piano.
+	\item gli individui e le interazioni sono più importanti dei processi e degli strumenti;
+	\item è più importante avere del software funzionante rispetto ad avere una documentazione esaustiva;
+	\item è più importante la collaborazione col cliente che il rispetto dei contratti;
+	\item bisogna essere pronti a rispondere ai cambiamenti oltre che aderire alla pianificazione.
 \end{itemize}
-\note{i pilatri non sono scritti molto in italiano:\\
-- gli individui e le interazioni sono più importanti dei processi e degli strumenti;\\
-- è più importante avere del software funzionante rispetto ad avere una documentazione esaustiva;\\
-- è più importante la collaborazio col cliente che il rispetto dei contratti;\\
-- bisogna essere pronti a rispondere ai cambiamenti oltre che aderire alla pianificazione.}
 Questi principi sono ampiamente condivisi dalla compagine aziendale, la quale basa lo sviluppo dei propri prodotti sulla continua interazione con gli stakeholder e con i clienti.
 
-\section{Scrum}
+\subsection{Scrum}
 In particolare per la creazione di Zextras viene utilizzato il metodo Scrum, che oltre ad essere uno dei sistemi più diffusi, è particolarmente adatto a progetti complessi ed innovativi.\\
 Lo Scrum prevede un modello di sviluppo iterativo nel quale ogni ciclo viene definita uno \emph{Sprint}: esso è un periodo di tempo, solitamente di durata compresa tra 1 a 4 settimane, nel quale viene prefissata una lista di requisiti e funzionalità che devono essere implementate in tale periodo.
 Questa lista di funzionalità e requisiti viene definita prima in una \emph{Product Backlog}, documento che contiene tutti i requisiti necessari per la realizzazione del progetto, e poi, periodicamente, in una \emph{Sprint Backlog}, documento nel quale vengono definiti tutti i task da completare nei singoli sprint.
@@ -88,17 +83,10 @@ Per gestire al meglio sprint e backlog di ogni progetto vengono eseguite delle r
 	\item \textbf{Sprint Review}: revisione al termine di ogni sprint che serve a valutare se gli obiettivi prefissati sono stati completati in modo esaustivo o se è necessario modificare la pianificazione del lavoro per lo sprint successivo;
 \end{itemize}
 
-
-
 \subsection{Strumenti a supporto di processi e servizi}
-\subsubsection{BitBucket}\note{Non ho capito perché hai messo come sezione solo Bitbucket se parli anche di github, puoi accennare al fatto anche che lo utilizzavi anche tu (come negli altri strumenti nel caso)}
-Per il versionamento del software Uqido S.r.l. utilizza Git, affidandosi a GitHub
-e a BitBuket come \mmh{host}{servizi di hosting metterei} (entrambi gratuiti) per i progetti in corso
-di sviluppo.
-\subsubsection{Jira}\note{Jira e parli di basecamp}
-..Per favorire il corretto funzionamento dei processi adottati dall’azienda, essa
-utilizza BaseCamp per il project management. BaseCamp è un task manager
+\subsubsection{BitBucket}
+\subsubsection{Jira}
 \subsubsection{Bamboo}
 \subsubsection{Confluence}
-..Per la realizzazione aziendale di documenti inerenti ai progetti viene utilizza
+
 
