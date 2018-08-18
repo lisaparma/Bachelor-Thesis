@@ -83,14 +83,14 @@ Per gestire al meglio sprint e backlog di ogni progetto vengono eseguite delle r
 	\item \textbf{Sprint Review}: revisione al termine di ogni sprint che serve a valutare se gli obiettivi prefissati sono stati completati in modo esaustivo o se è necessario modificare la pianificazione del lavoro per lo sprint successivo;
 \end{itemize}
 
-\subsection{Strumenti a supporto di processi e servizi}
+\subsection{Strumenti a supporto di processi e servizi} \note{Si potrebbero mettere le icone/simboli dei vari software}
 Zextras S.r.l. utilizza la suite Atlassian, composta da una serie di prodotti atti al miglioramento dello sviluppo del software, della gestione dei progetti e della collaborazione. 
 \subsubsection{BitBucket Server}
-Per il versionamento del sofware viene utilizzato BitBucket, un servizio di hosting di repository di controllo delle versioni  che utilizza git come base. Permette  di eseguire operazioni Git di base (simile a GitHub) ma si può avere un pieno controllo dell'accesso in lettura e scrittura al codice, che può essere differenziato per utente o per gruppi. BitBucket Server ha la particolarità di poter essere eseguito nei server locali così da poter essere sicuri della riservatezza del proprio codice.
-\subsubsection{Jira}
-Jira è un prodotto di issue-tracking che fornisce funzionalità quali tracciamento dei bug, rilevamento dei problemi e gestione di progetti. Si può scegliere il tipo di ciclo di sviluppo con cui si preferisce gestire il lavoro: nel nostro caso integra perfettamente la metodologia Scrum permettendo di gestire al meglio gli sprint e le relative backlog.
-\subsubsection{Bamboo}
-Bamboo è un server atto alla continuous integration e al continuous deployment. Può eseguire più build in parallelo per un completamento più rapido e in caso di errori di compilazione fornisce un'analisi dell'errore, inclusa una traccia dello stack.
-\subsubsection{Confluence}
-Conluence è un software di collaborazione per la creazione di documenti che permette di creare, organizzare e lavorare su materiale condiviso. Centralizza le informazioni, tiene traccia di ogni modifica e permette una gestione granulare dei permessi di visualizzazione/modifica di ogni singolo file.
+Per il versionamento del software viene utilizzato BitBucket Server, un servizio di self-hosting per repository Git e per il controllo delle versioni. Permette di eseguire tutte le operazioni di base di Git di base (è un servizio simile a GitHub) ed in più consente un pieno controllo dell'accesso in lettura e scrittura al codice. L'accesso può essere differenziato per utente o per gruppi. BitBucket Server, essendo un servizio di self-hosting, ha la particolarità di poter essere eseguito nei server locali così da preservare la riservatezza del proprio codice. Inoltre permette l'integrazione con altri strumenti sviluppati dall'azienda Atalassian, tra i quali \hyperref[subsubsec:jira]{Jira}, \hyperref[subsubsec:bamboo]{Bamboo} e \hyperref[subsubsec:confluence]{Confluence}.
+\subsubsection{Jira}\label{subsubsec:jira}
+Jira è un prodotto di issue-tracking che fornisce funzionalità quali tracciamento dei bug, rilevamento dei problemi e gestione di progetti. Questo software permettere di scegliere il tipo di ciclo di sviluppo con cui si preferisce gestire il progetto: nel caso dell'azienda Zextras si adatta perfettamente alla metodologia di lavoro scelta e al sistema Scrum, in quanto permette di gestire al meglio gli sprint e le relative backlog.
+\subsubsection{Bamboo}\label{subsubsec:bamboo}
+Bamboo è un server sviluppato da Atalassian per la continuous integration e deployment. Tra le varie funzionalità, permette di eseguire più build in parallelo, per un completamento più rapido, e in caso di errori di compilazione fornisce un'analisi dell'errore, inclusa la stack trace.
+\subsubsection{Confluence}\label{subsubsec:confluence}
+Confluence è un software di collaborazione per la creazione di documenti che permette di creare, organizzare e lavorare su materiale condiviso. È uno strumento che permette di centralizzare le informazioni, tenere traccia di ogni modifica e, inoltre, permette una gestione granulare dei permessi di accesso ad ogni singolo file.
 
