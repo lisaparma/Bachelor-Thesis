@@ -1,14 +1,80 @@
 % Tutto quello riguardante il progetto andrà in questo capitolo
 
-\chapter{Tecnologie}\label{chap:tec}
-Tecnologie, linguaggi e cose varie utilizzate del progetto, tipo 
-\begin{itemize}
-	\item Expo
-	\item Ginymotion
-	\item JavaScript/TypeScript
-	\item React Native
-	\item Redux
-	\item Docker
-	\item Jest
-	\item React Native Degugger
-\end{itemize}
+\chapter{Tecnologie utilizzate}\label{chap:tec}
+Per lo sviluppo dell'applicativo Teamwork ho utilizzato diverse tecnologie da me prima mai adoperate. Prima della progettazione e dello sviluppo di essa ho svolto un lavoro di studio per prepararmi al meglio al loro utilizzo. Esse sono:
+
+\section{Ambiente di sviluppo}
+\subsection{Docker}
+\begin{figure}[H] 
+	\centering
+	\includegraphics[scale=0.4]{docker}
+	\caption{Logo Docker}
+\end{figure}
+Docker permette di automatizzare lo sviluppo di applicazione dentro a determinati container software, in modo da fornire una virtualizzazione a livello del sistema operativo Linux senza che sia necessario istanziare delle macchine virtuali pienamente operative.
+I container sono assimilabili a delle macchine virtuali modulari che hanno il pregio di essere molto leggere: in questo modo risulta più facile  creare, distribuire, copiare e spostare i container da un ambiente all'altro.
+Ogni container è un processo isolato dagli altri container e dal sistema ospite stesso:  ogni volta che viene mandato in esecuzione si avrà un ambiente pulito, con le caratteristiche desiderate. \\
+Per sviluppare l'applicazione Teamwork è stato utilizato Docker 18.03 Community Edition per Ubuntu Bionic. In questo modo si è potuto caricare nelle macchine locali un container di Zimbra e del core Zextras con la zimlet OpenChat caricata così da sviluppare l'applicativo in un ambiente sicuro e pulito.
+
+\subsection{IntelliJ IDEA}
+\begin{figure}[H] 
+	\centering
+	\includegraphics[scale=0.3]{intellij-idea}
+	\caption{Logo IntelliJ IDEA}
+\end{figure}
+IntelliJ IDEA è un Integrated Development Environment (IDE) multi-linguaggio
+e multi-piattaforma. ...
+
+\subsection{Expo}
+\begin{figure}[H] 
+	\centering
+	\includegraphics[scale=0.08]{expo}
+	\caption{Logo Expo}
+\end{figure}
+
+\section{Linguaggi, librerie e strumenti di programmazione}
+\subsection{React Native}
+\begin{figure}[H] 
+	\centering
+	\includegraphics[scale=0.17]{React}
+	\caption{Logo React Native}
+\end{figure}
+\subsection{Typescript}
+\begin{figure}[H] 
+	\centering
+	\includegraphics[scale=0.1]{ts}
+	\caption{Logo TypeScript}
+\end{figure}
+\subsection{TSLint}
+\begin{figure}[H] 
+	\centering
+	\includegraphics[scale=0.5]{TSlint}
+	\caption{Logo TS Lint}
+\end{figure}
+\subsection{Redux}
+\begin{figure}[H] 
+	\centering
+	\includegraphics[scale=0.08]{redux}
+	\caption{Logo Redux}
+\end{figure}
+ libreria Javascript per la gestione semplificata dello stato delle applicazioni web.
+ 
+\section{Strumenti di verifica e valutazione}
+\subsection{Genymotion}
+\begin{figure}[H] 
+	\centering
+	\includegraphics[scale=0.25]{genymotion2}
+	\caption{Logo Genymotion}
+	
+\end{figure}
+\subsection{React Native Debugger}
+\begin{figure}[H] 
+	\centering
+	\includegraphics[scale=0.3]{react-native-debugger}
+	\caption{Logo React Native Debugger}
+\end{figure}
+\subsection{Jest}
+\begin{figure}[H] 
+	\centering
+	\includegraphics[scale=0.25]{jest}
+	\caption{Logo Jest}
+\end{figure}
