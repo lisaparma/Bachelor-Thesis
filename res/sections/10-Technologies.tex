@@ -7,53 +7,72 @@ Per lo sviluppo dell'applicativo Teamwork ho utilizzato diverse tecnologie da me
 \subsection{Docker}
 \begin{figure}[H] 
 	\centering
-	\includegraphics[scale=0.4]{docker}
+	\includegraphics[scale=0.3]{docker}
 	\caption{Logo Docker}
 \end{figure}
-Docker permette di automatizzare lo sviluppo di applicazione dentro a determinati container software, in modo da fornire una virtualizzazione a livello del sistema operativo Linux senza che sia necessario istanziare delle macchine virtuali pienamente operative.
-I container sono assimilabili a delle macchine virtuali modulari che hanno il pregio di essere molto leggere: in questo modo risulta più facile  creare, distribuire, copiare e spostare i container da un ambiente all'altro.
-Ogni container è un processo isolato dagli altri container e dal sistema ospite stesso:  ogni volta che viene mandato in esecuzione si avrà un ambiente pulito, con le caratteristiche desiderate. \\
-Per sviluppare l'applicazione Teamwork è stato utilizato Docker 18.03 Community Edition per Ubuntu Bionic. In questo modo si è potuto caricare nelle macchine locali un container di Zimbra e del core Zextras con la zimlet OpenChat caricata così da sviluppare l'applicativo in un ambiente sicuro e pulito.
+Docker permette di automatizzare lo sviluppo di applicazione dentro a determinati container software, 
+in modo da fornire una virtualizzazione a livello del sistema operativo Linux senza che sia necessario 
+istanziare delle macchine virtuali pienamente operative.
+I container sono assimilabili a delle macchine virtuali modulari che hanno il pregio di essere molto 
+leggere: in questo modo risulta più facile  creare, distribuire, copiare e spostare i container da un 
+ambiente all'altro.
+Ogni container è un processo isolato dagli altri container e dal sistema ospite stesso:  ogni volta che 
+viene mandato in esecuzione si avrà un ambiente pulito, con le caratteristiche desiderate. \\
+Per sviluppare l'applicazione Teamwork è stato utilizato Docker 18.03 Community Edition per Ubuntu 
+Bionic. In questo modo si è potuto caricare nelle macchine locali un container di Zimbra e del core 
+Zextras con la zimlet OpenChat caricata così da sviluppare l'applicativo in un ambiente sicuro e pulito.
 
 \subsection{IntelliJ IDEA}
 \begin{figure}[H] 
 	\centering
-	\includegraphics[scale=0.3]{intellij-idea}
+	\includegraphics[scale=0.2]{intellij-idea}
 	\caption{Logo IntelliJ IDEA}
 \end{figure}
-IntelliJ IDEA è un Integrated Development Environment (IDE) multi-linguaggio
-e multi-piattaforma. ...
+IntelliJ IDEA è un Integrated Development Environment (IDE) multi-linguaggio e multi-piattaforma. 
+È stata utilizzata la versione Ultimate in quanto era necessario un editor che supportasse  
+JavaScript/TypeScript, mentre la Community version non supporta questi linguaggi. 
+Dovendo creare un'applicazione con numerose referenze al codice della zimlet OpenChat e di Zimbra 
+sono state sfruttate al meglio le funzionalità per analizzare il codice e comprendere le 
+dipendenze esistenti.
 
 \subsection{Expo}
 \begin{figure}[H] 
 	\centering
-	\includegraphics[scale=0.08]{expo}
+	\includegraphics[scale=0.05]{expo}
 	\caption{Logo Expo}
 \end{figure}
+	Expo è una toolchain open source che permette la gestione di un progetto React Native utilizzando 
+	l'SDK di Expo. L'SDK Expo è una libreria nativa e JavaScript che fornisce l'accesso alle funzionalità del 
+	sistema del dispositivo (come la fotocamera, i contatti, la memoria locale) senza il bisogno di 
+	utilizzare xCode o Android Studio, né di utilizzare codice nativo. Fornisce l'accesso a servizi che in 
+	genere sono difficili da gestire nativamente, ma sono richiesti da quasi tutte le app come le notifiche 
+	push o creare binari nativi pronti per la distribuzione nell'app store.
+	Inoltre risulta molto facile lo sviluppo e il test dato che permette delle build automatiche nei loro 
+	server che possono eseguire in real-time il codice sia in simulatori che in dispositivi mobili.
 
 \section{Linguaggi, librerie e strumenti di programmazione}
 \subsection{React Native}
 \begin{figure}[H] 
 	\centering
-	\includegraphics[scale=0.17]{React}
+	\includegraphics[scale=0.1]{React}
 	\caption{Logo React Native}
 \end{figure}
 \subsection{Typescript}
 \begin{figure}[H] 
 	\centering
-	\includegraphics[scale=0.1]{ts}
+	\includegraphics[scale=0.07]{ts}
 	\caption{Logo TypeScript}
 \end{figure}
 \subsection{TSLint}
 \begin{figure}[H] 
 	\centering
-	\includegraphics[scale=0.5]{TSlint}
+	\includegraphics[scale=0.4]{TSlint}
 	\caption{Logo TS Lint}
 \end{figure}
 \subsection{Redux}
 \begin{figure}[H] 
 	\centering
-	\includegraphics[scale=0.08]{redux}
+	\includegraphics[scale=0.06]{redux}
 	\caption{Logo Redux}
 \end{figure}
  libreria Javascript per la gestione semplificata dello stato delle applicazioni web.
@@ -62,19 +81,19 @@ e multi-piattaforma. ...
 \subsection{Genymotion}
 \begin{figure}[H] 
 	\centering
-	\includegraphics[scale=0.25]{genymotion2}
+	\includegraphics[scale=0.2]{genymotion2}
 	\caption{Logo Genymotion}
 	
 \end{figure}
 \subsection{React Native Debugger}
 \begin{figure}[H] 
 	\centering
-	\includegraphics[scale=0.3]{react-native-debugger}
+	\includegraphics[scale=0.15]{react-native-debugger}
 	\caption{Logo React Native Debugger}
 \end{figure}
 \subsection{Jest}
 \begin{figure}[H] 
 	\centering
-	\includegraphics[scale=0.25]{jest}
+	\includegraphics[scale=0.15]{jest}
 	\caption{Logo Jest}
 \end{figure}
