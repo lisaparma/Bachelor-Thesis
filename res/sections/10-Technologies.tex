@@ -1,12 +1,6 @@
 % Tutto quello riguardante il progetto andrà in questo capitolo 
 
 \chapter{Tecnologie utilizzate}\label{chap:tec}
-Per lo sviluppo dell'applicativo Teamwork ho utilizzato diverse tecnologie da 
-me prima mai adoperate. Prima della progettazione e dello sviluppo di essa ho 
-svolto un lavoro di studio per prepararmi al meglio al loro utilizzo. \\
-Esse sono:
-
-
 \section{Ambiente di sviluppo}
 \subsection{Docker}
 	\begin{figure}[H] 
@@ -90,7 +84,7 @@ delle proprietà e che ha un proprio ciclo di vita. Questo approccio di
 sviluppo atomico risulta perfetto per effettuare Unit Test o per creare 
 componenti più complessi includendone altri più semplici.
 
-\subsection{Typescript}
+\subsection{TypeScript}
 \begin{figure}[H] 
 	\centering
 	\includegraphics[scale=0.07]{ts}
@@ -119,8 +113,18 @@ TSLint è uno strumento di analisi statica per il codice scritto in TypeScript c
 	\includegraphics[scale=0.06]{redux}
 	\caption{Logo Redux}
 \end{figure}
- libreria Javascript per la gestione semplificata dello stato delle applicazioni web.
- ce n'è da scrivereee
+Redux è una libreria Javascript per la gestione semplificata dello stato delle applicazioni web. Tramite ReactJS e React Native ogni componente possiede uno stato che può cambiare durante il suo ciclo di vita. Questo stato è interno ad ogni singola componente ed è difficile, a volte impossibile, la comunicazione di questi dati tra componenti diverse. 
+Tramite Redux, invece, si può creare uno store condiviso contenente dei dati che verranno utilizzati da ogni componente in cui ogni modifica verrà sincronizzata per mantenere i dati coerenti tra le varie componenti.
+Redux è stato implementato basandosi su una particolare architattura: Flux.
+
+\subsubsection{Flux}
+ Flux è un pattern architetturale che ha ispirato Redux, utilizzato per la creazione di applicazioni web lato client. Esso utilizza un flusso di dati unidirezionale per gestire al meglio la sincronizzazione degli stati tra le componenti React. In questo modo si è sicuri che lo stato dello store sia sempre uguale in tutte le componenti che compongono la view.
+ \begin{figure}[H] 
+ 	\centering
+ 	\includegraphics[scale=0.3]{flux}
+ 	\caption{Flusso dei dati in Flux}
+ \end{figure}
+ Le view, però, possono causare delle action che modificano lo stato dello store ma esso sarà interamente propagato in tutto il sistema così da evitare inconsistenza dei dati nelle view.
  
 \section{Strumenti di verifica e valutazione}
 
@@ -138,10 +142,25 @@ Genymotion è un emulatore software di dispositivi Android. Si integra perfettam
 	\includegraphics[scale=0.15]{react-native-debugger}
 	\caption{Logo React Native Debugger}
 \end{figure}
+React Native Debugger è un applicazione standalone per il debug di app in React Native. Si basa sul remote bedugger disponibile quando si monitora un progetto in un device fisico o virtuale.\\ Esso offre vari strumenti per il debug:
+\begin{itemize}
+	\item React Inspector, per ispezionare il layout e lo style di ogni componente dell'app;
+	\item Redux DevTools, per monitorare gli store Redux utilizzati e le action svolte su di essi;
+	\item Console, per visualizzare errori e avvisi che avvengono durante l'esecuzione del codice.
+\end{itemize}
 
 \subsection{Jest}
 \begin{figure}[H] 
 	\centering
-	\includegraphics[scale=0.15]{jest}
+	\includegraphics[scale=0.13]{jest}
 	\caption{Logo Jest}
 \end{figure}
+Jest è un framework di unit testing per JavaScript sviluppato ed utilizzato da Facebook per testare le proprie applicazioni in React. È una soluzione completa e pronta per la configurazione in quanto è automaticamente configurato quando si crea un progetto React Native.
+Rispetto ad altri framework di unit testing offre dei vantaggi, come: 
+\begin{itemize}
+	\item vengono eseguiti solo i file di test relativi ai file modificati;
+	\item gestisce automaticamente le dipendenze durante l'esecuzione dei test;
+	\item permette di testare in modo sincroni il codice asincrono;
+	\item esegue i test in processi paralleli così che finiscano prima.
+\end{itemize}
+Inoltre Jest funziona con qualsiasi linguaggio compile-to-JavaScript. Sia il codice da testare che i test stessi possono essere scritti in TypeScript, linguaggio utilizzato per questo progetto. 
