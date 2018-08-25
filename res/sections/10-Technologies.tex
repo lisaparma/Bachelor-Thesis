@@ -1,20 +1,28 @@
-% Tutto quello riguardante il progetto andrà in questo capitolo
+% Tutto quello riguardante il progetto andrà in questo capitolo 
 
 \chapter{Tecnologie utilizzate}\label{chap:tec}
-Per lo sviluppo dell'applicativo Teamwork ho utilizzato diverse tecnologie da me prima mai adoperate. Prima della progettazione e dello sviluppo di essa ho svolto un lavoro di studio per prepararmi al meglio al loro utilizzo. Esse sono:
+Per lo sviluppo dell'applicativo Teamwork ho utilizzato diverse tecnologie da 
+me prima mai adoperate. Prima della progettazione e dello sviluppo di essa ho 
+svolto un lavoro di studio per prepararmi al meglio al loro utilizzo. \\
+Esse sono:
+
 
 \section{Ambiente di sviluppo}
 \subsection{Docker}
-\begin{figure}[H] 
-	\centering
-	\includegraphics[scale=0.3]{docker}
-	\caption{Logo Docker}
-\end{figure}
-Docker permette di automatizzare lo sviluppo di applicazione dentro a determinati container software, 
-in modo da fornire una virtualizzazione a livello del sistema operativo Linux senza che sia necessario 
-istanziare delle macchine virtuali pienamente operative.
-I container sono assimilabili a delle macchine virtuali modulari che hanno il pregio di essere molto 
-leggere: in questo modo risulta più facile  creare, distribuire, copiare e spostare i container da un 
+	\begin{figure}[H] 
+		\centering
+		\includegraphics[scale=0.3]{docker}
+		\caption{Logo Docker}
+	\end{figure}
+Docker permette di automatizzare lo sviluppo di applicazione dentro a 
+determinati container software, 
+in modo da fornire una virtualizzazione a livello del sistema operativo Linux
+senza che sia necessario istanziare delle macchine virtuali pienamente 
+operative.
+I container sono assimilabili a delle macchine virtuali modulari che hanno il 
+pregio di essere molto 
+leggere: in questo modo risulta più facile  creare, distribuire, copiare e spostare 
+i container da un 
 ambiente all'altro.
 Ogni container è un processo isolato dagli altri container e dal sistema ospite stesso:  ogni volta che 
 viene mandato in esecuzione si avrà un ambiente pulito, con le caratteristiche desiderate. \\
@@ -22,53 +30,89 @@ Per sviluppare l'applicazione Teamwork è stato utilizato Docker 18.03 Community
 Bionic. In questo modo si è potuto caricare nelle macchine locali un container di Zimbra e del core 
 Zextras con la zimlet OpenChat caricata così da sviluppare l'applicativo in un ambiente sicuro e pulito.
 
-\subsection{IntelliJ IDEA}
-\begin{figure}[H] 
-	\centering
-	\includegraphics[scale=0.2]{intellij-idea}
-	\caption{Logo IntelliJ IDEA}
-\end{figure}
-IntelliJ IDEA è un Integrated Development Environment (IDE) multi-linguaggio e multi-piattaforma. 
-È stata utilizzata la versione Ultimate in quanto era necessario un editor che supportasse  
-JavaScript/TypeScript, mentre la Community version non supporta questi linguaggi. 
-Dovendo creare un'applicazione con numerose referenze al codice della zimlet OpenChat e di Zimbra 
-sono state sfruttate al meglio le funzionalità per analizzare il codice e comprendere le 
+\subsection{IntelliJ IDEA} \label{subsec:IntelliJ}
+	\begin{figure}[H] 
+		\centering
+		\includegraphics[scale=0.2]{intellij-idea}
+		\caption{Logo IntelliJ IDEA}
+	\end{figure}
+IntelliJ IDEA è un Integrated Development Environment (IDE) multi-linguaggio e 
+multi-piattaforma. 
+È stata utilizzata la versione Ultimate in quanto era necessario un editor che 
+supportasse  
+JavaScript/TypeScript, mentre la Community version non supporta questi 
+linguaggi. 
+Dovendo creare un'applicazione con numerose referenze al codice della zimlet 
+OpenChat e di Zimbra 
+sono state sfruttate al meglio le funzionalità per analizzare il codice e 
+comprendere le 
 dipendenze esistenti.
 
-\subsection{Expo}
-\begin{figure}[H] 
-	\centering
-	\includegraphics[scale=0.05]{expo}
-	\caption{Logo Expo}
-\end{figure}
-	Expo è una toolchain open source che permette la gestione di un progetto React Native utilizzando 
-	l'SDK di Expo. L'SDK Expo è una libreria nativa e JavaScript che fornisce l'accesso alle funzionalità del 
-	sistema del dispositivo (come la fotocamera, i contatti, la memoria locale) senza il bisogno di 
-	utilizzare xCode o Android Studio, né di utilizzare codice nativo. Fornisce l'accesso a servizi che in 
-	genere sono difficili da gestire nativamente, ma sono richiesti da quasi tutte le app come le notifiche 
-	push o creare binari nativi pronti per la distribuzione nell'app store.
-	Inoltre risulta molto facile lo sviluppo e il test dato che permette delle build automatiche nei loro 
-	server che possono eseguire in real-time il codice sia in simulatori che in dispositivi mobili.
+\subsection{Expo} \label{subsec:expo}
+	\begin{figure}[H] 
+		\centering
+		\includegraphics[scale=0.05]{expo}
+		\caption{Logo Expo}
+	\end{figure}
+Expo è una toolchain open source che permette la gestione di un progetto React 
+Native utilizzando l'SDK di Expo. L'SDK Expo è una libreria nativa e JavaScript 
+che fornisce l'accesso alle funzionalità del sistema del dispositivo (come la 
+fotocamera, i contatti, la memoria locale) senza il bisogno di utilizzare xCode 
+o Android Studio, né di utilizzare codice nativo. Fornisce l'accesso a servizi 
+che in genere sono difficili da gestire nativamente, ma sono richiesti da quasi 
+tutte le app come le notifiche push o creare binari nativi pronti per la 
+distribuzione nell'app store.
+Inoltre risulta molto facile lo sviluppo e il test dato che permette delle 
+build automatiche nei loro server che possono eseguire in real-time il codice 
+sia in simulatori che in dispositivi mobili.
+
 
 \section{Linguaggi, librerie e strumenti di programmazione}
+
 \subsection{React Native}
 \begin{figure}[H] 
 	\centering
 	\includegraphics[scale=0.1]{React}
 	\caption{Logo React Native}
 \end{figure}
+React Native è un framework per lo sviluppo di applicazioni mobile in
+JavaScript, destinate a piattaforme native. Questo permette di 
+unificare l'esperienza di sviluppo su diversi sistemi operativi. Infatti React 
+Native utilizza gli stessi blocchi fondamentali dell'interfaccia utente che 
+vengono utilizzate da app native iOS e Android che utilizzano invece i 
+linguaggi Swift e Java.
+Si possono comunque integrare dei componenti scritti in Objective-C, 
+Java o Swift così da passare al codice nativo nel caso fosse necessario 
+ottimizzare alcuni aspetti dell'applicazione in base alla piattaforma. 
+React Native si basa su ReactJS dove appare fondamentale il concetto di 
+componente. Un componente è qualcosa che ha uno stato, che può accettare 
+delle proprietà e che ha un proprio ciclo di vita. Questo approccio di 
+sviluppo atomico risulta perfetto per effettuare Unit Test o per creare 
+componenti più complessi includendone altri più semplici.
+
 \subsection{Typescript}
 \begin{figure}[H] 
 	\centering
 	\includegraphics[scale=0.07]{ts}
 	\caption{Logo TypeScript}
 \end{figure}
+TypeScript è un linguaggio di programmazione sviluppato da Microsoft che 
+estende la sintassi di JavaScript.  È nato per poter utilizzare le funzionalità di 
+JavaScript per lo sviluppo di grandi applicazioni in quanto aumenta la 
+sicurezza e la robustezza del codice tramite aggiunte come le classi, le 
+interfacce, i moduli, la tipizzazione e altre funzionalità importanti per la 
+comprensione di un grande progetto. 
+TypeScript viene successivamente ricompilato in JavaScript per poter essere 
+ interpretato da browser o app.
+
 \subsection{TSLint}
 \begin{figure}[H] 
 	\centering
 	\includegraphics[scale=0.4]{TSlint}
 	\caption{Logo TS Lint}
 \end{figure}
+TSLint è uno strumento di analisi statica per il codice scritto in TypeScript che offre funzionalità estendibili e personalizzabili per la leggibilità, la manutenibilità e gli errori di funzionalità. È supportato da molti dei moderni editor, compreso intelliJ IDEA (sez. \ref{subsec:IntelliJ}), utilizzato per il progetto.
+
 \subsection{Redux}
 \begin{figure}[H] 
 	\centering
@@ -76,21 +120,25 @@ dipendenze esistenti.
 	\caption{Logo Redux}
 \end{figure}
  libreria Javascript per la gestione semplificata dello stato delle applicazioni web.
+ ce n'è da scrivereee
  
 \section{Strumenti di verifica e valutazione}
+
 \subsection{Genymotion}
 \begin{figure}[H] 
 	\centering
 	\includegraphics[scale=0.2]{genymotion2}
 	\caption{Logo Genymotion}
-	
 \end{figure}
+Genymotion è un emulatore software di dispositivi Android. Si integra perfettamente con Expo(sez. \ref{subsec:expo}), utilizzato per la gestione di questo progetto, permettendo di avere un riscontro dell'app in real-time durante lo sviluppo e di verificare e testare l'applicazione su più device. Emula più di 3000 configurazioni virtuali di dispositivi Android (tra versioni, dimensioni schermo, capacità hardware, ecc..). 
+
 \subsection{React Native Debugger}
 \begin{figure}[H] 
 	\centering
 	\includegraphics[scale=0.15]{react-native-debugger}
 	\caption{Logo React Native Debugger}
 \end{figure}
+
 \subsection{Jest}
 \begin{figure}[H] 
 	\centering
