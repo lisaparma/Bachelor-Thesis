@@ -3,18 +3,47 @@
 \chapter{Analisi dei requisiti}\label{chap:requirements}
 
 \section{Attori coinvolti}
-\gl{parola}{PParola}
-\gl{ceo}{CEO}
-\section{Casi d'uso principali}
-Considerando l'obbiettivo del progetto (sez. \ref{sec:intaz}) e il metodo di lavoro utilizzato (sez. \ref{sec:pianificazione}), i casi d'uso (come i requisiti funzionali) sono stati sviluppati durante tutto il corso del progetto. In questa sezione vengono riportati e descritti i casi d'uso principali che sono stati delineati fin da subito tramite le richieste dell'azienda e quelli di alto livello, in modo da poter dare una visione d’insieme più precisa del prodotto sviluppato.
+Gli attori attivi nei vari scenari dei casi d'uso individuati sono quattro, di 
+cui tre principali e uno secondario.
+\subsection{Attori principali}
+\subsubsection{Utente Zimbra}
+L'applicazione è destinata solamente agli utenti Zimbra. Ciò si traduce nel 
+fatto che si può accedere alle funzionalità di Teamwork solo se si è già in 
+possesso di un'email Zimbra gestita dai loro server.  
+\subsubsection{Utente OpenChat}
+Un utente OpenChat, specializzazione dell'utente Zimbra, rappresenta un utente che utilizza un'istanza di Zimbra con la zimlet OpenChat installata. Questa zimlet permette di chattare con gli utenti Zimbra dello stesso server.
 
-Ogni caso d'uso identificato viene qui riportato attraverso un codice univoco gerarchico nella forma:
+\subsubsection{Utente Teamwork web}
+Un utente Teamwork web, specializzazione dell'utente OpenChat, rappresenta 
+un utente che, oltre ad utilizzare un'istanza di Zimbra con la zimlet OpenChat, 
+ha installato anche la zimlet Teamwork, applicazione di chat potenziata rispetto 
+a OpenChat disponibile solo per la suite Zextras.
+
+\subsection{Attori secondari}
+\subsubsection{Server Zimbra}
+Un server Zimbra è un'istanziazione della suite di prodotti Zimbra e, in caso, 
+dei prodotti Zextras. Tramite esso si accede a tutti i dati del profilo Zimbra 
+così da mantenerli sincronizzati tra le varie sessioni in uso.
+
+\section{Casi d'uso principali}
+Considerando l'obbiettivo del progetto (sez. \ref{sec:intaz}) e il metodo di 
+lavoro utilizzato (sez. \ref{sec:pianificazione}), i casi d'uso (come i requisiti 
+funzionali) sono stati sviluppati durante tutto il corso del progetto. 
+In questa sezione vengono riportati e descritti i casi d'uso principali che 
+sono stati delineati fin da subito tramite le richieste dell'azienda e quelli 
+di alto livello, in modo da poter dare una visione d’insieme più precisa del 
+prodotto sviluppato. \\
+
+Ogni caso d'uso identificato viene qui riportato attraverso un codice univoco 
+gerarchico nella forma:
 $$ \textbf{UC \{codice\_padre\}.\{codice\_figlio\}  } $$
 \begin{itemize}
 	\item Le prime due lettere identificano che si tratta di un caso d'uso;
 	\item Il codice padre è un numero univoco che identifica un caso d'uso;
 	\item Il codice figlio è un numero progressivo che identifica i sottocasi;\\
 \end{itemize}
+
+\usecase{0}{Caso d'uso generale}{Attore}{Desc}{pre}{post}{flusso}
 
 
 \usecase{1}{Accesso}{Attore}{Desc}{pre}{post}{flusso}

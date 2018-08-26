@@ -151,6 +151,11 @@
 
 \newcommand{\usecase}[7]{
 	\subsection{UC #1 - #2}
+	\begin{figure}[H] 
+		\centering
+		\includegraphics[scale=0.17]{UC/#1}
+		\caption{UC #1 - #2}
+	\end{figure}
 	\begin{center}
 		\bgroup
 		\def\arraystretch{1.8}     
@@ -163,11 +168,6 @@
 		\end{longtable}
 		\egroup
 	\end{center}
-\begin{figure}[H] 
-	\centering
-	\includegraphics[scale=0.2]{UC/#1}
-	\caption{UC #1 - #2}
-\end{figure}
 }
 
 
