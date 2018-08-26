@@ -9,10 +9,6 @@
 \newcommand{\myTitle}{Teamwork: una applicazione mobile per Zextras Suite}
 \newcommand{\mySupervisor}{Francesco Ranzato}                        % relatore
 \newcommand{\myCoSupervisor}{Nome Cognome}                      % co-relatore
-% decomment line 12 or 13
-\newbool{ifCoSupervisor}
-% \booltrue{ifCoSupervisor}
-\boolfalse{ifCoSupervisor}
 \newcommand{\myDegree}{Tesi di laurea triennale}                % tipo di tesi
 \newcommand{\myUni}{Università degli Studi di Padova}           % università
 \newcommand{\myFaculty}{Corso di Laurea in Informatica}         % facoltà
@@ -40,6 +36,7 @@
 {
     \cleardoublepage
     \phantomsection
+    
     \addcontentsline{toc}{chapter}{\bibname}
     \chapter*{\bibname\markboth{\bibname}{\bibname}}
 }
@@ -49,14 +46,6 @@
 \DeclareBibliographyCategory{opere}
 \DeclareBibliographyCategory{web}
 
-\addtocategory{web}{site:agile-manifesto}
-\addtocategory{web}{site:aws-lambda}
-\addtocategory{web}{site:aws-api-gateway}
-\addtocategory{web}{site:apex}
-\addtocategory{web}{site:swagger}
-\addtocategory{web}{site:messenger-facebook}
-\addtocategory{web}{site:aws-dynamodb}
-\addtocategory{web}{site:mocha}
 
 \defbibheading{web}{\section*{Siti Web consultati}}
 
@@ -77,6 +66,8 @@
 %**************************************************************
 \input{res/glossary} % database di termini
 \makeglossaries
+
+\newcommand{\gl}[2]{\textit{\glslink{#1}{#2}}\ped{\textit{g}}}
 
 
 %**************************************************************
@@ -125,16 +116,6 @@
     pdfproducer={LaTeX}
 }
 
-%**************************************************************
-% Impostazioni di itemize
-%**************************************************************
-%\renewcommand{\labelitemi}{$\ast$}
-
-%\renewcommand{\labelitemi}{$\bullet$}
-%\renewcommand{\labelitemii}{$\cdot$}
-%\renewcommand{\labelitemiii}{$\diamond$}
-%\renewcommand{\labelitemiv}{$\ast$}
-
 
 %**************************************************************
 % Impostazioni di listings
@@ -165,51 +146,6 @@
 
 
 %**************************************************************
-% Altro
-%**************************************************************
-
-\newcommand{\omissis}{[\dots\negthinspace]} % produce [...]
-
-% eccezioni all'algoritmo di sillabazione
-\hyphenation
-{
-    ma-cro-istru-zio-ne
-    gi-ral-din
-}
-
-\newcommand{\sectionname}{sezione}
-\addto\captionsitalian{\renewcommand{\figurename}{figura}
-                       \renewcommand{\tablename}{tabella}}
-
-\newcommand{\glsfirstoccur}{\ap{{[g]}}}
-
-\newcommand{\intro}[1]{\emph{\textsf{#1}}}
-
-%**************************************************************
-% Environment per ``rischi''
-%**************************************************************
-\newcounter{riskcounter}                % define a counter
-\setcounter{riskcounter}{0}             % set the counter to some initial value
-
-%%%% Parameters
-% #1: Title
-\newenvironment{risk}[1]{
-    \refstepcounter{riskcounter}        % increment counter
-    \par \noindent                      % start new paragraph
-    \textbf{\arabic{riskcounter}. #1}   % display the title before the
-                                        % content of the environment is
-%displayed
-}{
-    \par\medskip
-}
-
-\newcommand{\riskname}{Rischio}
-
-\newcommand{\riskdescription}[1]{\textbf{\\Descrizione:} #1.}
-
-\newcommand{\risksolution}[1]{\textbf{\\Soluzione:} #1.}
-
-%**************************************************************
 % Comandi  per i casi d'uso
 %**************************************************************
 
@@ -233,6 +169,8 @@
 	\caption{UC #1 - #2}
 \end{figure}
 }
+
+
 %**************************************************************
 % Comandi per il fix
 %**************************************************************
