@@ -149,22 +149,16 @@
 % Comandi  per i casi d'uso
 %**************************************************************
 
-\newcommand{\usecase}[7]{
-	\subsection{UC #1 - #2}
-	\begin{figure}[H] 
-		\centering
-		\includegraphics[scale=0.17]{UC/#1}
-		\caption{UC #1 - #2}
-	\end{figure}
+\newcommand{\usecase}[5]{
 	\begin{center}
 		\bgroup
 		\def\arraystretch{1.8}     
 		\begin{longtable}{  p{4cm} | p{9.5cm} } 
-			\textbf{Attori Primari} & #3 \\ 
-			\textbf{Descrizione} & .#4 \\ 
-			\textbf{Precondizioni}  & #5 \\
-			\textbf{Postcondizioni} & #6  \\ 
-			\textbf{Flusso Principale} & #7 
+			\textbf{Attori Primari} & #1 \\ 
+			\textbf{Descrizione} & #2 \\ 
+			\textbf{Precondizioni}  & #3 \\
+			\textbf{Postcondizioni} & #4  \\ 
+			\textbf{Flusso Principale} & #5 
 		\end{longtable}
 		\egroup
 	\end{center}
