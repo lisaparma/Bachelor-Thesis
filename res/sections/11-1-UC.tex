@@ -1,43 +1,80 @@
 \subsection{UCG - Caso d'uso generale}
-\begin{figure}[H] 
-	\centering
-	\includegraphics[scale=0.17]{UC/UCG}
-	\caption{UCG - Caso d'uso generale}
-\end{figure}
-
-% ---------------------------------------------------------------------------- %
-\subsection{UC1 - Accesso}
-\begin{figure}[H] 
-	\centering
-	\includegraphics[scale=0.17]{UC/UC1}
-	\caption{UC1 - Accesso}
-\end{figure}
-\begin{center}
+	\begin{figure}[H] 
+		\centering
+		\includegraphics[scale=0.17]{UC/UCG}
+		\caption{UCG - Caso d'uso generale}
+	\end{figure}
+	\begin{center}
 	\bgroup
 	\def\arraystretch{1.8}     
 	\begin{longtable}{  p{4cm} | p{9.5cm} } 
-		\textbf{Attori Primari} & Utente Zimbra; \\ 
-		\textbf{Descrizione} & L’attore si può autenticare inserendo e-mail e password con cui è registrato al server Zimbra; \\ 
-		\textbf{Precondizioni}  & Il sistema è avviato e pronto per l’utilizzo e mostra la pagina di login; \\
-		\textbf{Postcondizioni} & Il sistema ha autenticato l’attore e quindi mostra all’attore autenticato la sua area riservata;  \\ 
+		\textbf{Attori Primari} & Utente Zimbra, utente OpenChat e utente Teamwork web \\ 
+		\textbf{Descrizione} & L'utente, se dispone della zimlet OpenChat potrà interagire con l'applicazione avendo modo di gestire e contattare la sua buddylist. Se nei suoi server Zimbra dispone della zimlet Teamwork web potrà interagire anche con i gruppi di cui fa parte. \\ 
+		\textbf{Precondizioni}  & Il sistema è avviato e connesso a dei server Zimbra pronti per l'autenticazione; \\
+		\textbf{Postcondizioni} & Il sistema ha eseguito tutte le funzioni richieste dall' attore permettendogli così di interagire con la sua buddylist e con i gruppi di cui fa parte  \\ 
 		\textbf{Scenario principale} & 
-			1. L’attore inserisce l'e-mail con cui è registrato al server Zimbra); \newline
-			2. L’attore inserisce la sua password; \newline
-			3. L’attore conferma il login e accedere alla sua area riservata.\\
-		\textbf{Estensioni} & Visualizzazione errore login (riferimento).
+		1. L’utente Zimbra vuole accedere all'applicazione Teamwork per mobile per gestire e comunicare con la sua lista contatti e con i gruppi;\newline
+		2. L’utente OpenChat ha a disposizione la buddylist con le relative chat in modo da gestire nel modo che crede opportuno la comunicazione con i suoi buddy.
 	\end{longtable}
 	\egroup
 \end{center}
 
 % ---------------------------------------------------------------------------- %
+\subsection{UC1 - Accesso}
+	\begin{figure}[H] 
+		\centering
+		\includegraphics[scale=0.17]{UC/UC1}
+		\caption{UC1 - Accesso}
+	\end{figure}
+	\begin{center}
+	\bgroup
+	\def\arraystretch{1.8}     
+	\begin{longtable}{  p{4cm} | p{9.5cm} } 
+		\textbf{Attori Primari} & Utente Zimbra; \\ 
+		\textbf{Descrizione} & L’attore si può autenticare inserendo l'e-mail e la password con cui è registrato al server Zimbra; \\ 
+		\textbf{Precondizioni}  & Il sistema è avviato, pronto per l’utilizzo e mostra la pagina di login; \\
+		\textbf{Postcondizioni} & Il sistema ha autenticato l’attore e gli mostra la sua area riservata;  \\ 
+		\textbf{Scenario principale} & 
+			1. L’attore inserisce l'e-mail con cui è registrato al server Zimbra); \newline
+			2. L’attore inserisce la sua password; \newline
+			3. L’attore conferma il login e accede alla sua area riservata.\\
+		\textbf{Estensioni} & Visualizzazione errore login (\ref{UC2}).
+	\end{longtable}
+	\egroup
+\end{center}
 
 \subsection{UC1.1 - Inserimento email}
+	\begin{center}
+	\bgroup
+	\def\arraystretch{1.8}     
+	\begin{longtable}{  p{4cm} | p{9.5cm} } 
+		\textbf{Attori Primari} & Utente Zimbra; \\ 
+		\textbf{Descrizione} & L’attore si può autenticare inserendo l'e-mail con cui è registrato al server Zimbra; \\ 
+		\textbf{Precondizioni}  & Il sistema è avviato, pronto per l’utilizzo e mostra la pagina di login; \\
+		\textbf{Postcondizioni} & Il sistema resta in attesa dell'inserimento della password da parte dell'attore per continuare l'autenticazione;  \\ 
+		\textbf{Scenario principale} & 
+		1. L’attore inserisce l'e-mail con cui è registrato al server Zimbra).
+	\end{longtable}
+	\egroup
+\end{center}
 \subsection{UC1.2 - Inserimento password}
-
+	\begin{center}
+	\bgroup
+	\def\arraystretch{1.8}     
+	\begin{longtable}{  p{4cm} | p{9.5cm} } 
+		\textbf{Attori Primari} & Utente Zimbra; \\ 
+		\textbf{Descrizione} & L’attore si può autenticare inserendo la password del profilo Zimbra; \\ 
+		\textbf{Precondizioni}  & Il sistema è avviato, pronto per l’utilizzo e mostra la pagina di login; \\
+		\textbf{Postcondizioni} & Il sistema resta in attesa della conferma da parte dell'attore per continuare l'autenticazine;  \\ 
+		\textbf{Scenario principale} & 
+		1. L’attore inserisce la sua password.
+	\end{longtable}
+	\egroup
+\end{center}
 % ---------------------------------------------------------------------------- %
 
-\subsection{UC2 - Visualizzazione errore login}
-\begin{center}
+\subsection{UC2 - Visualizzazione errore login} \label{UC2}
+	\begin{center}
 	\bgroup
 	\def\arraystretch{1.8}     
 	\begin{longtable}{  p{4cm} | p{9.5cm} } 
@@ -46,7 +83,8 @@
 		\textbf{Precondizioni}  & L'attore ha cercato di effettuare il login inserendo delle credenziali errate; \\
 		\textbf{Postcondizioni} & L'attore ha visualizzato il messaggio di errore;  \\ 
 		\textbf{Scenario principale} & 
-		1. L'attore visualizza il messaggio di errore;
+		1. L'attore prova ad autenticarsi inserendo delle credenziali errate; \newline
+		2. L'attore visualizza il messaggio di errore;
 	\end{longtable}
 	\egroup
 \end{center}
@@ -54,12 +92,12 @@
 % ---------------------------------------------------------------------------- %
 
 \subsection{UC3 - Visualizzazione buddylist}
-\begin{figure}[H] 
+	\begin{figure}[H] 
 	\centering
 	\includegraphics[scale=0.17]{UC/UC3}
 	\caption{UC3 - Visualizzazione buddylist}
 \end{figure}
-\begin{center}
+	\begin{center}
 	\bgroup
 	\def\arraystretch{1.8}     
 	\begin{longtable}{  p{4cm} | p{9.5cm} } 
@@ -75,45 +113,179 @@
 \end{center}
 
 \subsection{UC3.1 - Visualizzazione card buddy}
-\begin{figure}[H] 
+	\begin{figure}[H] 
 	\centering
 	\includegraphics[scale=0.17]{UC/UC3_1}
 	\caption{UC3.1 - Visualizzazione card buddy}
 \end{figure}
+		\begin{center}
+		\bgroup
+		\def\arraystretch{1.8}     
+		\begin{longtable}{  p{4cm} | p{9.5cm} } 
+			\textbf{Attori Primari} & Utente OpenChat; \\ 
+			\textbf{Descrizione} &  L'attore può visualizzare dei dati significativi di ogni buddy presente nella sua buddylist; \\ 
+			\textbf{Precondizioni}  & Talkapp presenta all'attore una pagina contenente la lista dei suoi buddy; \\
+			\textbf{Postcondizioni} & L'attore ha visualizzato per ogni buddy una card contenente dei dettagli;  \\ 
+			\textbf{Scenario principale} & 
+			1. L'attore seleziona l'icona nella tab riguardante la buddylist; \newline
+			2. L'attore visualizza per ogni buddy una card in cui sono presenti dei dettagli;
+		\end{longtable}
+		\egroup
+	\end{center}
 
 \subsection{UC3.1.1 - Visualizzazione nickname}
-
+	\begin{center}
+	\bgroup
+	\def\arraystretch{1.8}     
+	\begin{longtable}{  p{4cm} | p{9.5cm} } 
+		\textbf{Attori Primari} & Utente OpenChat; \\ 
+		\textbf{Descrizione} &  L'attore può visualizzare il nickname dato ad un buddy della sua buddylist; \\ 
+		\textbf{Precondizioni}  & Talkapp presenta all'attore una pagina contenente la lista dei suoi buddy; \\
+		\textbf{Postcondizioni} & L'attore ha visualizzato per ogni buddy il nickname dato;  \\ 
+		\textbf{Scenario principale} & 
+		1. L'attore seleziona l'icona nella tab riguardante la buddylist; \newline
+		2. L'attore visualizza il nickname del buddy nella card a esso collegata;
+	\end{longtable}
+	\egroup
+\end{center}
 \subsection{UC3.1.2 - Visualizzazione immagine profilo}
-
+	\begin{center}
+	\bgroup
+	\def\arraystretch{1.8}     
+	\begin{longtable}{  p{4cm} | p{9.5cm} } 
+		\textbf{Attori Primari} & Utente OpenChat; \\ 
+		\textbf{Descrizione} &  L'attore può visualizzare l'immagine profilo di ogni buddy della sua buddylist; \\ 
+		\textbf{Precondizioni}  & Talkapp presenta all'attore una pagina contenente la lista dei suoi buddy; \\
+		\textbf{Postcondizioni} & L'attore ha visualizzato per ogni buddy  l'immagine profilo;  \\ 
+		\textbf{Scenario principale} & 
+		1. L'attore seleziona l'icona nella tab riguardante la buddylist; \newline
+		2. L'attore visualizza l'immagine profilo del buddy nella card a esso collegata;
+	\end{longtable}
+	\egroup
+\end{center}
 \subsection{UC3.1.3 - Visualizzazione status}
-
+	\begin{center}
+		\bgroup
+		\def\arraystretch{1.8}     
+		\begin{longtable}{  p{4cm} | p{9.5cm} } 
+			\textbf{Attori Primari} & Utente OpenChat; \\ 
+			\textbf{Descrizione} &  L'attore può visualizzare lo status di ogni buddy della sua buddylist; \\ 
+			\textbf{Precondizioni}  & Talkapp presenta all'attore una pagina contenente la lista dei suoi buddy; \\
+			\textbf{Postcondizioni} & L'attore ha visualizzato per ogni buddy  il loro status;  \\ 
+			\textbf{Scenario principale} & 
+			1. L'attore seleziona l'icona nella tab riguardante la buddylist; \newline
+			2. L'attore visualizza lo status del buddy nella card a esso collegata;
+		\end{longtable}
+		\egroup
+	\end{center}
 \subsection{UC3.1.4 - Visualizzazione data ultimo messaggio}
-
+	\begin{center}
+		\bgroup
+		\def\arraystretch{1.8}     
+		\begin{longtable}{  p{4cm} | p{9.5cm} } 
+			\textbf{Attori Primari} & Utente OpenChat; \\ 
+			\textbf{Descrizione} &  L'attore può visualizzare la data dell'ultimo messaggio scambiato con un particolare buddy della propria buddylist; \\ 
+			\textbf{Precondizioni}  & Talkapp presenta all'attore una pagina contenente la lista dei suoi buddy; \\
+			\textbf{Postcondizioni} & L'attore ha visualizzato per ogni buddy  la data dell'ultimo messaggio scambiato con esso;  \\ 
+			\textbf{Scenario principale} & 
+			1. L'attore seleziona l'icona nella tab riguardante la buddylist; \newline
+			2. L'attore visualizza la data dell'ultimo messaggio scambiato con un buddy nella card a esso collegata;
+		\end{longtable}
+		\egroup
+	\end{center}
 \subsection{UC3.1.5 - Visualizzazione notifiche}
+	\begin{center}
+		\bgroup
+		\def\arraystretch{1.8}     
+		\begin{longtable}{  p{4cm} | p{9.5cm} } 
+			\textbf{Attori Primari} & Utente OpenChat; \\ 
+			\textbf{Descrizione} &  L'attore può visualizzare il numero dei messaggi ricevuti da un particolare buddy della sua buddylist e non ancora letti; \\ 
+			\textbf{Precondizioni}  & Talkapp presenta all'attore una pagina contenente la lista dei suoi buddy; \\
+			\textbf{Postcondizioni} & L'attore ha visualizzato per ogni buddy il numero dei messaggi ricevuti da esso e non ancora letti;  \\ 
+			\textbf{Scenario principale} & 
+			1. L'attore seleziona l'icona nella tab riguardante la buddylist; \newline
+			2. L'attore visualizza il numero dei messaggi ricevuto da un particolare buddy e non ancora letti nella card a esso collegata;
+		\end{longtable}
+		\egroup
+	\end{center}
 
 % ---------------------------------------------------------------------------- %
 
 \subsection{UC4 - Visualizzazione storico chat}
-\begin{figure}[H] 
+	\begin{figure}[H] 
 	\centering
 	\includegraphics[scale=0.17]{UC/UC4}
 	\caption{UC4 - Visualizzazione storico chat}
 \end{figure}
-
+	\begin{center}
+	\bgroup
+	\def\arraystretch{1.8}     
+	\begin{longtable}{  p{4cm} | p{9.5cm} } 
+		\textbf{Attori Primari} & Utente OpenChat; \\ 
+		\textbf{Descrizione} &  L'attore può visualizzare lo storico delle conversazioni avute con i suoi buddy; \\ 
+		\textbf{Precondizioni}  & Talkapp presenta all'attore una pagina contenente la lista dei suoi buddy; \\
+		\textbf{Postcondizioni} & L'attore ha visualizzato la lista dei messaggi scambiati con un particolare buddy;  \\ 
+		\textbf{Scenario principale} & 
+		1. L'attore seleziona un buddy dalla sua buddylist; \newline
+		2. L'attore visualizza la lista dei messaggi scambiati nel tempo con il buddy selezionato;
+	\end{longtable}
+	\egroup
+\end{center}
 
 \subsection{UC4.1 - Visualizzazione messaggi ricevuti}
+	\begin{center}
+	\bgroup
+	\def\arraystretch{1.8}     
+	\begin{longtable}{  p{4cm} | p{9.5cm} } 
+		\textbf{Attori Primari} & Utente OpenChat; \\ 
+		\textbf{Descrizione} &  L'attore può visualizzare i messaggi ricevuti da un particolare buddy; \\ 
+		\textbf{Precondizioni}  & Talkapp presenta all'attore una pagina contenente la lista dei suoi buddy; \\
+		\textbf{Postcondizioni} & L'attore ha visualizzato la lista dei messaggi ricevuti  da un particolare buddy;  \\ 
+		\textbf{Scenario principale} & 
+		1. L'attore seleziona un buddy dalla sua buddylist; \newline
+		2. L'attore visualizza la lista dei messaggi ricevuti nel tempo dal buddy selezionato;
+	\end{longtable}
+	\egroup
+\end{center}
 
 \subsection{UC4.2 - Visualizzazione messaggi inviati}
-
+	\begin{center}
+	\bgroup
+	\def\arraystretch{1.8}     
+	\begin{longtable}{  p{4cm} | p{9.5cm} } 
+		\textbf{Attori Primari} & Utente OpenChat; \\ 
+		\textbf{Descrizione} &  L'attore può visualizzare i messaggi inviati ad un particolare buddy; \\ 
+		\textbf{Precondizioni}  & Talkapp presenta all'attore una pagina contenente la lista dei suoi buddy; \\
+		\textbf{Postcondizioni} & L'attore ha visualizzato la lista dei messaggi inviati  ad un particolare buddy;  \\ 
+		\textbf{Scenario principale} & 
+		1. L'attore seleziona un buddy dalla sua buddylist; \newline
+		2. L'attore visualizza la lista dei messaggi inviati nel tempo al buddy selezionato;
+	\end{longtable}
+	\egroup
+\end{center}
 
 % ---------------------------------------------------------------------------- %
 
 \subsection{UC5 - Invio messaggi}
 
 \subsection{UC6 - Modifica buddylist}
+	\begin{center}
+	\bgroup
+	\def\arraystretch{1.8}     
+	\begin{longtable}{  p{4cm} | p{9.5cm} } 
+		\textbf{Attori Primari} & Utente OpenChat; \\ 
+		\textbf{Descrizione} &  L'attore può modificare la buddylist visualizzata; \\ 
+		\textbf{Precondizioni}  & Talkapp presenta all'attore una pagina contenente la lista dei suoi buddy \\
+		\textbf{Postcondizioni} & L'attore ha modificato la buddylist che viene visualizzata; \\ 
+		\textbf{Scenario principale} & 
+		1. L'attore seleziona un buddy da rimuovere o digita un contatto da aggiungere; \newline
+		2. L'attore conferma di voler cambiate la buddylist tramite l''azione svolta;
+	\end{longtable}
+	\egroup
+\end{center}
 
 \subsection{UC7 - Aggiunta buddy}
-\begin{center}
+	\begin{center}
 	\bgroup
 	\def\arraystretch{1.8}     
 	\begin{longtable}{  p{4cm} | p{9.5cm} } 
@@ -130,7 +302,7 @@
 \end{center}
 
 \subsection{UC8 - Rimozione buddy}
-\begin{center}
+	\begin{center}
 	\bgroup
 	\def\arraystretch{1.8}     
 	\begin{longtable}{  p{4cm} | p{9.5cm} } 
@@ -147,7 +319,7 @@
 \end{center}
 
 \subsection{UC9 - Ricerca buddy}
-\begin{center}
+	\begin{center}
 	\bgroup
 	\def\arraystretch{1.8}     
 	\begin{longtable}{  p{4cm} | p{9.5cm} } 
@@ -163,7 +335,7 @@
 \end{center}
 
 \subsection{UC10 - Modifica status}
-\begin{center}
+	\begin{center}
 	\bgroup
 	\def\arraystretch{1.8}     
 	\begin{longtable}{  p{4cm} | p{9.5cm} } 
@@ -179,7 +351,7 @@
 \end{center}
 
 \subsection{UC11 - Modifica tema}
-\begin{center}
+	\begin{center}
 	\bgroup
 	\def\arraystretch{1.8}     
 	\begin{longtable}{  p{4cm} | p{9.5cm} } 
@@ -195,7 +367,7 @@
 \end{center}
 
 \subsection{UC12 - Visualizzazione gruppi}
-\begin{center}
+	\begin{center}
 	\bgroup
 	\def\arraystretch{1.8}     
 	\begin{longtable}{  p{4cm} | p{9.5cm} } 
