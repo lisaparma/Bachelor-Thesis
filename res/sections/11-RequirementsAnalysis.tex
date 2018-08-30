@@ -3,21 +3,22 @@
 \chapter{Analisi dei requisiti}\label{chap:requirements}
 
 \section{Attori coinvolti}
-Gli attori attivi nei vari scenari dei casi d'uso individuati sono quattro, di 
-cui tre principali e uno secondario.
+Durante l'attività di analisi dei requisiti sono stati individuati quattro 
+attori capaci di  interagire attivamente con l'applicazione Teamwork. 
+Di questi tre sono attori principali, mentre uno è un attore secondario.
 \subsection{Attori principali}
 \subsubsection{Utente Zimbra}
-L'applicazione è destinata solamente agli utenti Zimbra. Ciò si traduce nel 
-fatto che si può accedere alle funzionalità di Teamwork solo se si è già in 
-possesso di un'email Zimbra gestita dai loro server.  
+L'applicazione è destinata solamente agli utenti Zimbra. Ciò implica il fatto che si può accedere alle funzionalità di Teamwork esclusivamente se si è già in 
+possesso di un'email Zimbra gestita dai loro server. Tale scenario è
+rappresentato dall'attore più generico.
 \subsubsection{Utente OpenChat}
-Un utente OpenChat, specializzazione dell'utente Zimbra, rappresenta un utente che utilizza un'istanza di Zimbra con la zimlet OpenChat installata. Questa zimlet permette di chattare con gli utenti Zimbra dello stesso server.
+Un utente OpenChat, specializzazione dell'utente Zimbra, rappresenta un utente che utilizza un'istanza di Zimbra con la zimlet OpenChat installata. Quest'ultima permette di chattare con gli utenti Zimbra dello stesso server.
 
 \subsubsection{Utente Teamwork web}
 Un utente Teamwork web, specializzazione dell'utente OpenChat, rappresenta 
 un utente che, oltre ad utilizzare un'istanza di Zimbra con la zimlet OpenChat, 
 ha installato anche la zimlet Teamwork, applicazione di chat potenziata rispetto 
-a OpenChat disponibile solo per la suite Zextras.
+alla prima e disponibile solo per la suite Zextras.
 
 \subsection{Attori secondari}
 \subsubsection{Server Zimbra}
