@@ -21,3 +21,10 @@
 *.xml
 
 *.pdf
+
+## Bibliography && glossary
+*.acr
+*.alg
+*.glg
+*.gls
+
