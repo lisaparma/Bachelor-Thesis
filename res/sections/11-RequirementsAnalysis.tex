@@ -58,34 +58,63 @@ $$ \textbf{R \{importanza\}\{tipo\}\{numero\_vincolo\} } $$
 \end{itemize}
 
 \subsection{Principali requisiti funzionali}
-\begin{longtable}{|c|c|}
+\begin{longtable}{|C{3cm}| C{10cm}|}
 	\hline
 	\textbf{Id Requisito} & \textbf{Descrizione}\\
 	\hline
 	\endhead
-	R0F1 & ....  \\ \hline 
-	\caption{Requisiti di qualità}
+	R0F1 & L'utente Zimbra deve poter effettuare l'accesso inserendo inserendo l'email e la password con cui è registrato al server Zimbra.  \\ \hline 
+	R0F1.1 & L'utente Zimbra può inserire la propria mail. \\ \hline 
+	R0F1.2 & L'utente Zimbra  può inserire la propria password dell'account Zimbra.\\ \hline 
+	R0F2 & Il sistema deve mostrare un messaggio di errore in caso di inserimento dei dati errati o mancanti.  \\ \hline 
+	R0F3 & L'utente OpenChat deve poter vedere la propria buddylist una volta effettuato l'accesso all'applicazione. \\ \hline 
+	R1F3.1 & L'utente OpenChat deve poter vedere per ogni buddy della sua buddylist una card contenente dei dettagli relativi al buddy. \\ \hline 
+	R1F3.1.1 & L'utente OpenChat deve poter vedere per ogni buddy della sua buddylist il nickname corrispondente. \\ \hline 
+	R1F3.1.2 & L'utente OpenChat deve poter vedere per ogni buddy della sua buddylist l'immagine profilo corrispondente. \\ \hline 
+	R1F3.1.3 & L'utente OpenChat deve poter vedere per ogni buddy della sua buddylist lo status in cui si trova. \\ \hline 
+	R1F3.1.4 & L'utente OpenChat deve poter vedere per ogni buddy della sua buddylist la data dell'ultimo messaggio scambiato con tale utente. \\ \hline 
+	R1F3.1.5 & L'utente OpenChat deve poter vedere per ogni buddy della sua buddylist il numero dei messaggi ricevuti non ancora letti. \\ \hline 
+	R0F4 & L'utente OpenChat deve poter vedere per ogni buddy della sua buddylist lo storico delle conversazioni avute. \\ \hline 
+	R0F4.1 & L'utente OpenChat deve poter vedere per ogni buddy della sua buddylist i messaggi ricevuti. \\ \hline 
+	R0F4.2 & L'utente OpenChat deve poter vedere per ogni buddy della sua buddylist i messaggi inviatogli. \\ \hline 
+	R0F5 & L'utente OpenChat deve poter inviare messaggi ad ogni buddy della sua buddylist.\\ \hline 
+	R1F6 & L'utente OpenChat deve poter modificare la sua buddylist.\\ \hline 
+	R1F7 & L'utente OpenChat deve poter aggiungere un nuovo buddy alla sua buddylist conoscendone l'e-mail.\\ \hline 
+	R1F8 & L'utente OpenChat deve poter rimuovere un buddy dalla sua buddylist così che non possa più contattarlo.\\ \hline 
+	R2F9 & L'utente OpenChat deve poter ricercare i buddy tra quelli presenti nella sua buddylist in base a dei caratteri.\\ \hline 
+	R1F10 & L'utente OpenChat deve poter modificare il proprio status con cui viene visualizzato dagli altri utenti..\\ \hline 
+	R2F11 & L'utente OpenChat deve poter modificare il tema dei colori dell'applicazione.\\ \hline 
+	R1F12 & L'utente OpenChat deve poter visualizzare i gruppi di cui fa parte.\\ \hline 
+	
+	\caption{Requisiti funzionali}
 	\label{tabella:req}
 \end{longtable}
 
 \subsection{Requisiti di vincolo}
-\begin{longtable}{|c|c|}
+\begin{longtable}{|C{3cm}|C{10cm}|}
 	\hline
 	\textbf{Id Requisito} & \textbf{Descrizione}\\
 	\hline
 	\endhead
-	R0V1 & ....  \\ \hline 
+	R0V1 & L'applicazione deve essere sviluppata in React Native. \\ \hline 
+	R0V1 & L'applicazione deve essere disponibile per iOS.  \\ \hline 
+	R0V1 & L'applicazione deve essere disponibile per Android.  \\ \hline 
+	R0V1 & Lo sviluppo dell'applicazione deve prevedere l'SDK Expo. \\ \hline 
+	R1V1 & Il codice dell'applicazione può essere scritto in TypeScript.  \\ \hline 
 	\caption{Requisiti di vincolo}
 	\label{tabella:reqV}
 \end{longtable}
 
 \subsection{Requisiti di qualità}
-\begin{longtable}{|c|c|}
+\begin{longtable}{|C{3cm}|C{10cm}|}
 	\hline
 	\textbf{Id Requisito} & \textbf{Descrizione}\\
 	\hline
 	\endhead
-	R0Q1 & ....  \\ \hline 
+	R0Q1 & L'applicazione deve sincronizzare i dati con quelli delle altre sessioni aperte.  \\ \hline 
+	R0Q1 & L'interfaccia grafica deve rispettare le linee guida fornite dall'azienda.  \\ \hline 
+	R0Q1 & Deve essere disponibile una documentazione per gli sviluppi futuri.  \\ \hline 
+	R1Q1 & L'esperienza utente deve essere allineata con la soluzione già disponibile in ambiente web \\ \hline 
 	\caption{Requisiti di qualità}
 	\label{tabella:reqQ}
 \end{longtable}
