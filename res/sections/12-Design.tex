@@ -3,6 +3,25 @@
 \chapter{Progettazione e codifica}\label{chap:design}
 
 \section {Progettazione architetturale}
+\subsection{Architettura OpenChat}
+Avendo dovuto basare l'applicazione Teamwork sulla soluzione già implementata per il web dalla zimlet OpenChat è utile approfondire la sua architettura.
+\begin{figure}[H] 
+	\centering
+	\includegraphics[scale=0.6]{architettura}
+	\caption{Architettura OpenChat}
+\end{figure}
+La zimlet OpenChat interagisce con Zimbra grazie a delle connessioni SOAP. Questo permette la ricezione e l'invio di eventi anche da più sessioni contemporaneamente e tutte sincronizzate tra di loro.\\
+Il connection manager si occupa della ricezione degli eventi:
+\begin{itemize}
+	\item il Ping serve a tenere aperta la connessione una volta creata e ad "ascolare" la connessione in modo da rendere reattiva l'applicazione alla ricezione degli eventi;
+	\item arrivato un evento è il decoder a decodificarlo, trasformandolo da un file JSON ad una classe meglio gestibile.
+\end{itemize}
+Una volta ottenuto un evento tramite degli hendlers sarà facimente aggiornato lo store Redux con cui è gestità l'informazione lato front-end.
+
+\note{ Modificare immagine, capire come mandano loro l'informazioni}
+
+\subsection{Modifiche architettura}
+\note{cambiato un po' come arrivano gli eventi e tutto su come gli mando}
 
 \section{Progettazione grafica}
 Prima di procedere alla definizione delle classi necessarie per l'implementazione 
@@ -61,5 +80,5 @@ versioni prototipali dell'applicazione avessero anche una progressiva applicazio
 delle regole di stile.
 
 \section{Progettazione di dettaglio}
-Approvati questi wireframe è stato potuto proseguire alla definizione di tutti 
-e soli i componenti veramente utili al layout deciso.
+Approvati i wireframe è stato potuto proseguire alla definizione di tutti 
+e soli i componenti veramente utili al layout.
