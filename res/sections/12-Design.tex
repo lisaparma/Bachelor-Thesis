@@ -4,28 +4,32 @@
 
 \section {Progettazione architetturale}
 \subsection{Architettura OpenChat}
+\begin{figure}[H] 
+	\centering
+	\includegraphics[scale=0.5]{architettura2}
+	\caption{Architettura OpenChat}
+\end{figure}
+\note{
 Avendo dovuto basare l'applicazione Teamwork sulla soluzione già implementata per il web dalla zimlet OpenChat è utile approfondire la sua architettura.
+La zimlet OpenChat interagisce con Zimbra grazie a delle connessioni SOAP. Questo permette la ricezione e l'invio di eventi anche da più sessioni contemporaneamente, mantenendo tra loro la sincronizzazione.\\
+l connection manager si occupa della ricezione degli eventi:
+
+	-il Ping serve a tenere aperta la connessione una volta creata e ad "ascoltare" la connessione in modo da rendere reattiva l'applicazione alla ricezione degli eventi;
+	- ricevuto un evento il decoder ha il compito di decodificarlo, trasformandolo da un file JSON ad una classe meglio gestibile.
+Una volta ottenuto un evento tramite degli handlers sarà facilmente aggiornato lo store Redux con cui è gestita l'informazione lato front-end.
+}
+
+\subsection{Connessione}
 \begin{figure}[H] 
 	\centering
 	\includegraphics[scale=0.6]{architettura}
 	\caption{Architettura OpenChat}
 \end{figure}
-La zimlet OpenChat interagisce con Zimbra grazie a delle connessioni SOAP. Questo permette la ricezione e l'invio di eventi anche da più sessioni contemporaneamente \mmh{e tutte sincronizzate tra di loro.}{, mantenendo tra loro la sincronizzazione/mantenendole sincronizzate}\\
-Il connection manager si occupa della ricezione degli eventi:
-\begin{itemize}
-	\item il Ping serve a tenere aperta la connessione una volta creata e ad "ascolare" la connessione in modo da rendere reattiva l'applicazione alla ricezione degli eventi;
-	\item \mmh{arrivato}{ricevuto?} un evento il decoder ha il compito di decodificarlo, trasformandolo da un file JSON ad una classe meglio gestibile.
-\end{itemize}
-Una volta ottenuto un evento tramite degli handlers sarà facilmente aggiornato lo store Redux con cui è gestita l'informazione lato front-end.
 
-\note{ Modificare immagine, capire come mandano loro le informazioni}
-
-\subsection{Modifiche architettura}
-\note{cambiato un po' come arrivano gli eventi e tutto su come gli mando}
 
 \section{Progettazione grafica}
 Prima di procedere alla definizione delle classi necessarie per l'implementazione 
-dell'applicazione è stato deciso di effettuare la progettazione \mmh{grafica della UI}{secondo me basta la progettazione della UI o la progettazione della grafica dell'app} per far 
+dell'applicazione è stato deciso di effettuare la progettazione della UI per far 
 si che il progetto di stage abbracciasse a 360 gradi il processo di sviluppo di 
 un'applicazione da parte di un'azienda.
 
@@ -49,7 +53,7 @@ di esse e quali elementi realmente soddisfino i requisiti già studiati.
 Il risultato, comunque, è stato molto vicino alla GUI ottenuta alla fine della 
 codifica in quando i wireframe sono stati disegnati tenendo conto della 
 soluzione web già presente.\\ 
-Questo passo è stato essenziale \mmh{per farsi un'idea più chiara di come proseguire per ottenere il risultato desiderato}{non mi piace, sembra troppo colloquiale, metterei tipo \emph{per rendere più chiara l'idea del prodotto desiderato.}}.
+Questo passo è stato essenziale per rendere più chiara l'idea del prodotto desiderato.
 
 \subsection{Linee guida}
 Per quanto riguarda la GUI vera e propria sono state fornite dall'azienda delle 
