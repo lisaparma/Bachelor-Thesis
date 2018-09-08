@@ -4,13 +4,16 @@
 
 \section {Progettazione architetturale}
 \subsection{Architettura OpenChat}
+Avendo dovuto basare l'applicazione sulla soluzione già implementata per il web dalla zimlet OpenChat è utile approfondire la sua architettura per comprendere le modifiche applicate. \\
+La comunicazione tra il server Zimbra e la zimlet OpenChat avviene attraverso una struttura SOAP, protocollo per lo scambio di messaggi tra componenti hardware.
+Questa struttura, nel caso della zimlet OpenChat, permette la comunicazione con il server indirettamente facendo passare gli eventi per il web client Zimbra che li gestisce in base ai propri bisogni prima di inviarli al server. \\
 \begin{figure}[H] 
 	\centering
-	\includegraphics[scale=0.5]{architettura2}
+	\includegraphics[scale=0.45]{architettura2}
 	\caption{Architettura OpenChat}
 \end{figure}
+Dato che l'applicazione Teamwork non interagisce con Zimbra web client è stata modificata la modalità di ricezione ed invio dei messaggi SOAP e la gestione di essi che avviene tramite un connection manager.
 \note{
-Avendo dovuto basare l'applicazione Teamwork sulla soluzione già implementata per il web dalla zimlet OpenChat è utile approfondire la sua architettura.
 La zimlet OpenChat interagisce con Zimbra grazie a delle connessioni SOAP. Questo permette la ricezione e l'invio di eventi anche da più sessioni contemporaneamente, mantenendo tra loro la sincronizzazione.\\
 l connection manager si occupa della ricezione degli eventi:
 
@@ -19,7 +22,14 @@ l connection manager si occupa della ricezione degli eventi:
 Una volta ottenuto un evento tramite degli handlers sarà facilmente aggiornato lo store Redux con cui è gestita l'informazione lato front-end.
 }
 
-\subsection{Connessione}
+\subsection{Gestione eventi}
+La trasmissione e la negoziazione di questi messaggi  basati sul metalinguaggio XML è regolata secondo i protocolli HTTP o SMTP, all'interno dei quali viene incapsulato il messaggio SOAP.
+\begin{figure}[H] 
+	\centering
+	\includegraphics[scale=0.4]{SOAP}
+	\caption{Struttura messaggio SOAP}
+\end{figure}
+
 \begin{figure}[H] 
 	\centering
 	\includegraphics[scale=0.6]{architettura}
