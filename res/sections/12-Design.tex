@@ -15,8 +15,8 @@ Dato che l'applicazione Teamwork non interagisce con Zimbra web client è stata 
 
 \subsection{Gestione eventi}
 Per gestire in modo ottimale ed efficacie la comunicazione tra server e client è stata strutturata un'architettura capace di reagire alla ricezione e all'invio di eventi. \\
-Questa struttura permette la sincronizzazione dei dati tra il server e tutte le sessioni aperte facendo in modo di tenere aggiornato lo store Redux di ogni applicazione connessa.
-
+Questa struttura permette la sincronizzazione dei dati tra il server e tutte le sessioni aperte facendo in modo di tenere aggiornato lo store Redux di ogni applicazione connessa.\\
+Di seguito un'approfondimento delle varie componenti che permettono questa interazione:
 \begin{figure}[H] 
 	\centering
 	\includegraphics[scale=0.6]{architettura}
@@ -27,7 +27,7 @@ La trasmissione e la negoziazione dei messaggi scambiati tra server e client è 
 I messaggi SOAP, rappresentati in figura \ref{fig:SOAP}, sono basati sul metalinguaggio XML e vengono strutturati secondo due segmenti principali, head e body. 
 \begin{figure}[H] 
 	\centering
-	\includegraphics[scale=0.35]{SOAP}
+	\includegraphics[scale=0.4]{SOAP}
 	\caption{Struttura messaggio SOAP}
 	\label{fig:SOAP}
 \end{figure}
@@ -37,8 +37,17 @@ I messaggi SOAP, rappresentati in figura \ref{fig:SOAP}, sono basati sul metalin
 \end{itemize}
 Per ogni SOAP request inviata al server ci sarà una SOAP respose in ritorno. Questa risposta può contenere dati richiesti dalla precedente SOAP request, informazioni sullo stato del server o possibili errori di risposta.
 \subsubsection{Connection Manager}
+È il Connection Manager ad occuparsi degli eventi in arrivo dal server. Per fare ciò ha bisogno di due componenti principali:
+\begin{itemize}
+	\item il Ping, componente che si occupa di stabilire una connessione con il server e di mantenerla operativa durante tutta la sessione. In questo modo l'applicazione rimarrà sempre in ascolto di nuovi eventi provenienti dal server;
+	\item il Decoder, componente che, una volta ricevuto un messaggio SOAP dal Ping, ne decodificherà il body permettendo una più facile comprensione del contenuto. Si è utilizzato un Abstract Factory per la creazione di questa componente, design pattern che fornisce un’interfaccia per creare famiglie di prodotti senza specificare classi concrete.
+\end{itemize}
 \subsubsection{Handlers}
+Questa famiglia di componenti riceve in input degli eventi provenienti dal Decoder. Questo vuol dire che non riceve dei generici messaggi SOAP ma dei JSON associati a dei particolari eventi di cui è stato implementato un handler specifico.\\
+La sua funzione, quindi, è quella di modificare lo stato dello store Redux, basandosi sui dati ricevuti, attraverso un dispatcher che modifica il flusso dei dati utilizzati nell'applicazione in modo unidirezionale, così da non creare inconsistenza.
 \subsubsection{Encoder}
+Gli eventi possono essere generati anche dall'applicazione e per gestire il bisogno di propagare le modifiche che vengono fatte allo store Redux al server (con la successiva propagazione dei dati verso le altre sessioni) è stato introdotto un encoder, il corrispondente del precedente componente decoder per l'invio degli eventi. \\
+Quando viene fatto il dispatch di un'azione con la conseguente modifica dello store vengono invocati dei particolari middleware che si occupano dell'invio dell'evento all'encoder corrispondente. Questa componente permette la traduzione dell'evento in un messaggio SOAP generico comprensibile dal server.
 \section{Progettazione grafica}
 Prima di procedere alla definizione delle classi necessarie per l'implementazione 
 dell'applicazione è stato deciso di effettuare la progettazione della UI per far 
