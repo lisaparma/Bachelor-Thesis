@@ -1,10 +1,9 @@
-% PROGETTAZIONE E CODIFICA
-
-\chapter{Progettazione e codifica}\label{chap:design}
+% PROGETTAZIONE 
+\chapter{Progettazione}\label{chap:design}
 
 \section {Progettazione architetturale}
 \subsection{Architettura OpenChat}
-Avendo dovuto basare l'applicazione sulla soluzione già implementata per il web dalla zimlet OpenChat è utile approfondire la sua architettura per comprendere le modifiche applicate. \\
+Avendo dovuto basare l'applicazione sulla soluzione già implementata per il web dalla zimlet OpenChat è utile approfondire la sua architettura per comprendere le differenze applicate. \\
 La comunicazione tra il server Zimbra e la zimlet OpenChat avviene attraverso una struttura SOAP, protocollo per lo scambio di messaggi tra componenti hardware.
 Questa struttura, nel caso della zimlet OpenChat, permette la comunicazione con il server indirettamente facendo passare gli eventi per il web client Zimbra che li gestisce in base ai propri bisogni prima di inviarli al server. \\
 \begin{figure}[H] 
@@ -12,31 +11,34 @@ Questa struttura, nel caso della zimlet OpenChat, permette la comunicazione con 
 	\includegraphics[scale=0.45]{architettura2}
 	\caption{Architettura OpenChat}
 \end{figure}
-Dato che l'applicazione Teamwork non interagisce con Zimbra web client è stata modificata la modalità di ricezione ed invio dei messaggi SOAP e la gestione di essi che avviene tramite un connection manager.
-\note{
-La zimlet OpenChat interagisce con Zimbra grazie a delle connessioni SOAP. Questo permette la ricezione e l'invio di eventi anche da più sessioni contemporaneamente, mantenendo tra loro la sincronizzazione.\\
-l connection manager si occupa della ricezione degli eventi:
-
-	-il Ping serve a tenere aperta la connessione una volta creata e ad "ascoltare" la connessione in modo da rendere reattiva l'applicazione alla ricezione degli eventi;
-	- ricevuto un evento il decoder ha il compito di decodificarlo, trasformandolo da un file JSON ad una classe meglio gestibile.
-Una volta ottenuto un evento tramite degli handlers sarà facilmente aggiornato lo store Redux con cui è gestita l'informazione lato front-end.
-}
+Dato che l'applicazione Teamwork non interagisce con Zimbra web client è stata modificata la modalità di ricezione ed invio dei messaggi SOAP e la gestione tramite connection manager in modo da far comunicare direttamente Teamwork e il server Zimbra (con Zextras core integrato).
 
 \subsection{Gestione eventi}
-La trasmissione e la negoziazione di questi messaggi  basati sul metalinguaggio XML è regolata secondo i protocolli HTTP o SMTP, all'interno dei quali viene incapsulato il messaggio SOAP.
-\begin{figure}[H] 
-	\centering
-	\includegraphics[scale=0.4]{SOAP}
-	\caption{Struttura messaggio SOAP}
-\end{figure}
+Per gestire in modo ottimale ed efficacie la comunicazione tra server e client è stata strutturata un'architettura capace di reagire alla ricezione e all'invio di eventi. \\
+Questa struttura permette la sincronizzazione dei dati tra il server e tutte le sessioni aperte facendo in modo di tenere aggiornato lo store Redux di ogni applicazione connessa.
 
 \begin{figure}[H] 
 	\centering
 	\includegraphics[scale=0.6]{architettura}
-	\caption{Architettura OpenChat}
+	\caption{Gestione eventi}
 \end{figure}
-
-
+\subsubsection{SOAP}
+La trasmissione e la negoziazione dei messaggi scambiati tra server e client è regolata secondo i protocolli HTTP o SMTP, all'interno dei quali viene incapsulato il messaggio SOAP.
+I messaggi SOAP, rappresentati in figura \ref{fig:SOAP}, sono basati sul metalinguaggio XML e vengono strutturati secondo due segmenti principali, head e body. 
+\begin{figure}[H] 
+	\centering
+	\includegraphics[scale=0.35]{SOAP}
+	\caption{Struttura messaggio SOAP}
+	\label{fig:SOAP}
+\end{figure}
+\begin{itemize}
+	\item Il segmento Header contiene metadati utili per la trasmissione del messaggio, come informazioni per il routing e per la sicurezza. Può essere opzionale.
+	\item Il segmento Body, che invece risulta obbligatorio, trasporta il contenuto informativo (payload) del messaggio. Saranno questi i dati importanti per la gestione delle informazioni.
+\end{itemize}
+Per ogni SOAP request inviata al server ci sarà una SOAP respose in ritorno. Questa risposta può contenere dati richiesti dalla precedente SOAP request, informazioni sullo stato del server o possibili errori di risposta.
+\subsubsection{Connection Manager}
+\subsubsection{Handlers}
+\subsubsection{Encoder}
 \section{Progettazione grafica}
 Prima di procedere alla definizione delle classi necessarie per l'implementazione 
 dell'applicazione è stato deciso di effettuare la progettazione della UI per far 
@@ -90,8 +92,8 @@ continuativo con il responsabile grafico del progetto. \\
 L'applicazione delle guidelines nel codice è avvenuta in parallelo con lo sviluppo 
 in quando, seguendo una metodologia agile, si è ritenuto opportuno che le varie 
 versioni prototipali dell'applicazione avessero anche una progressiva applicazione 
-delle regole di stile.
-
-\section{Progettazione di dettaglio}
+delle regole di stile.\\
 Approvati i wireframe è stato possibile proseguire alla definizione di tutti 
 e soli i componenti veramente utili al layout.
+
+\section{Progettazione di dettaglio}
