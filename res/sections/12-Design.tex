@@ -1,7 +1,7 @@
 % PROGETTAZIONE 
-\chapter{Progettazione}\label{chap:design}
+\chapter{Progettazione e codifica }\label{chap:design}
 
-\section {Progettazione architetturale}
+\section {Progettazione architetturale e di dettaglio}
 \subsection{Architettura OpenChat}
 Avendo dovuto basare l'applicazione sulla soluzione già implementata per il web dalla zimlet OpenChat è utile approfondire la sua architettura per comprendere le differenze applicate. \\
 La comunicazione tra il server Zimbra e la zimlet OpenChat avviene attraverso una struttura SOAP, protocollo per lo scambio di messaggi tra componenti hardware.
@@ -48,6 +48,22 @@ La sua funzione, quindi, è quella di modificare lo stato dello store Redux, bas
 \subsubsection{Encoder}
 Gli eventi possono essere generati anche dall'applicazione e per gestire il bisogno di propagare le modifiche che vengono fatte allo store Redux al server (con la successiva propagazione dei dati verso le altre sessioni) è stato introdotto un encoder, il corrispondente del precedente componente decoder per l'invio degli eventi. \\
 Quando viene fatto il dispatch di un'azione con la conseguente modifica dello store vengono invocati dei particolari middleware che si occupano dell'invio dell'evento all'encoder corrispondente. Questa componente permette la traduzione dell'evento in un messaggio SOAP generico comprensibile dal server.
+
+\subsection{Store Redux}
+L'architettura strutturata per la gestione degli eventi ha come punto focale il concetto di store, database locale dove vengono salvati tutti i dati necessari all'implementazione tramite React Native dell'interfaccia grafica. Come è stato spiegato nel capitolo Tecnologie utilizzate (\ref{subsec:Redux}) uno store Redux è un database dinamico condiviso, accessibile da tutte le componenti di React Native, così che possano avere sempre dei dati coerenti tra loro. \\
+\note{Qui spiegazione FLUX?}
+Tramite questo design pattern architetturale è stato possibile ottimizzare la gestione dei dati in modo reattivo all'arrivo degli eventi. \\
+In particolare è stato deciso di introdurre due store Redux nell'applicazione:
+\begin{figure}[H] 
+	\centering
+	\includegraphics[scale=0.7]{boh}
+	\caption{Store utilizzati}
+\end{figure}
+\begin{itemize}
+	\item lo Store OpenChat è stato ereditato dall'implementazione della zimlet OpenChat in quanto, per ottenere dei dati sincronizzati, deve necessariamente rispecchiare la sua struttura. Questo store è quindi connesso alla gestione degli eventi tramite il Connection Manager ed è la fonte principale dei dati funzionali per l'applicazione.
+	\item lo Store Teamwork, invece, detiene dati operativi utili alla gestione dell'applicazione e importanti per mantenere la sessione attiva.
+\end{itemize} 
+
 \section{Progettazione grafica}
 Prima di procedere alla definizione delle classi necessarie per l'implementazione 
 dell'applicazione è stato deciso di effettuare la progettazione della UI per far 
@@ -105,4 +121,13 @@ delle regole di stile.\\
 Approvati i wireframe è stato possibile proseguire alla definizione di tutti 
 e soli i componenti veramente utili al layout.
 
-\section{Progettazione di dettaglio}
+\section{Interfaccia grafica con React Native}
+Per la realizzazione della UI è stato utilizzato il framework React Native che consente la realizzazione di interfacce tramite la suddivisione del sistema in componenti. Ognuna di queste ha un proprio stato, delle proprietà che vengono ereditate dal componente padre, e un proprio ciclo di vita indipendente da qualsiasi altro.
+\note{Parlare del ciclo di vita sulle tecnologie?}
+È stata progettata i componenti e la gerarchia tra essi necessaria per la visualizzazione degli screen precedentemente definiti e alla loro relazione, così da definire una precisa navigazione da parte degli utenti.
+\begin{figure}[H] 
+	\centering
+	\includegraphics[scale=0.7]{boh}
+	\caption{Relazione tra screen}
+\end{figure}
+Come possiamo vedere dall'immagine sopra, SUCCEDONO COSE
