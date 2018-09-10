@@ -50,10 +50,9 @@ Gli eventi possono essere generati anche dall'applicazione e per gestire il biso
 Quando viene fatto il dispatch di un'azione con la conseguente modifica dello store vengono invocati dei particolari middleware che si occupano dell'invio dell'evento all'encoder corrispondente. Questa componente permette la traduzione dell'evento in un messaggio SOAP generico comprensibile dal server.
 
 \subsection{Store Redux}
-L'architettura strutturata per la gestione degli eventi ha come punto focale il concetto di store, database locale dove vengono salvati tutti i dati necessari all'implementazione tramite React Native dell'interfaccia grafica. Come è stato spiegato nel capitolo Tecnologie utilizzate (\ref{subsec:Redux}) uno store Redux è un database dinamico condiviso, accessibile da tutte le componenti di React Native, così che possano avere sempre dei dati coerenti tra loro. \\
-\note{Qui spiegazione FLUX?}
-Tramite questo design pattern architetturale è stato possibile ottimizzare la gestione dei dati in modo reattivo all'arrivo degli eventi. \\
-In particolare è stato deciso di introdurre due store Redux nell'applicazione:
+L'architettura disegnata per la gestione degli eventi ha come punto focale il concetto di store, database locale dove vengono salvati tutti i dati necessari all'implementazione tramite React Native dell'interfaccia grafica. Come è stato spiegato nel capitolo Tecnologie utilizzate (\ref{subsec:Redux}) uno store Redux è un database dinamico condiviso, accessibile da tutte le componenti di React Native così che possano sempre avere dei dati coerenti tra loro. \\
+Tramite il design pattern architetturale implementato da Redux, Flux, è stato possibile ottimizzare la gestione dei dati in modo reattivo all'arrivo degli eventi. \\
+In particolare è stato deciso di introdurre due store distinti nell'applicazione:
 \begin{figure}[H] 
 	\centering
 	\includegraphics[scale=0.7]{boh}
@@ -123,11 +122,13 @@ e soli i componenti veramente utili al layout.
 
 \section{Interfaccia grafica con React Native}
 Per la realizzazione della UI è stato utilizzato il framework React Native che consente la realizzazione di interfacce tramite la suddivisione del sistema in componenti. Ognuna di queste ha un proprio stato, delle proprietà che vengono ereditate dal componente padre, e un proprio ciclo di vita indipendente da qualsiasi altro.
-\note{Parlare del ciclo di vita sulle tecnologie?}
-È stata progettata i componenti e la gerarchia tra essi necessaria per la visualizzazione degli screen precedentemente definiti e alla loro relazione, così da definire una precisa navigazione da parte degli utenti.
+\newline
+Sono stati progettati i componenti e la gerarchia tra essi necessaria per la visualizzazione degli screen precedentemente definiti e realizzata una navigazione tra le pagine in modo da rispettare la gerarchia.
 \begin{figure}[H] 
 	\centering
 	\includegraphics[scale=0.7]{boh}
 	\caption{Relazione tra screen}
+	\label{gerarchiaRN}
 \end{figure}
-Come possiamo vedere dall'immagine sopra, SUCCEDONO COSE
+L'immagine \ref{gerarchiaRN} descrive le relazioni tra le componenti implementate.
+\note{Spiegare l'immagine quando ce l'avrò}
