@@ -2,19 +2,65 @@
 
 \chapter{Verifica e Validazione}\label{chap:tests}
 \section{Linter}
-Come strumento di verifica statica del codice è stato utilizzato TSLint, descritto nella sezione \ref{subsec:tslint} di questo elaborato. Esso si presenta come uno strumento che segnala errori di programmazione, errori stilistici e segnala costrutti sospetti nel codice in base a determinati criteri personalizzabili durante la codifica in programmi scritti in TypeScript.\\
+Come strumento di verifica statica del codice è stato utilizzato TSLint, descritto nella sezione \ref{subsec:tslint} di questo elaborato. Questo linter specifico per codice TypeScript segnala errori di programmazione, errori stilistici e costrutti sospetti in base a determinati criteri personalizzabili durante la codifica dei programmi.\\
 In particolare è stato utilizzato per rendere conforme il codice scritto alle convenzioni utilizzate in azienda. Degli esempi sono:
 \begin{itemize}
-	\item non lo so
+	\item dichiarazione dei tipi e delle interfacce obbligatoria;
+	\item utilizzo di particolari costrutti, come l'utilizzo di cicli 'for-of' al posto di cicli 'for' standard se l'indice è usato solo per accedere all'array che viene iterato;
+	\item ordine alfabetico per importazioni e attributi; 
+	\item obbliga la dichiarazione dello scope di variabili e funzioni, impedendo l'importazione di variabili, funzioni e membri privati.
 \end{itemize}
 \section{Jest}
-
+\note{MANCA PERCHé DEVO INVENTARE DI BRUTTOOOO}
 \section{Test di sistema e collaudo}
 Per accertare la copertura dei requisiti si è ricorso a delle prove pratiche del corretto funzionamento dell’applicazione. Questa operazione è stata svolta sia come strumento per la verifica delle operazioni durante lo sviluppo del prodotto software che come operazione di collaudo per assicurare il corretto funzionamento del prodotto una volta implementate tutte le funzioni richieste. \\
-Grazie al framework per lo sviluppo utilizzato, Expo, è stato facile testare fin dalle prime implementazioni di funzionalità il prodotto sia attraverso emulatori che su device fisici.
+Grazie al framework per lo sviluppo utilizzato, Expo, è stato facile testare fin dalle prime implementazioni di funzionalità il prodotto dato che permete build automatiche in realtime testabili attraverso link su vari device contemporaneamente.
 \subsection{Emulatori}
-%Durante lo sviluppo del codice si è ritenuto opportuno avere sempre a disposizione un emulatore per assicurarsi che ogni passo sia ...Utilizzo di emulatore Genymotion per testare il funzionamento su schermi e risoluzioni differenti.
+È stato molto utile accompagnare la parte finale dello sviluppo del codice ad un continuo rendering dell'applicazione. Attraverso gli emulatori collegati al framework di sviluppo è stato possibile testare ogni modifica del codice quasi simultaneamente al salvataggio delle modifiche, rendendo più agile l'implementazione della grafica. \\
+Per aver il più ampio spettro possibile di device simulati sono stati utilizzati due diversi simulatori: Genymotion (sez. \ref{subsez:genymotion}) per i dispositivi Android e iOS Simulator per iOS.
+I device emulati su cui è stata testata ogni funzione dell'applicazione sono:
+\begin{itemize}
+	\item Google Nexus 6;
+	\item Google Pixel;
+	\item Google Pixel XL;
+	\item HTC One;
+	\item Samsung Galaxy Note;
+	\item Samsung Galaxy S3;
+	\item Samsung Galaxy S6;
+	\item Samsung Galaxy S8;
+	\item Sony Xperia Z;
+	\item iPhone 5s;
+	\item iPhone 6 plus;
+	\item iPhone 7;
+	\item iPhone X.
+\end{itemize}
+Sui device appena elencati sono stati utilizzati i seguenti sistemi operativi per accedere all'applicazione:
+\begin{itemize}
+	\item Android 5.1.0, API level 22 or Lollipop;
+	\item Android 6.0.0, API level 23 or Marshmallow;
+	\item Android 7.1.0,  API level 24 or Nougat;
+	\item Android 8.0.0,  API level 26 or Oreo;
+	\item iOS9 (9.3.5);
+	\item iOS10 (10.3.3);
+	\item iOS11 (11.4.1).
+\end{itemize}
 \subsection{Device fisici}
-%tilizzo di dispositivo android fornito dall’azienda. 
+Oltre agli emulatori sono stati utilizzati dei device fisici dell'azienda a disposizione degli sviluppatori per installare e testare l'applicazione. Per fare ciò è stato richiesto di costruire dei file binari dell'applicazione Expo per iOS (.ipa) ed Android (.apk). \\
+I device su cui è stata testata Teamwork:
+\begin{itemize}
+	\item HTC Desire 825;
+	\item Samsung Z3;
+	\item Samsung Galaxy J3;
+	\item Tablet Fire 7;
+	\item iPhone 5;
+	\item iPhone X;
+	\item iPad 2;
+\end{itemize}
 
 \subsection{Beta testing}
+Le funzionalità apportate all'applicazione durante il periodo di stage sono state più accurate e numerose di quelle inizialmente stabilite, tanto che si è deciso di procedere ad una fase di beta testing interno all'azienda.\\
+\subsubsection{Test Flight}
+Attraverso il programma per sviluppatori Apple si è avviata la procedura per poter caricare le build (.ipa) dell'applicazione sull' App Store Connect, così da permettere il testing attraverso TestFlight.\\
+TestFlight è un'applicazione utilizzata per testare applicazioni non ancora sullo store ufficiale, usufruibile da chiunque sia stato invitato a provare la beta. Tramite questo programma si ha la possibilità di far testare l'applicazione ad un massimo di 25 persone interne. 
+Tramite il loro utilizzo dell'applicazione gli sviluppatori riceveranno 
+Dopo questa fase di testing interno è obbligatorio passare ad una fase di testing esterno prima di pubblicare l'applicazione sull'Apple Store.
