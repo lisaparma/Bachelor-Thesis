@@ -11,7 +11,22 @@ In particolare è stato utilizzato per rendere conforme il codice scritto alle c
 	\item obbliga la dichiarazione dello scope di variabili e funzioni, impedendo l'importazione di variabili, funzioni e membri privati.
 \end{itemize}
 \section{Jest}
-\note{MANCA PERCHé DEVO INVENTARE DI BRUTTOOOO}
+I test automatici sviluppati sono stati eseguiti in numero ridotto ripetto a quelli utili ad analizzare in modo completo il comportamento dell'applicazione in quanto si è preferito, per volontà dell'azienda, investire più tempo nello sviluppo di funzionalità che nel loro test approfondito data la ridotta durata dello stage. \\
+Per rendere completa l'esperienza di stage e riuscire a toccare tutto il ciclo di vita dello sviluppo del progetto sono comunque stati fatti dei test automatici. Per fare ciò è stato utilizzato Jest.js (sez. \ref{subsez:jest}), tool di testing specifico per i progetti ReactJS e React Native integrato nella configurazione del progetto. \\
+Sono stati sviluppati due tipologie di test:
+\begin{itemize}
+	\item Snapshot test per le componenti;
+	\item Snapshot test action e reducer Redux.
+\end{itemize}
+Vediamoli in dettaglio.
+\subsection{Component snapshot}
+Ogni componente React Native possiede uno stato e delle props che possono variare durante il suo ciclo di vita, facendo variare anche il suo rendering. Attraverso questa tipologia di test si controllano questi cambiamenti creando degli snapshot di come il componente dovrebbe essere renderizzato. \\
+In questo modo quando andremo a modificare il codice avremo la sicurezza di non dover controllare il rendering facendo una valutazione grafica su emulatori o device perchè i test ci informeranno su eventuali cambiamenti inaspettati. La cosa migliore è effettuare dei test con dei mock dei vari stati possibili, in modo da avere la certezza di coprire tutti i possibili casi di rendering.
+
+\subsection{Redux snapshot}
+Questi test servono a verificare se le funzionalità introdotte con action e reducers producono effettivamente il risultato voluto sullo store Redux. 
+Passando un'action ed uno stato ad un reducers questo dovrebbe ritornarci un nuovo stato. Una volta implementato è facile definire il comportamento desiderato tramite uno snapshot ed applicare questo al nostro test così che venga simulato per ogni stato trovato nell'applicaz .............
+Le action risultano come semplici funzioni che ritornano un oggetto e per testarle si simula...........
 \section{Test di sistema e collaudo}
 Per accertare la copertura dei requisiti si è ricorso a delle prove pratiche del corretto funzionamento dell’applicazione. Questa operazione è stata svolta sia come strumento per la verifica delle operazioni durante lo sviluppo del prodotto software che come operazione di collaudo per assicurare il corretto funzionamento del prodotto una volta implementate tutte le funzioni richieste. \\
 Grazie al framework per lo sviluppo utilizzato, Expo, è stato facile testare fin dalle prime implementazioni di funzionalità il prodotto dato che permete build automatiche in realtime testabili attraverso link su vari device contemporaneamente.
