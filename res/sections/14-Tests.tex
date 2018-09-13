@@ -6,7 +6,7 @@ Come strumento di verifica statica del codice è stato utilizzato TSLint, descri
 In particolare è stato utilizzato per rendere conforme il codice scritto alle convenzioni utilizzate in azienda. Degli esempi sono:
 \begin{itemize}
 	\item dichiarazione dei tipi e delle interfacce obbligatoria;
-	\item utilizzo di particolari costrutti, come l'utilizzo di cicli 'for-of' al posto di cicli 'for' standard se l'indice è usato solo per accedere all'array che viene iterato;
+	\item utilizzo di particolari costrutti, come l'utilizzo di cicli "for-of" al posto di cicli "for" standard se l'indice è usato solo per accedere all'array che viene iterato;
 	\item ordine alfabetico per importazioni e attributi; 
 	\item obbliga la dichiarazione dello scope di variabili e funzioni, impedendo l'importazione di variabili, funzioni e membri privati.
 \end{itemize}
@@ -20,13 +20,22 @@ Sono stati sviluppati due tipologie di test:
 \end{itemize}
 Vediamoli in dettaglio.
 \subsection{Component snapshot}
-Ogni componente React Native possiede uno stato e delle props che possono variare durante il suo ciclo di vita, facendo variare anche il suo rendering. Attraverso questa tipologia di test si controllano questi cambiamenti creando degli snapshot di come il componente dovrebbe essere renderizzato. \\
-In questo modo quando andremo a modificare il codice avremo la sicurezza di non dover controllare il rendering facendo una valutazione grafica su emulatori o device perchè i test ci informeranno su eventuali cambiamenti inaspettati. La cosa migliore è effettuare dei test con dei mock dei vari stati possibili, in modo da avere la certezza di coprire tutti i possibili casi di rendering.
+Ogni componente React Native possiede uno stato e delle props che possono essere modificate durante il suo ciclo di vita, facendo variare anche il suo rendering. Attraverso questa tipologia di test si controllano questi cambiamenti creando degli snapshot di come il componente dovrebbe essere renderizzato. \\
+In questo modo quando andremo a modificare il codice avremo la sicurezza di non dover controllare il rendering facendo una valutazione grafica su emulatori o device perchè i test ci informeranno su eventuali cambiamenti inaspettati. \\
+Inoltre sarebbe buona norma effettuare i test con dei mock dei vari stati possibili, in modo da avere la certezza di coprire tutti i possibili casi di rendering.
+\note{FARE un test di esempio}
 
 \subsection{Redux snapshot}
-Questi test servono a verificare se le funzionalità introdotte con action e reducers producono effettivamente il risultato voluto sullo store Redux. 
-Passando un'action ed uno stato ad un reducers questo dovrebbe ritornarci un nuovo stato. Una volta implementato è facile definire il comportamento desiderato tramite uno snapshot ed applicare questo al nostro test così che venga simulato per ogni stato trovato nell'applicaz .............
-Le action risultano come semplici funzioni che ritornano un oggetto e per testarle si simula...........
+Questi test servono a verificare se le funzionalità introdotte con action e reducers producono effettivamente il risultato voluto sullo store Redux. \\
+\subsubsection{Reducers}
+Passando un'action ed uno stato ad un reducers questo ci ritornerà un nuovo stato. Una volta implementato è facile definire il comportamento desiderato tramite uno snapshot ed applicare questo al nostro test così che venga simulato per ogni stato trovato nell'applicazione o nel mock di riferimento. \\
+Nel progetto Teamwork sono stati testati alcuni dei reducers più complessi dello store Teamwork utilizzato per le funzioni operative.\\
+Per esempio ..
+\note{FARE un test di esempio}
+\subsubsection{Action}
+Le action sono delle semplici funzioni che ritornano un oggetto utilizzato per modificare lo stato dello store. Per testarle non si fa altro generare uno snapshot dell'output generato utilizzandolo come confronto per le modifiche future. \\
+Anche in questo caso le action dello store Teamwork sono molto banali e sono stati eseguiti test per alcune di esse solamente come esercizio.
+
 \section{Test di sistema e collaudo}
 Per accertare la copertura dei requisiti si è ricorso a delle prove pratiche del corretto funzionamento dell’applicazione. Questa operazione è stata svolta sia come strumento per la verifica delle operazioni durante lo sviluppo del prodotto software che come operazione di collaudo per assicurare il corretto funzionamento del prodotto una volta implementate tutte le funzioni richieste. \\
 Grazie al framework per lo sviluppo utilizzato, Expo, è stato facile testare fin dalle prime implementazioni di funzionalità il prodotto dato che permete build automatiche in realtime testabili attraverso link su vari device contemporaneamente.
