@@ -24,13 +24,11 @@ Per sviluppare l'applicazione \emph{Teamwork} è stato utilizato \emph{Docker 18
 		\includegraphics[scale=0.2]{loghi/intellij-idea}
 		\caption{Logo IntelliJ IDEA}
 	\end{figure}
-IntelliJ IDEA è un Integrated Development Environment (IDE) multi-linguaggio e 
-multi-piattaforma. 
-È stata utilizzata l'edizione Ultimate in quanto era necessario un editor che 
-supportasse JavaScript/TypeScript, mentre la Community edition non supporta 
-questi linguaggi. 
-Dovendo creare un'applicazione con numerose referenze al codice della zimlet 
-OpenChat e di Zimbra sono state sfruttate al meglio le funzionalità per 
+IntelliJ IDEA è un \emph{\textbf{I}ntegrated \textbf{D}evelopment \textbf{E}nvironment} (\acrshort{IDE}) multi-linguaggio e multi-piattaforma. 
+È stata utilizzata l'edizione \emph{Ultimate} in quanto era necessario un editor che 
+supportasse JavaScript/TypeScript, mentre la \emph{Community edition} non supporta questi linguaggi. 
+Dovendo creare un'applicazione con numerose referenze al codice della \emph{zimlet 
+OpenChat} e di \emph{Zimbra} sono state sfruttate al meglio le funzionalità per 
 analizzare il codice e comprendere le dipendenze esistenti.
 
 \subsection{Expo} \label{subsec:expo}
@@ -39,16 +37,15 @@ analizzare il codice e comprendere le dipendenze esistenti.
 		\includegraphics[scale=0.05]{loghi/expo}
 		\caption{Logo Expo}
 	\end{figure}
-Expo è una toolchain open source che permette la gestione di un progetto React 
-Native utilizzando l'SDK di Expo. L'SDK Expo è una libreria nativa e JavaScript 
+Expo è una \emph{toolchain} \emph{open source} che permette la gestione di un progetto React Native utilizzando il \emph{\textbf{S}oftware \textbf{D}evelopment \textbf{K}it} (\acrshort{SDK}) di Expo. L'SDK Expo è una libreria nativa e JavaScript 
 che fornisce l'accesso alle funzionalità del sistema del dispositivo (come la 
-fotocamera, i contatti, la memoria locale) senza il bisogno di utilizzare xCode 
-o Android Studio, né di utilizzare codice nativo. Fornisce l'accesso a servizi 
+fotocamera, i contatti, la memoria locale) senza il bisogno di utilizzare \gl{xCode}{xCode} 
+o \gl{Android Studio}{Android Studio}, né di utilizzare codice nativo. Fornisce l'accesso a servizi 
 che in genere sono difficili da gestire nativamente, ma sono richiesti da quasi 
-tutte le app come le notifiche push o creare binari nativi pronti per la 
-distribuzione nell'app store.
+tutte le app come le notifiche \emph{push} o creare binari nativi pronti per la 
+distribuzione nell'\emph{app store}.
 Inoltre risulta molto facile lo sviluppo e il test dato che permette delle 
-build automatiche nei loro server che possono eseguire in real-time il codice 
+\emph{build} automatiche nei loro \emph{server} che possono eseguire in \emph{real-time} il codice 
 sia in simulatori che in dispositivi mobili.
 
 
@@ -60,12 +57,12 @@ sia in simulatori che in dispositivi mobili.
 	\includegraphics[scale=0.1]{loghi/React}
 	\caption{Logo React Native}
 \end{figure}
-React Native è un framework per lo sviluppo di applicazioni mobile in JavaScript 
+React Native è un \emph{framework} per lo sviluppo di applicazioni mobile in JavaScript 
 permettendo di unificare l'esperienza di sviluppo su diversi sistemi operativi. 
 Infatti React Native utilizza gli stessi le stesse componenti dell'interfaccia 
 utente che vengono utilizzate da app native iOS e Android.
-Si possono comunque integrare dei componenti scritti in Objective-C, 
-Java o Swift così da passare al codice nativo nel caso fosse necessario 
+Si possono comunque integrare dei componenti scritti in \emph{Objective-C}, 
+\emph{Java} o \emph{Swift} così da passare al codice nativo nel caso fosse necessario 
 ottimizzare alcuni aspetti dell'applicazione in base alla piattaforma. 
 React Native si basa su ReactJS dove appare fondamentale il concetto di 
 componente. Un componente è un modulo dell'applicazione che ha uno stato, 
@@ -79,7 +76,7 @@ o per creare componenti più complessi includendone altri più semplici.
 	\includegraphics[scale=0.07]{loghi/ts}
 	\caption{Logo TypeScript}
 \end{figure}
-TypeScript è un linguaggio di programmazione sviluppato da Microsoft che 
+TypeScript è un linguaggio di programmazione sviluppato da \emph{Microsoft} che 
 estende la sintassi di JavaScript.  È nato per poter utilizzare le funzionalità di 
 JavaScript per lo sviluppo di grandi applicazioni in quanto ne aumenta la 
 sicurezza e la robustezza del codice tramite l'aggiunta di classi, interfacce, 
@@ -94,10 +91,10 @@ per poter essere interpretato da browser o app.
 	\includegraphics[scale=0.4]{loghi/TSlint}
 	\caption{Logo TS Lint}
 \end{figure}
-TSLint è uno strumento di analisi statica per il codice scritto in TypeScript 
+TSLint è uno strumento di \gl{analisi statica}{analisi statica} per il codice scritto in TypeScript 
 che offre funzionalità estendibili e personalizzabili per la leggibilità, la 
 manutenibilità e gli errori di funzionalità. 
-È supportato da molti dei moderni editor, compreso IntelliJ IDEA (sez. 
+È supportato da molti dei moderni editor, compreso \emph{IntelliJ IDEA} (sez. 
 \ref{subsec:IntelliJ}), utilizzato per il progetto.
 
 \subsection{Redux} \label{subsec:Redux}
@@ -111,27 +108,27 @@ applicazioni web. In ReactJS e React Native ogni componente possiede uno stato
 che può cambiare durante il suo ciclo di vita. Questo stato è interno ad ogni 
 singola componente ed è difficile, a volte impossibile, la comunicazione di questi 
 dati tra componenti diverse. 
-Redux, invece, permette la creazione di uno store condiviso, accessibile da tutte 
+Redux, invece, permette la creazione di uno \emph{store} condiviso, accessibile da tutte 
 le componenti. In tal modo è possibile sincronizzare le modifiche e quindi 
 avere dei dati coerenti tra le varie componenti. 
 Redux è stato implementato basandosi su una particolare architettura: 
 \hyperref[subsec:flux]{Flux}.
 
 \subsubsection{Flux} \label{subsubsec:flux}
- Flux è un pattern architetturale che ha ispirato Redux, utilizzato per la 
- creazione di applicazioni web client-side. Esso utilizza un flusso di dati 
+ Flux è un \gl{pattern architetturale}{pattern architetturale} che ha ispirato Redux, utilizzato per la 
+ creazione di applicazioni web \gl{client-side}{client-side}. Esso utilizza un flusso di dati 
  unidirezionale per gestire al meglio la sincronizzazione degli stati tra le 
- componenti React. In questo modo si è sicuri che lo stato dello store sia 
- sempre uguale in tutte le componenti che compongono la view.
+ componenti React. In questo modo si è sicuri che lo stato dello \emph{store} sia 
+ sempre uguale in tutte le componenti che compongono la \emph{view}.
  
  \begin{figure}[H] 
  	\centering
  	\includegraphics[scale=0.3]{loghi/flux}
  	\caption{Flusso dei dati in Flux}
  \end{figure}
- Le view, però, possono causare delle action che modificano lo stato dello store 
+ Le view, però, possono causare delle \emph{action} che modificano lo stato dello \emph{store} 
  ma esso sarà interamente propagato in tutto il sistema così da evitare 
- inconsistenza dei dati nelle view.
+ inconsistenza dei dati nelle \emph{view}.
  
  \note{spiegare meglio le 3 parti: store, dispacher e view}
  
@@ -145,8 +142,8 @@ Redux è stato implementato basandosi su una particolare architettura:
 \end{figure}
 Genymotion è un emulatore software di dispositivi Android. Si integra 
 perfettamente con Expo(sez. \ref{subsec:expo}) utilizzato per la gestione di 
-questo progetto, permettendo di avere un riscontro dell'app in real-time durante 
-lo sviluppo e di verificare e testare l'applicazione su più device. Emula più 
+questo progetto, permettendo di avere un riscontro dell'app in \emph{real-time} durante 
+lo sviluppo e di verificare e testare l'applicazione su più \emph{device}. Emula più 
 di 3000 configurazioni virtuali di dispositivi Android (tra versioni, dimensioni 
 schermo, capacità hardware, ecc..). 
 
@@ -156,13 +153,13 @@ schermo, capacità hardware, ecc..).
 	\includegraphics[scale=0.15]{loghi/react-native-debugger}
 	\caption{Logo React Native Debugger}
 \end{figure}
-React Native Debugger è un applicazione standalone per il debug di app in React 
+React Native Debugger è un applicazione \emph{standalone} per il \emph{debug} di app in React 
 Native. Si basa sul remote dedugger disponibile quando si monitora un progetto 
 in un device fisico o virtuale.\\ Esso offre vari strumenti per il debug:
 \begin{itemize}
-	\item React Inspector, per ispezionare il layout e lo style di ogni componente dell'app;
-	\item Redux DevTools, per monitorare gli store Redux utilizzati e le action svolte su di essi;
-	\item Console, per visualizzare errori e avvisi che avvengono durante l'esecuzione del codice.
+	\item \textbf{React Inspecto}r, per ispezionare il \emph{layout} e lo \emph{style} di ogni componente dell'app;
+	\item \textbf{Redux DevTools}, per monitorare gli \emph{store} Redux utilizzati e le \emph{action} svolte su di essi;
+	\item \textbf{Console}, per visualizzare errori e avvisi che avvengono durante l'esecuzione del codice.
 \end{itemize}
 
 \subsection{Jest} \label{subsez:jest}
@@ -171,8 +168,8 @@ in un device fisico o virtuale.\\ Esso offre vari strumenti per il debug:
 	\includegraphics[scale=0.13]{loghi/jest}
 	\caption{Logo Jest}
 \end{figure}
-Jest è un framework di unit testing per JavaScript sviluppato ed utilizzato da 
-Facebook per testare le proprie applicazioni in React. È una soluzione completa 
+Jest è un framework di \gl{unit testing }{unit testing} per JavaScript sviluppato ed utilizzato da 
+\emph{Facebook} per testare le proprie applicazioni in React. È una soluzione completa 
 e pronta in quanto è automaticamente configurata alla creazione di un progetto 
 React Native.
 Rispetto ad altri framework di unit testing offre dei vantaggi, come: 
@@ -182,6 +179,6 @@ Rispetto ad altri framework di unit testing offre dei vantaggi, come:
 	\item permette di testare in modo sincroni il codice asincrono;
 	\item esegue i test in processi paralleli così che finiscano prima.
 \end{itemize}
-Inoltre Jest funziona con qualsiasi linguaggio compile-to-JavaScript. 
+Inoltre Jest funziona con qualsiasi linguaggio \emph{compile-to-JavaScript}. 
 Sia il codice da testare che i test stessi possono essere scritti in TypeScript, 
 linguaggio utilizzato per questo progetto. 
