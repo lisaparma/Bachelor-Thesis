@@ -53,15 +53,16 @@ Quando viene fatto il dispatch di un'azione con la conseguente modifica dello st
 L'architettura disegnata per la gestione degli eventi ha come punto focale il concetto di store, database locale dove vengono salvati tutti i dati necessari all'implementazione tramite React Native dell'interfaccia grafica. Come è stato spiegato nel capitolo Tecnologie utilizzate (\ref{subsec:Redux}) uno store Redux è un database dinamico condiviso, accessibile da tutte le componenti di React Native così che possano sempre avere dei dati coerenti tra loro. \\
 Tramite il design pattern architetturale implementato da Redux, Flux, è stato possibile ottimizzare la gestione dei dati in modo reattivo all'arrivo degli eventi. \\
 In particolare è stato deciso di introdurre due store distinti nell'applicazione:
-\begin{figure}[H] 
-	\centering
-	\includegraphics[scale=0.7]{boh}
-	\caption{Store utilizzati}
-\end{figure}
 \begin{itemize}
 	\item lo Store OpenChat è stato ereditato dall'implementazione della zimlet OpenChat in quanto, per ottenere dei dati sincronizzati, deve necessariamente rispecchiare la sua struttura. Questo store è quindi connesso alla gestione degli eventi tramite il Connection Manager ed è la fonte principale dei dati funzionali per l'applicazione.
 	\item lo Store Teamwork, invece, detiene dati operativi utili alla gestione dell'applicazione e importanti per mantenere la sessione attiva.
 \end{itemize} 
+\subsubsection{Diagramma delle classi store Redux Teamwork}
+\begin{figure}[H] 
+	\centering
+	\includegraphics[scale=0.45]{TeamworkStore}
+	\caption{Redux store utilizzato per gestire Teamwork}
+\end{figure}
 
 \section{Progettazione grafica}
 Prima di procedere alla definizione delle classi necessarie per l'implementazione 

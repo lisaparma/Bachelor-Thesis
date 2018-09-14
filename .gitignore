@@ -2,7 +2,7 @@
 *.DS_Store
 
 ## Core latex/pdflatex auxiliary files: 
-*.aux 
+main.aux 
 *.log 
 *.fls 
 *.out 
