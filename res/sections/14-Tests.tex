@@ -2,17 +2,17 @@
 
 \chapter{Verifica e Validazione}\label{chap:tests}
 \section{Linter}
-Come strumento di verifica statica del codice è stato utilizzato TSLint, descritto nella sezione \ref{subsec:tslint} di questo elaborato. Questo linter specifico per codice TypeScript segnala errori di programmazione, errori stilistici e costrutti sospetti in base a determinati criteri personalizzabili durante la codifica dei programmi.\\
+Come strumento di verifica statica del codice è stato utilizzato \textbf{TSLint}, descritto nella sezione \ref{subsec:tslint} di questo elaborato. Questo \emph{linter} specifico per codice TypeScript segnala errori di programmazione, errori stilistici e costrutti sospetti in base a determinati criteri personalizzabili durante la codifica dei programmi.\\
 In particolare è stato utilizzato per rendere conforme il codice scritto alle convenzioni utilizzate in azienda. Degli esempi sono:
 \begin{itemize}
 	\item dichiarazione dei tipi e delle interfacce obbligatoria;
-	\item utilizzo di particolari costrutti, come l'utilizzo di cicli "for-of" al posto di cicli "for" standard se l'indice è usato solo per accedere all'array che viene iterato;
+	\item utilizzo di particolari costrutti, come l'utilizzo di cicli "\emph{for-of}" al posto di cicli "\emph{for}" standard se l'indice è usato solo per accedere all'\emph{array} che viene iterato;
 	\item ordine alfabetico per importazioni e attributi; 
 	\item obbliga la dichiarazione dello scope di variabili e funzioni, impedendo l'importazione di variabili, funzioni e membri privati.
 \end{itemize}
 \section{Jest}
 I test automatici sviluppati sono stati eseguiti in numero ridotto ripetto a quelli utili ad analizzare in modo completo il comportamento dell'applicazione in quanto si è preferito, per volontà dell'azienda, investire più tempo nello sviluppo di funzionalità che nel loro test approfondito data la ridotta durata dello stage. \\
-Per rendere completa l'esperienza di stage e riuscire a toccare tutto il ciclo di vita dello sviluppo del progetto sono comunque stati fatti dei test automatici. Per fare ciò è stato utilizzato Jest.js (sez. \ref{subsez:jest}), tool di testing specifico per i progetti ReactJS e React Native integrato nella configurazione del progetto. \\
+Per rendere completa l'esperienza di stage e riuscire a toccare tutto il ciclo di vita dello sviluppo del progetto sono comunque stati fatti dei test automatici. Per fare ciò è stato utilizzato \textbf{JestJs} (sez. \ref{subsez:jest}), \emph{tool} di \emph{testing} specifico per i progetti ReactJS e React Native integrato nella configurazione del progetto. \\
 Sono stati sviluppati due tipologie di test:
 \begin{itemize}
 	\item Snapshot test per le componenti;
@@ -20,29 +20,27 @@ Sono stati sviluppati due tipologie di test:
 \end{itemize}
 Vediamoli in dettaglio.
 \subsection{Component snapshot}
-Ogni componente React Native possiede uno stato e delle props che possono essere modificate durante il suo ciclo di vita, facendo variare anche il suo rendering. Attraverso questa tipologia di test si controllano questi cambiamenti creando degli snapshot di come il componente dovrebbe essere renderizzato. \\
-In questo modo quando andremo a modificare il codice avremo la sicurezza di non dover controllare il rendering facendo una valutazione grafica su emulatori o device perchè i test ci informeranno su eventuali cambiamenti inaspettati. \\
-Inoltre sarebbe buona norma effettuare i test con dei mock dei vari stati possibili, in modo da avere la certezza di coprire tutti i possibili casi di rendering.
-\note{FARE un test di esempio}
+Ogni componente React Native possiede uno stato e delle \emph{props} che possono essere modificate durante il suo ciclo di vita, facendo variare anche il suo \emph{rendering}. Attraverso questa tipologia di test si controllano questi cambiamenti creando degli \emph{snapshot} di come il componente dovrebbe essere renderizzato. \\
+In questo modo quando andremo a modificare il codice avremo la sicurezza di non dover controllare il \emph{rendering} facendo una valutazione grafica su emulatori o \emph{device} perchè i test ci informeranno su eventuali cambiamenti inaspettati. \\
+Inoltre sarebbe buona norma effettuare i test con dei \gl{mock}{mock} dei vari stati possibili, in modo da avere la certezza di coprire tutti i possibili casi di \emph{rendering}.
 
 \subsection{Redux snapshot}
-Questi test servono a verificare se le funzionalità introdotte con action e reducers producono effettivamente il risultato voluto sullo store Redux. \\
+Questi test servono a verificare se le funzionalità introdotte con \textbf{action} e \textbf{reducer} producono effettivamente il risultato voluto sullo \emph{store} Redux. \\
 \subsubsection{Reducers}
-Passando un'action ed uno stato ad un reducers questo ci ritornerà un nuovo stato. Una volta implementato è facile definire il comportamento desiderato tramite uno snapshot ed applicare questo al nostro test così che venga simulato per ogni stato trovato nell'applicazione o nel mock di riferimento. \\
-Nel progetto Teamwork sono stati testati alcuni dei reducers più complessi dello store Teamwork utilizzato per le funzioni operative.\\
-Per esempio ..
-\note{FARE un test di esempio}
+Passando un'\emph{action} ed uno stato ad un \emph{reducers} questo ci ritornerà un nuovo stato. Una volta implementato è facile definire il comportamento desiderato tramite uno \emph{snapshot} ed applicare questo al nostro test così che venga simulato per ogni stato trovato nell'applicazione o nel \emph{mock} di riferimento. \\
+Nel progetto \emph{Teamwork} sono stati testati alcuni dei \emph{reducer} più complessi dello \emph{store} \emph{Teamwork} utilizzato per le funzioni operative.\\
+
 \subsubsection{Action}
-Le action sono delle semplici funzioni che ritornano un oggetto utilizzato per modificare lo stato dello store. Per testarle non si fa altro generare uno snapshot dell'output generato utilizzandolo come confronto per le modifiche future. \\
-Anche in questo caso le action dello store Teamwork sono molto banali e sono stati eseguiti test per alcune di esse solamente come esercizio.
+Le \emph{action} sono delle semplici funzioni che ritornano un oggetto utilizzato per modificare lo stato dello \emph{store}. Per testarle non si fa altro generare uno \emph{snapshot} dell'output generato utilizzandolo come confronto per le modifiche future. \\
+Anche in questo caso le \emph{action} dello \emph{store Teamwork} sono molto banali e sono stati eseguiti test per alcune di esse solamente come esercizio.
 
 \section{Test di sistema e collaudo}
-Per accertare la copertura dei requisiti si è ricorso a delle prove pratiche del corretto funzionamento dell’applicazione. Questa operazione è stata svolta sia come strumento per la verifica delle operazioni durante lo sviluppo del prodotto software che come operazione di collaudo per assicurare il corretto funzionamento del prodotto una volta implementate tutte le funzioni richieste. \\
-Grazie al framework per lo sviluppo utilizzato, Expo, è stato facile testare fin dalle prime implementazioni di funzionalità il prodotto dato che permete build automatiche in realtime testabili attraverso link su vari device contemporaneamente.
+Per accertare la copertura dei requisiti si è ricorso a delle prove pratiche del corretto funzionamento dell’applicazione. Questa operazione è stata svolta sia come strumento per la verifica delle operazioni durante lo sviluppo del prodotto software che come operazione di \gl{collaudo}{collaudo} per assicurare il corretto funzionamento del prodotto una volta implementate tutte le funzioni richieste. \\
+Grazie al \emph{framework} per lo sviluppo utilizzato, Expo, è stato facile testare fin dalle prime implementazioni di funzionalità il prodotto dato che permete \emph{build} automatiche in \emph{realtime} testabili attraverso \emph{link} su vari \emph{device} contemporaneamente.
 \subsection{Emulatori}
-È stato molto utile accompagnare la parte finale dello sviluppo del codice ad un continuo rendering dell'applicazione. Attraverso gli emulatori collegati al framework di sviluppo è stato possibile testare ogni modifica del codice quasi simultaneamente al salvataggio delle modifiche, rendendo più agile l'implementazione della grafica. \\
-Per aver il più ampio spettro possibile di device simulati sono stati utilizzati due diversi simulatori: Genymotion (sez. \ref{subsez:genymotion}) per i dispositivi Android e iOS Simulator per iOS.
-I device emulati su cui è stata testata ogni funzione dell'applicazione sono:
+È stato molto utile accompagnare la parte finale dello sviluppo del codice ad un continuo \emph{rendering} dell'applicazione. Attraverso gli emulatori collegati al \emph{framework} di sviluppo è stato possibile testare ogni modifica del codice quasi simultaneamente al salvataggio delle modifiche, rendendo più agile l'implementazione della grafica. \\
+Per aver il più ampio spettro possibile di \emph{device} simulati sono stati utilizzati due diversi simulatori: Genymotion (sez. \ref{subsez:genymotion}) per i dispositivi Android e iOS Simulator per iOS.
+I \emph{device} emulati su cui è stata testata ogni funzione dell'applicazione sono:
 \begin{itemize}
 	\item Google Nexus 6;
 	\item Google Pixel;
@@ -58,7 +56,7 @@ I device emulati su cui è stata testata ogni funzione dell'applicazione sono:
 	\item iPhone 7;
 	\item iPhone X.
 \end{itemize}
-Sui device appena elencati sono stati utilizzati i seguenti sistemi operativi per accedere all'applicazione:
+Sui \emph{device} appena elencati sono stati utilizzati i seguenti sistemi operativi per accedere all'applicazione:
 \begin{itemize}
 	\item Android 5.1.0, API level 22 or Lollipop;
 	\item Android 6.0.0, API level 23 or Marshmallow;
@@ -69,7 +67,7 @@ Sui device appena elencati sono stati utilizzati i seguenti sistemi operativi pe
 	\item iOS11 (11.4.1).
 \end{itemize}
 \subsection{Device fisici}
-Oltre agli emulatori sono stati utilizzati dei device fisici dell'azienda a disposizione degli sviluppatori per installare e testare l'applicazione. Per fare ciò è stato richiesto di costruire dei file binari dell'applicazione Expo per iOS (.ipa) ed Android (.apk). \\
+Oltre agli emulatori sono stati utilizzati dei \emph{device} fisici dell'azienda a disposizione degli sviluppatori per installare e testare l'applicazione. Per fare ciò è stato richiesto di costruire dei file binari dell'applicazione Expo per iOS (.ipa) ed Android (.apk). \\
 I device su cui è stata testata Teamwork:
 \begin{itemize}
 	\item HTC Desire 825;
@@ -82,9 +80,9 @@ I device su cui è stata testata Teamwork:
 \end{itemize}
 
 \subsection{Beta testing}
-Le funzionalità apportate all'applicazione durante il periodo di stage sono state più accurate e numerose di quelle inizialmente stabilite, tanto che si è deciso di procedere ad una fase di beta testing interno all'azienda.\\
+Le funzionalità apportate all'applicazione durante il periodo di stage sono state più accurate e numerose di quelle inizialmente stabilite, tanto che si è deciso di procedere ad una fase di \emph{beta testing }interno all'azienda.\\
 \subsubsection{Test Flight}
-Attraverso il programma per sviluppatori Apple si è avviata la procedura per poter caricare le build (.ipa) dell'applicazione sull' App Store Connect, così da permettere il testing attraverso TestFlight.\\
-TestFlight è un'applicazione utilizzata per testare applicazioni non ancora sullo store ufficiale, usufruibile da chiunque sia stato invitato a provare la beta. Tramite questo programma si ha la possibilità di far testare l'applicazione ad un massimo di 25 persone interne. 
-Tramite il loro utilizzo dell'applicazione gli sviluppatori riceveranno dati concernenti lo stato dell'applicazione in funzione, gli errori e i warning sviluppatosi così da avere un'overview generale sull'andamento dell'applicazione su altri device. Inoltre i tester possono inviare segnalazione e suggerimenti. \\
-Dopo questa prima fase di testing interno è obbligatorio procedere ad un testing esterno prima di pubblicare l'applicazione sull'Apple Store.
+Attraverso il programma per sviluppatori Apple si è avviata la procedura per poter caricare le \emph{build} (.ipa) dell'applicazione sull'\textbf{App Store Connect}, così da permettere il \emph{testing} attraverso TestFlight.\\
+\textbf{TestFlight} è un'applicazione utilizzata per testare applicazioni non ancora sullo \emph{store} ufficiale, usufruibile da chiunque sia stato invitato a provare la beta. Tramite questo programma si ha la possibilità di far testare l'applicazione ad un massimo di 25 persone interne. 
+Tramite il loro utilizzo dell'applicazione gli sviluppatori riceveranno dati concernenti lo stato dell'applicazione in funzione, gli errori e i \emph{warning} sviluppatosi così da avere un'\emph{overview} generale sull'andamento dell'applicazione su altri \emph{device}. Inoltre i tester possono inviare segnalazione e suggerimenti. \\
+Dopo questa prima fase di \emph{testing} interno è obbligatorio procedere ad un \emph{testing} esterno prima di pubblicare l'applicazione sull'Apple Store.

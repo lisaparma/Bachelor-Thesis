@@ -3,27 +3,27 @@
 \chapter{Analisi dei requisiti}\label{chap:requirements}
 
 \section{Attori coinvolti}
-Durante l'attività di analisi dei requisiti sono stati individuati quattro 
-attori capaci di  interagire attivamente con l'applicazione Teamwork. 
+Durante l'attività di \gl{analisi dei requisiti}{analisi dei requisiti} sono stati individuati quattro 
+attori capaci di interagire attivamente con l'applicazione \emph{Teamwork}. 
 Di questi tre sono attori principali, mentre uno è un attore secondario.
 \subsection{Attori principali}
 \subsubsection{Utente Zimbra}
-L'applicazione è destinata solamente agli utenti Zimbra. Ciò implica il fatto che si può accedere alle funzionalità di Teamwork esclusivamente se si è già in 
-possesso di un'email Zimbra gestita dai loro server. Tale scenario è
+L'applicazione è destinata solamente agli utenti \emph{Zimbra}. Ciò implica il fatto che si può accedere alle funzionalità di \emph{Teamwork} esclusivamente se si è già in 
+possesso di un'email \emph{Zimbra} gestita dai loro \emph{server}. Tale scenario è
 rappresentato dall'attore più generico.
 \subsubsection{Utente OpenChat}
-Un utente OpenChat, specializzazione dell'utente Zimbra, rappresenta un utente che utilizza un'istanza di Zimbra con la zimlet OpenChat installata. Quest'ultima permette di chattare con gli utenti Zimbra dello stesso server.
+Un utente \emph{OpenChat}, specializzazione dell'utente \emph{Zimbra}, rappresenta un utente che utilizza un'istanza di Zimbra con la \emph{zimlet OpenChat} installata. Quest'ultima permette di chattare con gli utenti \emph{Zimbra} dello stesso server.
 
 \subsubsection{Utente Teamwork web}
-Un utente Teamwork web, specializzazione dell'utente OpenChat, rappresenta 
-un utente che, oltre ad utilizzare un'istanza di Zimbra con la zimlet OpenChat, 
-ha installato anche la zimlet Teamwork, applicazione di chat potenziata rispetto 
-alla prima e disponibile solo per la suite Zextras.
+Un utente \emph{Teamwork} web, specializzazione dell'utente \emph{OpenChat}, rappresenta 
+un utente che, oltre ad utilizzare un'istanza di \emph{Zimbra} con la \emph{zimlet OpenChat}, 
+ha installato anche la \emph{zimlet Teamwork}, applicazione di chat potenziata rispetto 
+alla prima e disponibile solo per la \emph{suite Zextras}.
 
 \subsection{Attori secondari}
 \subsubsection{Server Zimbra}
-Un server Zimbra è un'istanziazione della suite di prodotti Zimbra e, in caso, 
-dei prodotti Zextras. Tramite esso si accede a tutti i dati del profilo Zimbra 
+Un server \emph{Zimbra} è un'istanziazione della suite di prodotti \emph{Zimbra} e, in caso, 
+dei prodotti \emph{Zextras}. Tramite esso si accede a tutti i dati del profilo \emph{Zimbra} 
 così da mantenerli sincronizzati tra le varie sessioni in uso.
 
 \section{Casi d'uso principali}
@@ -97,10 +97,10 @@ $$ \textbf{R \{importanza\}\{tipo\}\{numero\_vincolo\} } $$
 	\hline
 	\endhead
 	R0V1 & L'applicazione deve essere sviluppata in React Native. \\ \hline 
-	R0V1 & L'applicazione deve essere disponibile per iOS.  \\ \hline 
-	R0V1 & L'applicazione deve essere disponibile per Android.  \\ \hline 
-	R0V1 & Lo sviluppo dell'applicazione deve prevedere l'SDK Expo. \\ \hline 
-	R1V1 & Il codice dell'applicazione può essere scritto in TypeScript.  \\ \hline 
+	R0V2 & L'applicazione deve essere disponibile per iOS.  \\ \hline 
+	R0V3 & L'applicazione deve essere disponibile per Android.  \\ \hline 
+	R0V4 & Lo sviluppo dell'applicazione deve prevedere l'SDK Expo. \\ \hline 
+	R1V5 & Il codice dell'applicazione può essere scritto in TypeScript.  \\ \hline 
 	\caption{Requisiti di vincolo}
 	\label{tabella:reqV}
 \end{longtable}
@@ -112,9 +112,9 @@ $$ \textbf{R \{importanza\}\{tipo\}\{numero\_vincolo\} } $$
 	\hline
 	\endhead
 	R0Q1 & L'applicazione deve sincronizzare i dati con quelli delle altre sessioni aperte.  \\ \hline 
-	R0Q1 & L'interfaccia grafica deve rispettare le linee guida fornite dall'azienda.  \\ \hline 
-	R0Q1 & Deve essere disponibile una documentazione per gli sviluppi futuri.  \\ \hline 
-	R1Q1 & L'esperienza utente deve essere allineata con la soluzione già disponibile in ambiente web \\ \hline 
+	R0Q2 & L'interfaccia grafica deve rispettare le linee guida fornite dall'azienda.  \\ \hline 
+	R0Q3 & Deve essere disponibile una documentazione per gli sviluppi futuri.  \\ \hline 
+	R1Q4 & L'esperienza utente deve essere allineata con la soluzione già disponibile in ambiente web \\ \hline 
 	\caption{Requisiti di qualità}
 	\label{tabella:reqQ}
 \end{longtable}
