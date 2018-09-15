@@ -121,16 +121,28 @@ versioni prototipali dell'applicazione avessero anche una progressiva applicazio
 delle regole di stile.\\
 Approvati i \emph{wireframe} è stato possibile proseguire alla definizione di tutti 
 e soli i componenti veramente utili al \emph{layout}.
-
+\newpage
 \section{Interfaccia grafica con React Native}
 Per la realizzazione della UI è stato utilizzato il \emph{framework} React Native che consente la realizzazione di interfacce tramite la suddivisione del sistema in componenti. Ognuna di queste ha un proprio stato, delle proprietà che vengono ereditate dal componente padre, e un proprio ciclo di vita indipendente da qualsiasi altro.
 \newline
 Sono stati progettati i componenti e la gerarchia tra essi necessaria per la visualizzazione degli \emph{screen} precedentemente definiti e realizzata una navigazione tra le pagine in modo da rispettare la gerarchia.
 \begin{figure}[H] 
 	\centering
-	\includegraphics[scale=0.7]{boh}
+	\includegraphics[scale=0.4]{navigation}
 	\caption{Relazione tra screen}
 	\label{gerarchiaRN}
 \end{figure}
-L'immagine \ref{gerarchiaRN} descrive le relazioni tra le componenti implementate.
-\note{Spiegare l'immagine quando ce l'avrò}
+L'immagine \ref{gerarchiaRN} descrive le relazioni di navigazione tra gli \emph{screen} implementati. Ognuno di questi \emph{screen} viene rappresentato come un'unico componente e per essere renderizzato utilizzarà a sua volta altri componenti.\\
+Prendiamo come esempio lo \emph{screen Buddylist}:
+\begin{figure}[H] 
+	\centering
+	\includegraphics[scale=0.35]{componenti}
+	\caption{Suddivisione in componenti pagina Buddylist}
+\end{figure}
+Possiamo vedere come lo \emph{screen buddylist} sia un componente che renderizza altre tre tipi di componenti: 
+\begin{itemize}
+	\item \texttt{<TopBar>}, che viene a sua volta renderizzato con \texttt{<StatusBar>} (componente difficilmente gestibile in quanto subisce forti variazioni a seconda del sistema operativo), un semplice componente di testo e due componenti \texttt{<Icon>} che possiedono anche una proprietà \emph{navigation} che permette la navigazione verso altri screen;
+	\item \texttt{<CardBuddy>}, montata \emph{n} volte sullo \emph{screen buddylist} dipendente dal numero di buddy. Anche questa componente è complessa e costituità da più componenti \texttt{<Text>}, \texttt{<Img>} e un altro componente complesso \texttt{<ProPic>};
+	\item \texttt{<BottomTab>} che gestisce la navigazione verso i due stack principali, \texttt{ChatStack} e \texttt{SettingsStack}. Il suo render però viene gestito solamente da due componenti semplici: \texttt{<Icon>} e \texttt{<Text>}.
+\end{itemize}
+
