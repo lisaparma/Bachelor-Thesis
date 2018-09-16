@@ -6,12 +6,12 @@ Come strumento di verifica statica del codice è stato utilizzato \textbf{TSLint
 In particolare è stato utilizzato per rendere conforme il codice scritto alle convenzioni utilizzate in azienda. Degli esempi sono:
 \begin{itemize}
 	\item dichiarazione dei tipi e delle interfacce obbligatoria;
-	\item utilizzo di particolari costrutti, come l'utilizzo di cicli "\emph{for-of}" al posto di cicli "\emph{for}" standard se l'indice è usato solo per accedere all'\emph{array} che viene iterato;
+	\item utilizzo di particolari costrutti, come l'utilizzo di cicli "\emph{for-of}" al posto di cicli "\emph{for}" standard nei casi in cui l'indice sia utilizzato solamente per accede agli elementi dell'\emph{array} su cui viene eseguita l'iterazione;
 	\item ordine alfabetico per importazioni e attributi; 
 	\item obbliga la dichiarazione dello scope di variabili e funzioni, impedendo l'importazione di variabili, funzioni e membri privati.
 \end{itemize}
 \section{Jest}
-I test automatici sviluppati sono stati eseguiti in numero ridotto ripetto a quelli utili ad analizzare in modo completo il comportamento dell'applicazione in quanto si è preferito, per volontà dell'azienda, investire più tempo nello sviluppo di funzionalità che nel loro test approfondito data la ridotta durata dello stage. \\
+I test automatici sviluppati sono stati eseguiti in numero ridotto rispetto a quelli utili ad analizzare in modo completo il comportamento dell'applicazione in quanto si è preferito, per volontà dell'azienda, investire più tempo nello sviluppo di funzionalità che nel loro test approfondito data la ridotta durata dello stage. \\
 Per rendere completa l'esperienza di stage e riuscire a toccare tutto il ciclo di vita dello sviluppo del progetto sono comunque stati fatti dei test automatici. Per fare ciò è stato utilizzato \textbf{JestJs} (sez. \ref{subsez:jest}), \emph{tool} di \emph{testing} specifico per i progetti ReactJS e React Native integrato nella configurazione del progetto. \\
 Sono stati sviluppati due tipologie di test:
 \begin{itemize}
@@ -21,8 +21,8 @@ Sono stati sviluppati due tipologie di test:
 Vediamoli in dettaglio.
 \subsection{Component snapshot}
 Ogni componente React Native possiede uno stato e delle \emph{props} che possono essere modificate durante il suo ciclo di vita, facendo variare anche il suo \emph{rendering}. Attraverso questa tipologia di test si controllano questi cambiamenti creando degli \emph{snapshot} di come il componente dovrebbe essere renderizzato. \\
-In questo modo quando andremo a modificare il codice avremo la sicurezza di non dover controllare il \emph{rendering} facendo una valutazione grafica su emulatori o \emph{device} perchè i test ci informeranno su eventuali cambiamenti inaspettati. \\
-Inoltre sarebbe buona norma effettuare i test con dei \gl{mock}{mock} dei vari stati possibili, in modo da avere la certezza di coprire tutti i possibili casi di \emph{rendering}.
+In questo modo quando andremo a modificare il codice avremo la sicurezza di non dover controllare il \emph{rendering} facendo una valutazione grafica su emulatori o \emph{device}, perché i test ci informeranno su eventuali cambiamenti inaspettati. \\
+Inoltre, sarebbe buona norma effettuare i test con dei \gl{mock}{mock} dei vari stati possibili, in modo da avere la certezza di coprire tutti i possibili casi di \emph{rendering}.
 
 \subsection{Redux snapshot}
 Questi test servono a verificare se le funzionalità introdotte con \textbf{action} e \textbf{reducer} producono effettivamente il risultato voluto sullo \emph{store} Redux. \\

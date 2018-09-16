@@ -16,7 +16,7 @@ I \emph{container} sono assimilabili a delle macchine virtuali modulari con la p
 di essere molto leggere: in questo modo risulta più facile creare, distribuire, 
 copiare e spostare i container da un ambiente all'altro.
 Ogni \emph{container} è un processo isolato dagli altri \emph{container} e dal sistema ospite stesso: ogni volta che viene istanziato un nuovo \emph{container} si avrà un ambiente pulito, ovvero indipendente dal sistema ospite, da \emph{container} precedentemente creati e con le caratteristiche specificate. \\
-Per sviluppare l'applicazione \emph{Teamwork} è stato utilizato \emph{Docker 18.03 Community Edition} per \emph{Ubuntu Bionic}. In questo modo si è potuto instanziare nelle macchine locali un \emph{container} di \emph{Zimbra} e del \emph{core Zextras} con la \emph{zimlet OpenChat} caricata così da sviluppare l'applicativo in un ambiente sicuro e pulito.
+Per sviluppare l'applicazione \emph{Teamwork} è stato utilizzato \emph{Docker 18.03 Community Edition} per \emph{Ubuntu Bionic}. In questo modo si è potuto istanziare nelle macchine locali un \emph{container} di \emph{Zimbra} e del \emph{core Zextras} con la \emph{zimlet OpenChat} caricata così da sviluppare l'applicativo in un ambiente sicuro e pulito.
 
 \subsection{IntelliJ IDEA} \label{subsec:IntelliJ}
 	\begin{figure}[H] 
@@ -26,7 +26,7 @@ Per sviluppare l'applicazione \emph{Teamwork} è stato utilizato \emph{Docker 18
 	\end{figure}
 IntelliJ IDEA è un \emph{\textbf{I}ntegrated \textbf{D}evelopment \textbf{E}nvironment} (\acrshort{IDE}) multi-linguaggio e multi-piattaforma. 
 È stata utilizzata l'edizione \emph{Ultimate} in quanto era necessario un editor che 
-supportasse JavaScript/TypeScript, mentre la \emph{Community edition} non supporta questi linguaggi. 
+supportasse JavaScript/TypeScript, mentre la \emph{Community Edition} non supporta questi linguaggi. 
 Dovendo creare un'applicazione con numerose referenze al codice della \emph{zimlet 
 OpenChat} e di \emph{Zimbra} sono state sfruttate al meglio le funzionalità per 
 analizzare il codice e comprendere le dipendenze esistenti.
@@ -126,7 +126,7 @@ Redux è stato implementato basandosi su una particolare architettura:
  	\includegraphics[scale=0.3]{loghi/flux}
  	\caption{Flusso dei dati in Flux}
  \end{figure}
- Il flusso parte da degli oggetti \emph{stores}, che contengono i dati dell’applicazion che vengono forniti ai componenti dell'applicazione in modo che la view sia sempre aggiornata con questi dati. \\
+ Il flusso parte da degli oggetti \emph{stores}, che contengono i dati dell'applicazione che vengono forniti ai componenti dell'applicazione in modo che la view sia sempre aggiornata con questi dati. \\
 Per modificare i dati presenti in uno store è necessario creare un oggetto \emph{action} che, mediante il \emph{dispatcher} dell’applicazione, viene ricevuto dai vari \emph{stores}, i quali lo utilizzano per aggiornare i dati che contengono.
 
  
@@ -152,7 +152,7 @@ schermo, capacità hardware, ecc..).
 	\caption{Logo React Native Debugger}
 \end{figure}
 React Native Debugger è un applicazione \emph{standalone} per il \emph{debug} di app in React 
-Native. Si basa sul remote dedugger disponibile quando si monitora un progetto 
+Native. Si basa sul remote debugger disponibile quando si monitora un progetto 
 in un device fisico o virtuale.
 \newpage
 Esso offre vari strumenti per il debug:

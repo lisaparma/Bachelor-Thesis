@@ -3,9 +3,9 @@
 
 \section {Progettazione architetturale e di dettaglio}
 \subsection{Architettura OpenChat}
-Avendo dovuto basare l'applicazione sulla soluzione già implementata per il web dalla \emph{zimlet OpenChat} è utile approfondire la sua \gl{architettura}{architettura} per comprendere le differenze applicate. \\
+Dal momento che l'applicazione sviluppata è basata su una soluzione già implementata per il web dalla \emph{zimlet OpenChat} è utile approfondire la sua \gl{architettura}{architettura} per comprendere quali sono le differenze che sono state applicate.\\
 La comunicazione tra il server \emph{Zimbra} e la \emph{zimlet OpenChat} avviene attraverso una struttura \emph{\textbf{S}imple \textbf{O}bject \textbf{A}ccess \textbf{P}rotocol} (\acrshort{SOAP}), protocollo per lo scambio di messaggi tra componenti hardware.
-Questa struttura, nel caso della \emph{zimlet OpenChat}, permette la comunicazione con il server indirettamente facendo passare gli eventi per il \emph{web client Zimbra} che li gestisce in base ai propri bisogni prima di inviarli al server. \\
+Questa struttura, nel caso della \emph{zimlet OpenChat}, permette indirettamente la comunicazione con il server facendo passare gli eventi per il \emph{web client Zimbra} che li gestisce in base ai propri bisogni prima di inviarli al server. \\
 \begin{figure}[H] 
 	\centering
 	\includegraphics[scale=0.45]{architettura2}
@@ -32,12 +32,12 @@ I messaggi SOAP, rappresentati in figura \ref{fig:SOAP}, sono basati sul metalin
 	\label{fig:SOAP}
 \end{figure}
 \begin{itemize}
-	\item Il segmento \textbf{header} contiene metadati utili per la trasmissione del messaggio, come informazioni per il \emph{routing} e per la sicurezza. Può essere opzionale.
+	\item Il segmento \textbf{head} contiene metadati utili per la trasmissione del messaggio, come informazioni per il \emph{routing} e per la sicurezza. Può essere opzionale.
 	\item Il segmento \textbf{body}, che invece risulta obbligatorio, trasporta il contenuto informativo (\emph{payload}) del messaggio. Saranno questi i dati importanti per la gestione delle informazioni.
 \end{itemize}
 Per ogni SOAP \emph{request} inviata al server ci sarà una SOAP \emph{respose} in ritorno. Questa risposta può contenere dati richiesti dalla precedente SOAP \emph{request}, informazioni sullo stato del server o possibili errori di risposta.
 \subsubsection{Connection Manager}
-È il \emph{connection manager} ad occuparsi degli eventi in arrivo dal server. Per fare ciò ha bisogno di due componenti principali:
+Il \emph{connection manager} si occupa degli eventi in arrivo dal server. Per fare ciò ha bisogno di due componenti principali:
 \begin{itemize}
 	\item il \textbf{ping}, componente che si occupa di stabilire una connessione con il server e di mantenerla operativa durante tutta la sessione. In questo modo l'applicazione rimarrà sempre in ascolto di nuovi eventi provenienti dal server;
 	\item il \textbf{decoder}, componente che, una volta ricevuto un messaggio SOAP dal \emph{ping}, ne decodificherà il \emph{body} permettendo una più facile comprensione del contenuto. Si è utilizzato un \emph{Abstract Factory} per la creazione di questa componente, \gl{design pattern}{design pattern} che fornisce un’interfaccia per creare famiglie di prodotti senza specificare classi concrete.
@@ -47,11 +47,11 @@ Questa famiglia di componenti riceve in input degli eventi provenienti dal \emph
 La sua funzione, quindi, è quella di modificare lo stato dello \emph{store} Redux, basandosi sui dati ricevuti, attraverso un \emph{dispatcher} che modifica il flusso dei dati utilizzati nell'applicazione in modo unidirezionale, così da non creare inconsistenza.
 \subsubsection{Encoder}
 Gli eventi possono essere generati anche dall'applicazione e per gestire il bisogno di propagare le modifiche che vengono fatte allo \emph{store} Redux al server (con la successiva propagazione dei dati verso le altre sessioni) è stato introdotto un \textbf{encoder}, il corrispondente del precedente componente \emph{decoder} per l'invio degli eventi. \\
-Quando viene fatto il \emph{dispatch} di un'azione con la conseguente modifica dello \emph{store} vengono invocati dei particolari \emph{middleware} che si occupano dell'invio dell'evento all'\emph{encoder} corrispondente. Questa componente permette la traduzione dell'evento in un messaggio SOAP generico comprensibile dal server.
+Quando viene fatto il \emph{dispatch} di un'azione, con la conseguente modifica dello \emph{store}, vengono invocati dei particolari \emph{middleware} che si occupano dell'invio dell'evento all'\emph{encoder} corrispondente. Questa componente permette la traduzione dell'evento in un messaggio SOAP generico comprensibile dal server.
 
 \subsection{Store Redux}
 L'architettura disegnata per la gestione degli eventi ha come punto focale il concetto di \emph{store}, \emph{database} locale dove vengono salvati tutti i dati necessari all'implementazione tramite React Native dell'interfaccia grafica. Come è stato spiegato nel capitolo \emph{Tecnologie utilizzate} (\ref{subsec:Redux}) uno \emph{store} Redux è un \emph{database} dinamico condiviso, accessibile da tutte le componenti di React Native così che possano sempre avere dei dati coerenti tra loro. \\
-Tramite il design pattern architetturale implementato da Redux, Flux, è stato possibile ottimizzare la gestione dei dati in modo reattivo all'arrivo degli eventi. \\
+Tramite Flux, il design pattern architetturale implementato da Redux, è stato possibile ottimizzare la gestione dei dati in modo reattivo all'arrivo degli eventi. \\
 In particolare è stato deciso di introdurre due \emph{store} distinti nell'applicazione:
 \begin{itemize}
 	\item lo \textbf{Store OpenChat }è stato ereditato dall'implementazione della \emph{zimlet OpenChat} in quanto, per ottenere dei dati sincronizzati, deve necessariamente rispecchiare la sua struttura. Questo \emph{store} è quindi connesso alla gestione degli eventi tramite il \emph{connection manager} ed è la fonte principale dei dati funzionali per l'applicazione.
@@ -66,9 +66,9 @@ In particolare è stato deciso di introdurre due \emph{store} distinti nell'appl
 
 \section{Progettazione grafica}
 Prima di procedere alla definizione delle classi necessarie per l'implementazione 
-dell'applicazione è stato deciso di effettuare la progettazione della \emph{\textbf{U}ser \textbf{I}nterface} (\acrshort{UI}) per far 
-si che il progetto di stage abbracciasse a 360 gradi il processo di sviluppo di 
-un'applicazione da parte di un'azienda.
+dell'applicazione è stato deciso di effettuare la progettazione della \emph{\textbf{U}ser \textbf{I}nterface} (\acrshort{UI}) per per far sì che il progetto
+di stage comprenda ogni aspetto della progettazione e dello sviluppo di
+un'applicazione da parte di un azienda.
 
 \subsection{Wireframe}
 In base ai requisiti e agli use case raccolti è stato definito il modello iniziale
@@ -85,9 +85,9 @@ importanti di \emph{Teamwork}:
 	\label{subsec:wireframe}
 \end{figure}
 Come possiamo notare dagli esempi riportati, in questa fase non è stato deciso 
-nulla riguardo la rappresentazione grafica dei vari elementi. 
-Si è definita soltanto la struttura delle varie schermate, il collegamento tra 
-di esse e quali elementi realmente soddisfino i requisiti già studiati. 
+nulla riguardo la rappresentazione grafica dei vari elementi. Infatti 
+È stata definita soltanto la struttura delle varie schermate, il collegamento
+tra di esse e quali elementi realmente soddisfino i requisiti già studiati. 
 Il risultato, comunque, è stato molto vicino alla \emph{\textbf{G}raphical \textbf{U}ser \textbf{I}nterface} (\acrshort{GUI}) ottenuta alla fine della 
 codifica in quando i \emph{wireframe} sono stati disegnati tenendo conto della 
 soluzione web già presente.\\ 
@@ -111,10 +111,10 @@ visualizzazione dei dettagli relativi ad un \emph{buddy}:
 	\includegraphics[scale=0.5]{guidelines}
 	\caption{Esempio guidelines spazi}
 \end{figure}
-Si noti come ogni elemento sia posizionato in modo preciso definendo delle 
-proporzioni tra gli spazi. In questo modo la successiva codifica dello stile sarà 
-assolutamente definita da regole precise in modo da non dover interagire in modo 
-continuativo con il responsabile grafico del progetto. \\
+Si noti come ogni elemento sia posizionato in modo preciso, definendo delle 
+proporzioni tra gli spazi. In questo modo la successiva codifica dello stile
+dovrà assolutamente rispettare tali regole, in modo da non dover interagire
+continuamente con il responsabile grafico del progetto. \\
 L'applicazione delle \emph{guidelines} nel codice è avvenuta in parallelo con lo sviluppo 
 in quando, seguendo una metodologia \emph{agile}, si è ritenuto opportuno che le varie 
 versioni prototipali dell'applicazione avessero anche una progressiva applicazione 
@@ -123,16 +123,17 @@ Approvati i \emph{wireframe} è stato possibile proseguire alla definizione di t
 e soli i componenti veramente utili al \emph{layout}.
 \newpage
 \section{Interfaccia grafica con React Native}
-Per la realizzazione della UI è stato utilizzato il \emph{framework} React Native che consente la realizzazione di interfacce tramite la suddivisione del sistema in componenti. Ognuna di queste ha un proprio stato, delle proprietà che vengono ereditate dal componente padre, e un proprio ciclo di vita indipendente da qualsiasi altro.
+Per la realizzazione della UI è stato utilizzato il \emph{framework} React Native che consente la realizzazione di interfacce tramite la suddivisione del sistema in componenti. Ognuna di queste ha un proprio stato, delle proprietà che vengono ereditate dal componente padre, e un proprio ciclo di vita,
+indipendente da qualsiasi altro.
 \newline
-Sono stati progettati i componenti e la gerarchia tra essi necessaria per la visualizzazione degli \emph{screen} precedentemente definiti e realizzata una navigazione tra le pagine in modo da rispettare la gerarchia.
+Sono stati quindi progettati i componenti e la gerarchia tra essi, necessaria per la visualizzazione degli \emph{screen} precedentemente definiti, e infine è stata realizzata una navigazione tra le pagine che rispettasse la gerarchia.
 \begin{figure}[H] 
 	\centering
 	\includegraphics[scale=0.4]{navigation}
 	\caption{Relazione tra screen}
 	\label{gerarchiaRN}
 \end{figure}
-L'immagine \ref{gerarchiaRN} descrive le relazioni di navigazione tra gli \emph{screen} implementati. Ognuno di questi \emph{screen} viene rappresentato come un'unico componente e per essere renderizzato utilizzarà a sua volta altri componenti.\\
+L'immagine \ref{gerarchiaRN} descrive le relazioni di navigazione tra gli \emph{screen} implementati. Ognuno di questi \emph{screen} viene rappresentato come un'unico componente e per essere renderizzato utilizzerà a sua volta altri componenti.\\
 Prendiamo come esempio lo \emph{screen Buddylist}:
 \begin{figure}[H] 
 	\centering
@@ -141,8 +142,9 @@ Prendiamo come esempio lo \emph{screen Buddylist}:
 \end{figure}
 Possiamo vedere come lo \emph{screen buddylist} sia un componente che renderizza altre tre tipi di componenti: 
 \begin{itemize}
-	\item \texttt{<TopBar>}, che viene a sua volta renderizzato con \texttt{<StatusBar>} (componente difficilmente gestibile in quanto subisce forti variazioni a seconda del sistema operativo), un semplice componente di testo e due componenti \texttt{<Icon>} che possiedono anche una proprietà \emph{navigation} che permette la navigazione verso altri screen;
-	\item \texttt{<CardBuddy>}, montata \emph{n} volte sullo \emph{screen buddylist} dipendente dal numero di buddy. Anche questa componente è complessa e costituità da più componenti \texttt{<Text>}, \texttt{<Img>} e un altro componente complesso \texttt{<ProPic>};
-	\item \texttt{<BottomTab>} che gestisce la navigazione verso i due stack principali, \texttt{ChatStack} e \texttt{SettingsStack}. Il suo render però viene gestito solamente da due componenti semplici: \texttt{<Icon>} e \texttt{<Text>}.
+	\item \texttt{<TopBar>}, che viene a sua volta renderizzato con \texttt{<StatusBar>} (componente difficilmente gestibile in quanto subisce forti variazioni a seconda del sistema operativo), un semplice componente di testo e due componenti \texttt{<Icon>}. Quest'ultimi possiedono anche una proprietà \emph{navigation} che permette la navigazione verso altri screen;
+	\item \texttt{<CardBuddy>}, caricata \emph{n} volte sullo \emph{screen buddylist} dipendente dal numero di buddy. Anche questa componente è complessa e costituita da più componenti \texttt{<Text>}, \texttt{<Img>} e un altro componente complesso \texttt{<ProPic>};
+	\item \texttt{<BottomTab>} che gestisce la navigazione verso i due stack principali, \texttt{ChatStack} e \texttt{SettingsStack}. Il suo render,
+	però, viene gestito solamente da due componenti semplici: \texttt{<Icon>} e \texttt{<Text>}.
 \end{itemize}
 
