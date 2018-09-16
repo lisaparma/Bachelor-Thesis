@@ -12,10 +12,11 @@ La figura \ref{sec:valutazione} rappresenta tre \emph{screen} dell'applicazione 
 	\label{sec:valutazione}
 \end{figure}
 Per quanto riguarda l'interfaccia grafica sono molto soddisfatta del risultato ottenuto in quanto segue perfettamente le linee guida fornite dall'azienda. \\
-Personalmente ritengo il prodotto sviluppato un ottimo prototipo della possibile applicazione chat della suite ma ancora lontana dall'essere una versione rilasciabile e testabile da utenti esterni principalmente per due motivi:
+Personalmente ritengo il prodotto sviluppato un ottimo prototipo della possibile applicazione chat della suite, ma ancora lontana dall'essere una versione rilasciabile e testabile da utenti esterni principalmente per due motivi:
 \begin{itemize}
-	\item le funzionalità implementate non sono abbastanza numerose da coprire i bisogni che dovrebbe soddisfare quest'applicazione;
-	\item essendo una suite di prodotti utilizzati per il lavoro bisognerebbe assicurare una certa sicurezza che in due mesi non è stata possibile raggiungere.
+	\item le funzionalità implementate non sono abbastanza numerose da coprire i bisogni che dovrebbe soddisfare questo tipo di applicazione;
+	\item essendo una suite di prodotti utilizzati per il lavoro bisognerebbe assicurare una certa sicurezza nella comunicazione dei dati e nella connessione ai server, criptando i messaggi all'invio. Ciò non è stato però
+	previsto nello stage.
 \end{itemize}
 
 \section{Valutazione framework e librerie utilizzate}
@@ -31,24 +32,24 @@ React Native permette lo sviluppo di applicazioni mobile sia Android che iOS uti
 Ovviamente questa integrazione presenta anche degli aspetti negativi da valutare. Innanzitutto le piattaforme native Android ed iOS presentano molte differenze e tentare di generalizzare i comportamenti di tutti i componenti nativi risulta impossibile. Per questo motivo non sono implementati tutti i componenti che avremmo a disposizione nei due ambienti di sviluppo nativi e inoltre non è detto che un componente si comporti in modo uguale su iOS e su Android. \\
 In secondo luogo React Native crea un livello di astrazione al di sopra dell’applicazione che può essere meno performante di un dialogo diretto tra applicazione nativa e sistema operativo.
 \subsubsection{Virtual DOM}
-Per accedere e aggiornare dinamicamente il contenuto, la struttura e lo stile dei documenti nel \emph{client web} e nelle applicazioni che utilizzano \emph{WebView} si utilizza il \emph{\textbf{D}ocument \textbf{O}bject \textbf{M}odel} (\acrshort{DOM}), una forma di rappresentazione dei documenti strutturati, che tenta di renderli neutrali rispetto alla lingua e alla piattaforma. React Native invece utilizza il Virtual DOM che crea una struttura dei dati\emph{ in-memory}, lavora per differenza e quindi aggiorna in modo efficiente la DOM visualizzata dal browser. Cosi facendo vengono renderizzato solamente i componenti che vengono modificati e non tutta la pagina.
+Per accedere e aggiornare dinamicamente il contenuto, la struttura e lo stile dei documenti nel \emph{client web} e nelle applicazioni che utilizzano \emph{WebView} si utilizza il \emph{\textbf{D}ocument \textbf{O}bject \textbf{M}odel} (\acrshort{DOM}), una forma di rappresentazione dei documenti strutturati, che tenta di renderli neutrali rispetto alla lingua e alla piattaforma. React Native invece utilizza il Virtual DOM che crea una struttura dei dati\emph{ in-memory}, che lavora per differenza e quindi aggiorna in modo efficiente la DOM visualizzata dal browser. Così facendo vengono renderizzati solamente i componenti che vengono modificati e non tutta la pagina.
 \subsubsection{JSX e CSS}
-Il framework utilizza JSX come linguagggio di \emph{markup} e uno pseudo CSS per lo stile.
+Il framework utilizza JSX come linguaggio di \emph{markup} e uno pseudo CSS per lo stile.
 Per quanto riguarda JSX il suo scopo è definire una sintassi concisa e familiare per la definizione delle strutture dell'albero con i relativi attributi per ogni nodo. Risulta molto intuitivo in quanto ha una sintassi simil XML e è facilmente gestibile in quanto possono essere implementate al suo interno funzioni JavaScript.\\
-Per gestire lo stile di ogni componente, invece,  si utilizza un simil CSS (in formato JSON) che risulta limitato nelle dichiarazioni. Non è possibile quindi utilizzare estensioni come SCSS e riutilizzare stylesheet web per intero. 
+Per gestire lo stile di ogni componente, invece,  si utilizza un simil CSS (in formato JSON) che risulta limitato nelle dichiarazioni. Non è possibile quindi utilizzare estensioni come SCSS e riutilizzare lo stylesheet web per intero. 
 
 \subsection{Valutazione Expo}
 Il tool di sviluppo per applicazioni in React Native Expo è una tecnologia completamente nuova per l'azienda, consigliata da un consulente esterno. Ho raccolto i principali benefici e svantaggi dell'utilizzo di esso.\\
 Aspetti positivi:
 \begin{itemize}
 	\item semplifica delle operazioni comuni che non sono gestite dai componenti di React Native introducendo dei nuovi componenti Expo;
-	\item si sono velocizzati di molto i tempi di \emph{testing} su \emph{device} fisici in quando Expo propone \emph{build} automatiche nei propri server che possono essere scaricate in qualsiasi \emph{device} tramite \emph{link} alla \emph{build};
+	\item velocizza di molto i tempi di \emph{testing} su \emph{device} fisici in quando Expo propone \emph{build} automatiche nei propri server che possono essere scaricate in qualsiasi \emph{device} tramite un \emph{link} alla \emph{build};
 	\item riduce la complessità di creazione di file \texttt{.apk} e \texttt{.ipa} in quanto crea le \emph{build} nei propri server e gestisce le certificazioni in autonomia.
 \end{itemize}
 Aspetti negativi:
 \begin{itemize}
-	\item l'interazione tra Expo e React Native Debugger ha riscontrato non pochi problemi che causavano spesso l'interruzione dei servizi Expo;
-	\item Expo client risulta ancora molto instabile causando \emph{crash} dell'applicazione;
+	\item l'interazione tra Expo e React Native Debugger ha riscontrato non pochi problemi, che causavano spesso l'interruzione dei servizi Expo;
+	\item Expo client risulta ancora molto instabile causando \emph{crash} dell'applicazione.
 \end{itemize}
 
 %\section{Bilancio conoscenze pregresse e acquisite}
