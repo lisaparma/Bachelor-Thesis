@@ -126,11 +126,9 @@ Redux è stato implementato basandosi su una particolare architettura:
  	\includegraphics[scale=0.3]{loghi/flux}
  	\caption{Flusso dei dati in Flux}
  \end{figure}
- Le view, però, possono causare delle \emph{action} che modificano lo stato dello \emph{store} 
- ma esso sarà interamente propagato in tutto il sistema così da evitare 
- inconsistenza dei dati nelle \emph{view}.
- 
- \note{spiegare meglio le 3 parti: store, dispacher e view}
+ Il flusso parte da degli oggetti \emph{stores}, che contengono i dati dell’applicazion che vengono forniti ai componenti dell'applicazione in modo che la view sia sempre aggiornata con questi dati. \\
+Per modificare i dati presenti in uno store è necessario creare un oggetto \emph{action} che, mediante il \emph{dispatcher} dell’applicazione, viene ricevuto dai vari \emph{stores}, i quali lo utilizzano per aggiornare i dati che contengono.
+
  
 \section{Strumenti di verifica e valutazione}
 
@@ -155,7 +153,9 @@ schermo, capacità hardware, ecc..).
 \end{figure}
 React Native Debugger è un applicazione \emph{standalone} per il \emph{debug} di app in React 
 Native. Si basa sul remote dedugger disponibile quando si monitora un progetto 
-in un device fisico o virtuale.\\ Esso offre vari strumenti per il debug:
+in un device fisico o virtuale.
+\newpage
+Esso offre vari strumenti per il debug:
 \begin{itemize}
 	\item \textbf{React Inspecto}r, per ispezionare il \emph{layout} e lo \emph{style} di ogni componente dell'app;
 	\item \textbf{Redux DevTools}, per monitorare gli \emph{store} Redux utilizzati e le \emph{action} svolte su di essi;
