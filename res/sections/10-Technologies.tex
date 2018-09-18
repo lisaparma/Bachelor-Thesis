@@ -29,7 +29,8 @@ IntelliJ IDEA è un \emph{\textbf{I}ntegrated \textbf{D}evelopment \textbf{E}nvi
 supportasse JavaScript/TypeScript, mentre la \emph{Community Edition} non supporta questi linguaggi. 
 Dovendo creare un'applicazione con numerose riferimenti al codice della \emph{zimlet 
 OpenChat} e di \emph{Zimbra} sono state sfruttate al meglio le funzionalità per 
-l'analisi del codice e comprendere le dipendenze esistenti.
+l'analisi del codice e comprendere le dipendenze esistenti. \\
+Questo IDE non è stato imposto dall'azienda ma scelto personalmente per lo sviluppo dell'applicazione in quanto avevo già dimestichezza con esso ed è stato consigliato dai dipendenti che sviluppano con JavaScript.
 
 \subsection{Expo} \label{subsec:expo}
 	\begin{figure}[H] 
@@ -48,6 +49,7 @@ Inoltre semplifica e velocizza le fasi di sviluppo e di testing in quanto
 permette l'avvio di \emph{build} automatiche nei loro \emph{server} che
 permettono di eseguire in \emph{real-time} il codice sia in simulatori che in
 dispositivi mobili.
+L'utilizzo di questo tool è stato un requisito obbligatorio per il progetto. La validazione di Expo è infatti uno degli scopi dello stage in quanto l'azienda vorrebbe implementarla nei suoi progetti futuri.
 
 
 \section{Linguaggi, librerie e strumenti di programmazione}
@@ -67,10 +69,11 @@ Si possono comunque integrare dei componenti scritti in \emph{Objective-C},
 necessario 
 ottimizzare alcuni aspetti dell'applicazione in base alla piattaforma. 
 React Native si basa su ReactJS dove risulta fondamentale il concetto di 
-``componente''. Un componente è un modulo dell'applicazione che ha uno stato, 
+"componente''. Un componente è un modulo dell'applicazione che ha uno stato, 
 che può accettare delle proprietà e che ha un proprio ciclo di vita. 
 Questo approccio di sviluppo atomico risulta perfetto per effettuare Unit Test 
 o per creare componenti più complessi includendone di più semplici.
+
 
 \subsection{TypeScript} \label{subsec:tslint}
 \begin{figure}[H] 
@@ -85,7 +88,8 @@ sicurezza e la robustezza del codice tramite l'aggiunta di classi, interfacce,
 moduli, tipizzazione e altre funzionalità importanti per la comprensione di un 
 grande progetto. 
 Il codice TypeScript sviluppato viene successivamente ricompilato in JavaScript 
-per poter essere interpretato da browser o app.
+per poter essere interpretato da browser o app.\\
+L'utilizzo di questo linguaggio invece che JavaScript non è stato imposto dall'azienda ma caldamente suggerito dal tutor aziendale. Ho voluto utilizzarlo per imparare un nuovo linguaggio che può portare grandi benefici soprattutto in termini di chiarezza.
 
 \subsection{TSLint}
 \begin{figure}[H] 
@@ -97,7 +101,8 @@ TSLint è uno strumento di \gl{analisi statica}{analisi statica} per il codice s
 che offre funzionalità estendibili e personalizzabili per la leggibilità, la 
 manutenibilità e gli errori di programmazione. 
 È supportato da molti dei moderni editor, compreso \emph{IntelliJ IDEA} (sez. 
-\ref{subsec:IntelliJ}), utilizzato per il progetto.
+\ref{subsec:IntelliJ}), utilizzato per il progetto. \\
+In parallelo con TypeScript l'utilizzo di TSLint non è stato obbligatorio ma dato che il linguaggio per me era nuovo ho preferito utilizzare questo linter per essere più precisa nella grammatica del codice.
 
 \subsection{Redux} \label{subsec:Redux}
 \begin{figure}[H] 
@@ -113,6 +118,7 @@ dati tra componenti diverse.
 Redux, invece, permette la creazione di uno \emph{store} condiviso, accessibile da tutte 
 le componenti. In tal modo è possibile sincronizzare le modifiche e quindi 
 avere dei dati coerenti tra le varie componenti. 
+Nella zimlet OpenChat era già stata utilizzata questa tecnologia e volendo sincronizzare i dati e mantenere la struttura il più simile possibile si è voluto continuare ad usare questa soluzione anche perchè è l'unico modo per gestire in maniera semplice un numero di dati ampio e in continuo cambiamento.
 Redux è stato implementato basandosi su una particolare architettura: 
 \hyperref[subsec:flux]{Flux}.
 
@@ -137,7 +143,7 @@ Per modificare i dati presenti in uno store è necessario creare un oggetto \emp
 \subsection{Genymotion} \label{subsez:genymotion}
 \begin{figure}[H] 
 	\centering
-	\includegraphics[scale=0.2]{loghi/genymotion2}
+	\includegraphics[scale=0.3]{loghi/genymotion2}
 	\caption{Logo Genymotion}
 \end{figure}
 Genymotion è un emulatore software di dispositivi Android. Si integra 
@@ -156,13 +162,13 @@ schermo, capacità hardware, ecc..).
 React Native Debugger è un applicazione \emph{standalone} per il \emph{debug} di app in React 
 Native. Si basa sul \emph{remote debugger} disponibile quando si monitora un
 progetto in un \emph{device} fisico o virtuale.
-\newpage
 Esso offre vari strumenti per il \emph{debug}:
 \begin{itemize}
 	\item \textbf{React Inspecto}r, per ispezionare il \emph{layout} e lo \emph{style} di ogni componente dell'app;
 	\item \textbf{Redux DevTools}, per monitorare gli \emph{store} Redux utilizzati e le \emph{action} svolte su di essi;
 	\item \textbf{Console}, per visualizzare errori e avvisi che avvengono durante l'esecuzione del codice.
 \end{itemize}
+Purtroppo la scelta di utilizzare questo debugger è stata fatta in base al fatto che è l'unica soluzione che include tutte queste funzionalità per React Native.
 
 \subsection{Jest} \label{subsez:jest}
 \begin{figure}[H] 
