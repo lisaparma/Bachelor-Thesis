@@ -30,7 +30,7 @@ supportasse JavaScript/TypeScript, mentre la \emph{Community Edition} non suppor
 Dovendo creare un'applicazione con numerose riferimenti al codice della \emph{zimlet 
 OpenChat} e di \emph{Zimbra} sono state sfruttate al meglio le funzionalità per 
 l'analisi del codice e comprendere le dipendenze esistenti. \\
-Questo IDE non è stato imposto dall'azienda ma scelto personalmente per lo sviluppo dell'applicazione in quanto avevo già dimestichezza con esso ed è stato consigliato dai dipendenti che sviluppano con JavaScript.
+Questo IDE non è stato imposto dall'azienda, ma è stato scelto personalmente per lo sviluppo dell'applicazione, in quanto avevo già dimestichezza con esso ed è stato consigliato dai dipendenti che sviluppano con JavaScript.
 
 \subsection{Expo} \label{subsec:expo}
 	\begin{figure}[H] 
@@ -49,7 +49,7 @@ Inoltre semplifica e velocizza le fasi di sviluppo e di testing in quanto
 permette l'avvio di \emph{build} automatiche nei loro \emph{server} che
 permettono di eseguire in \emph{real-time} il codice sia in simulatori che in
 dispositivi mobili.
-L'utilizzo di questo tool è stato un requisito obbligatorio per il progetto. La validazione di Expo è infatti uno degli scopi dello stage in quanto l'azienda vorrebbe implementarla nei suoi progetti futuri.
+L'utilizzo di questo tool è stato un requisito obbligatorio del progetto. La validazione di Expo è infatti uno degli scopi dello stage, in quanto l'azienda vorrebbe implementarla nei suoi progetti futuri.
 
 
 \section{Linguaggi, librerie e strumenti di programmazione}
@@ -89,7 +89,7 @@ moduli, tipizzazione e altre funzionalità importanti per la comprensione di un
 grande progetto. 
 Il codice TypeScript sviluppato viene successivamente ricompilato in JavaScript 
 per poter essere interpretato da browser o app.\\
-L'utilizzo di questo linguaggio invece che JavaScript non è stato imposto dall'azienda ma caldamente suggerito dal tutor aziendale. Ho voluto utilizzarlo per imparare un nuovo linguaggio che può portare grandi benefici soprattutto in termini di chiarezza.
+L'utilizzo di questo linguaggio invece che JavaScript non è stato imposto dall'azienda, ma caldamente suggerito dal tutor aziendale. Ho voluto utilizzarlo per imparare un nuovo linguaggio che può portare grandi benefici soprattutto, in termini di chiarezza.
 
 \subsection{TSLint}
 \begin{figure}[H] 
@@ -102,7 +102,8 @@ che offre funzionalità estendibili e personalizzabili per la leggibilità, la
 manutenibilità e gli errori di programmazione. 
 È supportato da molti dei moderni editor, compreso \emph{IntelliJ IDEA} (sez. 
 \ref{subsec:IntelliJ}), utilizzato per il progetto. \\
-In parallelo con TypeScript l'utilizzo di TSLint non è stato obbligatorio ma dato che il linguaggio per me era nuovo ho preferito utilizzare questo linter per essere più precisa nella grammatica del codice.
+In parallelo con TypeScript, l'utilizzo di TSLint non è stato obbligatorio ma
+data la scelta di utilizzare un nuovo linguaggio ho preferito utilizzare questo linter, per essere più precisa nella grammatica del codice.
 
 \subsection{Redux} \label{subsec:Redux}
 \begin{figure}[H] 
@@ -118,7 +119,8 @@ dati tra componenti diverse.
 Redux, invece, permette la creazione di uno \emph{store} condiviso, accessibile da tutte 
 le componenti. In tal modo è possibile sincronizzare le modifiche e quindi 
 avere dei dati coerenti tra le varie componenti. 
-Nella zimlet OpenChat era già stata utilizzata questa tecnologia e volendo sincronizzare i dati e mantenere la struttura il più simile possibile si è voluto continuare ad usare questa soluzione anche perchè è l'unico modo per gestire in maniera semplice un numero di dati ampio e in continuo cambiamento.
+Nella zimlet OpenChat era già stata utilizzata questa tecnologia e volendo sia
+sincronizzare i dati, sia mantenere la struttura il più simile possibile, si è voluto continuare ad usare questa soluzione, anche perché è l'unico modo per gestire in maniera semplice un numero di dati ampio e in continuo cambiamento.
 Redux è stato implementato basandosi su una particolare architettura: 
 \hyperref[subsec:flux]{Flux}.
 
@@ -168,7 +170,7 @@ Esso offre vari strumenti per il \emph{debug}:
 	\item \textbf{Redux DevTools}, per monitorare gli \emph{store} Redux utilizzati e le \emph{action} svolte su di essi;
 	\item \textbf{Console}, per visualizzare errori e avvisi che avvengono durante l'esecuzione del codice.
 \end{itemize}
-Purtroppo la scelta di utilizzare questo debugger è stata fatta in base al fatto che è l'unica soluzione che include tutte queste funzionalità per React Native.
+Purtroppo la scelta di utilizzare questo debugger è dettata dal fatto che, al momento, è l'unica soluzione che include tutte le funzionalità utilizzate di React Native.
 
 \subsection{Jest} \label{subsez:jest}
 \begin{figure}[H] 
