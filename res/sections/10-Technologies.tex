@@ -16,7 +16,7 @@ I \emph{container} sono assimilabili a delle macchine virtuali modulari con la p
 di essere molto leggere: in questo modo risulta più facile creare, distribuire, 
 copiare e spostare i container da un ambiente all'altro.
 Ogni \emph{container} è un processo isolato dagli altri \emph{container} e dal sistema ospite stesso: ogni volta che viene istanziato un nuovo \emph{container} si avrà un ambiente pulito, ovvero indipendente dal sistema ospite, da \emph{container} precedentemente creati e con le caratteristiche specificate. \\
-Per sviluppare l'applicazione \emph{Teamwork} è stato utilizzato \emph{Docker 18.03 Community Edition} per \emph{Ubuntu Bionic}. In questo modo si è potuto istanziare nelle macchine locali un \emph{container} di \emph{Zimbra} e del \emph{core Zextras} con la \emph{zimlet OpenChat} caricata così da sviluppare l'applicativo in un ambiente sicuro e pulito.
+Per sviluppare l'applicazione \emph{Teamwork} è stato utilizzato \emph{Docker 18.03 Community Edition} per \emph{Ubuntu Bionic}. In questo modo è stato possibile avviare nelle macchine locali un \emph{container} di \emph{Zimbra} e del \emph{core Zextras} con la \emph{zimlet OpenChat} caricata così da sviluppare l'applicativo in un ambiente controllato.
 
 \subsection{IntelliJ IDEA} \label{subsec:IntelliJ}
 	\begin{figure}[H] 
@@ -27,9 +27,9 @@ Per sviluppare l'applicazione \emph{Teamwork} è stato utilizzato \emph{Docker 1
 IntelliJ IDEA è un \emph{\textbf{I}ntegrated \textbf{D}evelopment \textbf{E}nvironment} (\acrshort{IDE}) multi-linguaggio e multi-piattaforma. 
 È stata utilizzata l'edizione \emph{Ultimate} in quanto era necessario un editor che 
 supportasse JavaScript/TypeScript, mentre la \emph{Community Edition} non supporta questi linguaggi. 
-Dovendo creare un'applicazione con numerose referenze al codice della \emph{zimlet 
+Dovendo creare un'applicazione con numerose riferimenti al codice della \emph{zimlet 
 OpenChat} e di \emph{Zimbra} sono state sfruttate al meglio le funzionalità per 
-analizzare il codice e comprendere le dipendenze esistenti.
+l'analisi del codice e comprendere le dipendenze esistenti.
 
 \subsection{Expo} \label{subsec:expo}
 	\begin{figure}[H] 
@@ -44,9 +44,10 @@ o \gl{Android Studio}{Android Studio}, né di utilizzare codice nativo. Fornisce
 che in genere sono difficili da gestire nativamente, ma sono richiesti da quasi 
 tutte le app come le notifiche \emph{push} o creare binari nativi pronti per la 
 distribuzione nell'\emph{app store}.
-Inoltre risulta molto facile lo sviluppo e il test dato che permette delle 
-\emph{build} automatiche nei loro \emph{server} che possono eseguire in \emph{real-time} il codice 
-sia in simulatori che in dispositivi mobili.
+Inoltre semplifica e velocizza le fasi di sviluppo e di testing in quanto
+permette l'avvio di \emph{build} automatiche nei loro \emph{server} che
+permettono di eseguire in \emph{real-time} il codice sia in simulatori che in
+dispositivi mobili.
 
 
 \section{Linguaggi, librerie e strumenti di programmazione}
@@ -58,17 +59,18 @@ sia in simulatori che in dispositivi mobili.
 	\caption{Logo React Native}
 \end{figure}
 React Native è un \emph{framework} per lo sviluppo di applicazioni mobile in JavaScript 
-permettendo di unificare l'esperienza di sviluppo su diversi sistemi operativi. 
-Infatti React Native utilizza gli stessi le stesse componenti dell'interfaccia 
+che permette di unificare l'esperienza di sviluppo su diversi sistemi operativi. 
+Infatti React Native utilizza le stesse componenti dell'interfaccia 
 utente che vengono utilizzate da app native iOS e Android.
 Si possono comunque integrare dei componenti scritti in \emph{Objective-C}, 
-\emph{Java} o \emph{Swift} così da passare al codice nativo nel caso fosse necessario 
+\emph{Java} o \emph{Swift} così da utilizzare il codice nativo nel caso fosse
+necessario 
 ottimizzare alcuni aspetti dell'applicazione in base alla piattaforma. 
-React Native si basa su ReactJS dove appare fondamentale il concetto di 
-componente. Un componente è un modulo dell'applicazione che ha uno stato, 
+React Native si basa su ReactJS dove risulta fondamentale il concetto di 
+``componente''. Un componente è un modulo dell'applicazione che ha uno stato, 
 che può accettare delle proprietà e che ha un proprio ciclo di vita. 
 Questo approccio di sviluppo atomico risulta perfetto per effettuare Unit Test 
-o per creare componenti più complessi includendone altri più semplici.
+o per creare componenti più complessi includendone di più semplici.
 
 \subsection{TypeScript} \label{subsec:tslint}
 \begin{figure}[H] 
@@ -78,7 +80,7 @@ o per creare componenti più complessi includendone altri più semplici.
 \end{figure}
 TypeScript è un linguaggio di programmazione sviluppato da \emph{Microsoft} che 
 estende la sintassi di JavaScript.  È nato per poter utilizzare le funzionalità di 
-JavaScript per lo sviluppo di grandi applicazioni in quanto ne aumenta la 
+JavaScript per lo sviluppo di grandi applicazioni in quanto aumenta la 
 sicurezza e la robustezza del codice tramite l'aggiunta di classi, interfacce, 
 moduli, tipizzazione e altre funzionalità importanti per la comprensione di un 
 grande progetto. 
@@ -118,7 +120,7 @@ Redux è stato implementato basandosi su una particolare architettura:
  Flux è un \gl{pattern architetturale}{pattern architetturale} che ha ispirato Redux, utilizzato per la 
  creazione di applicazioni web \emph{client-side}. Esso utilizza un flusso di dati 
  unidirezionale per gestire al meglio la sincronizzazione degli stati tra le 
- componenti React. In questo modo si è sicuri che lo stato dello \emph{store} sia 
+ componenti React, in modo da garantire che lo stato dello \emph{store} sia 
  sempre uguale in tutte le componenti che compongono la \emph{view}.
  
  \begin{figure}[H] 
@@ -126,7 +128,7 @@ Redux è stato implementato basandosi su una particolare architettura:
  	\includegraphics[scale=0.3]{loghi/flux}
  	\caption{Flusso dei dati in Flux}
  \end{figure}
- Il flusso parte da degli oggetti \emph{stores}, che contengono i dati dell'applicazione che vengono forniti ai componenti dell'applicazione in modo che la view sia sempre aggiornata con questi dati. \\
+Il flusso parte da degli oggetti \emph{stores}, i quali contengono i dati dell'applicazione che vengono forniti ai vari componenti in modo che la view sia sempre aggiornata con questi dati. \\
 Per modificare i dati presenti in uno store è necessario creare un oggetto \emph{action} che, mediante il \emph{dispatcher} dell’applicazione, viene ricevuto dai vari \emph{stores}, i quali lo utilizzano per aggiornare i dati che contengono.
 
  
@@ -139,8 +141,8 @@ Per modificare i dati presenti in uno store è necessario creare un oggetto \emp
 	\caption{Logo Genymotion}
 \end{figure}
 Genymotion è un emulatore software di dispositivi Android. Si integra 
-perfettamente con Expo(sez. \ref{subsec:expo}) utilizzato per la gestione di 
-questo progetto, permettendo di avere un riscontro dell'app in \emph{real-time} durante 
+perfettamente con Expo(sez. \ref{subsec:expo}) ed è utilizzato per la gestione
+di questo progetto, permettendo di avere un riscontro dell'app in \emph{real-time} durante 
 lo sviluppo e di verificare e testare l'applicazione su più \emph{device}. Emula più 
 di 3000 configurazioni virtuali di dispositivi Android (tra versioni, dimensioni 
 schermo, capacità hardware, ecc..). 
@@ -152,10 +154,10 @@ schermo, capacità hardware, ecc..).
 	\caption{Logo React Native Debugger}
 \end{figure}
 React Native Debugger è un applicazione \emph{standalone} per il \emph{debug} di app in React 
-Native. Si basa sul remote debugger disponibile quando si monitora un progetto 
-in un device fisico o virtuale.
+Native. Si basa sul \emph{remote debugger} disponibile quando si monitora un
+progetto in un \emph{device} fisico o virtuale.
 \newpage
-Esso offre vari strumenti per il debug:
+Esso offre vari strumenti per il \emph{debug}:
 \begin{itemize}
 	\item \textbf{React Inspecto}r, per ispezionare il \emph{layout} e lo \emph{style} di ogni componente dell'app;
 	\item \textbf{Redux DevTools}, per monitorare gli \emph{store} Redux utilizzati e le \emph{action} svolte su di essi;
@@ -168,11 +170,11 @@ Esso offre vari strumenti per il debug:
 	\includegraphics[scale=0.13]{loghi/jest}
 	\caption{Logo Jest}
 \end{figure}
-Jest è un framework di \gl{unit testing}{unit testing} per JavaScript sviluppato ed utilizzato da 
-\emph{Facebook} per testare le proprie applicazioni in React. È una soluzione completa 
-e pronta in quanto è automaticamente configurata alla creazione di un progetto 
-React Native.
-Rispetto ad altri framework di unit testing offre dei vantaggi, come: 
+Jest è un \emph{framework }di \gl{unit testing}{unit testing} per JavaScript
+sviluppato ed utilizzato da \emph{Facebook} per testare le proprie applicazioni
+in React. È una soluzione completa e pronta all'utilizzo, in quanto è
+automaticamente configurata alla creazione di un nuovo progetto React Native.
+Rispetto ad altri \emph{framework} di unit testing offre dei vantaggi, come: 
 \begin{itemize}
 	\item vengono eseguiti solo i file di test relativi ai file modificati;
 	\item gestisce automaticamente le dipendenze durante l'esecuzione dei test;
