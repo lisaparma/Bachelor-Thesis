@@ -14,7 +14,7 @@ Questa struttura, nel caso della \emph{zimlet OpenChat}, permette indirettamente
 Dato che l'applicazione \emph{Teamwork} non interagisce con \emph{Zimbra web client} è stata modificata la modalità di ricezione ed invio dei messaggi SOAP e la gestione tramite \emph{connection manager} in modo da far comunicare direttamente \emph{Teamwork} e il server \emph{Zimbra} (con \emph{Zextras core} integrato).
 
 \subsection{Gestione eventi}
-Per gestire in modo ottimale ed efficacie la comunicazione tra server e client è stata strutturata un'architettura capace di reagire alla ricezione e all'invio di eventi. \\
+Per gestire in modo ottimale ed efficacie la comunicazione tra server e client è stata strutturata secondo un'architettura capace di reagire alla ricezione e all'invio di eventi. \\
 Questa struttura permette la sincronizzazione dei dati tra il server e tutte le sessioni aperte facendo in modo di tenere aggiornato lo \emph{store} Redux di ogni applicazione connessa.\\
 Di seguito un'approfondimento delle varie componenti che permettono questa interazione:
 \begin{figure}[H] 
@@ -35,22 +35,22 @@ I messaggi SOAP, rappresentati in figura \ref{fig:SOAP}, sono basati sul metalin
 	\item Il segmento \textbf{head} contiene metadati utili per la trasmissione del messaggio, come informazioni per il \emph{routing} e per la sicurezza. Può essere opzionale.
 	\item Il segmento \textbf{body}, che invece risulta obbligatorio, trasporta il contenuto informativo (\emph{payload}) del messaggio. Saranno questi i dati importanti per la gestione delle informazioni.
 \end{itemize}
-Per ogni SOAP \emph{request} inviata al server ci sarà una SOAP \emph{respose} in ritorno. Questa risposta può contenere dati richiesti dalla precedente SOAP \emph{request}, informazioni sullo stato del server o possibili errori di risposta.
+Per ogni SOAP \emph{request} inviata al server ci sarà una SOAP \emph{response} in ritorno. Questa risposta può contenere dati richiesti dalla precedente SOAP \emph{request}, informazioni sullo stato del server o possibili errori di risposta.
 \subsubsection{Connection Manager}
 Il \emph{connection manager} si occupa degli eventi in arrivo dal server. Per fare ciò ha bisogno di due componenti principali:
 \begin{itemize}
 	\item il \textbf{ping}, componente che si occupa di stabilire una connessione con il server e di mantenerla operativa durante tutta la sessione. In questo modo l'applicazione rimarrà sempre in ascolto di nuovi eventi provenienti dal server;
-	\item il \textbf{decoder}, componente che, una volta ricevuto un messaggio SOAP dal \emph{ping}, ne decodificherà il \emph{body} permettendo una più facile comprensione del contenuto. Si è utilizzato un \emph{Abstract Factory} per la creazione di questa componente, \gl{design pattern}{design pattern} che fornisce un’interfaccia per creare famiglie di prodotti senza specificare classi concrete.
+	\item il \textbf{decoder}, componente che, una volta ricevuto un messaggio SOAP dal \emph{ping}, si occupa di decodificarne il \emph{body} permettendo una più facile comprensione del contenuto. È stata implementata un \emph{Abstract Factory} per la creazione di questa componente, \gl{design pattern}{design pattern} che fornisce un’interfaccia per creare famiglie di prodotti senza specificare classi concrete.
 \end{itemize}
 \subsubsection{Handlers}
 Questa famiglia di componenti riceve in input degli eventi provenienti dal \emph{decoder}. Questo vuol dire che non riceve dei generici messaggi SOAP ma dei \emph{\textbf{J}avaScript \textbf{O}bject \textbf{N}otation}(\acrshort{JSON}) associati a dei particolari eventi di cui è stato implementato un \textbf{handler} specifico.\\
 La sua funzione, quindi, è quella di modificare lo stato dello \emph{store} Redux, basandosi sui dati ricevuti, attraverso un \emph{dispatcher} che modifica il flusso dei dati utilizzati nell'applicazione in modo unidirezionale, così da non creare inconsistenza.
 \subsubsection{Encoder}
-Gli eventi possono essere generati anche dall'applicazione e per gestire il bisogno di propagare le modifiche che vengono fatte allo \emph{store} Redux al server (con la successiva propagazione dei dati verso le altre sessioni) è stato introdotto un \textbf{encoder}, il corrispondente del precedente componente \emph{decoder} per l'invio degli eventi. \\
+Gli eventi possono essere generati anche dall'applicazione e per gestire la propagazione delle modifiche che vengono fatte allo \emph{store} Redux al server (con la successiva propagazione dei dati verso le altre sessioni) è stato introdotto un \textbf{encoder}, il corrispondente del precedente componente \emph{decoder} per l'invio degli eventi. \\
 Quando viene fatto il \emph{dispatch} di un'azione, con la conseguente modifica dello \emph{store}, vengono invocati dei particolari \emph{middleware} che si occupano dell'invio dell'evento all'\emph{encoder} corrispondente. Questa componente permette la traduzione dell'evento in un messaggio SOAP generico comprensibile dal server.
 
 \subsection{Store Redux}
-L'architettura disegnata per la gestione degli eventi ha come punto focale il concetto di \emph{store}, \emph{database} locale dove vengono salvati tutti i dati necessari all'implementazione tramite React Native dell'interfaccia grafica. Come è stato spiegato nel capitolo \emph{Tecnologie utilizzate} (\ref{subsec:Redux}) uno \emph{store} Redux è un \emph{database} dinamico condiviso, accessibile da tutte le componenti di React Native così che possano sempre avere dei dati coerenti tra loro. \\
+L'architettura disegnata per la gestione degli eventi ha come punto focale il concetto di \emph{store}, \emph{database} locale dove vengono salvati tutti i dati necessari all'implementazione tramite React Native dell'interfaccia grafica. Come spiegato nel capitolo \emph{Tecnologie utilizzate} (\ref{subsec:Redux}), uno \emph{store} Redux è un \emph{database} dinamico condiviso, accessibile da tutte le componenti di React Native così che possano sempre avere dei dati coerenti tra loro. \\
 Tramite Flux, il design pattern architetturale implementato da Redux, è stato possibile ottimizzare la gestione dei dati in modo reattivo all'arrivo degli eventi. \\
 In particolare è stato deciso di introdurre due \emph{store} distinti nell'applicazione:
 \begin{itemize}
@@ -71,7 +71,7 @@ di stage comprenda ogni aspetto della progettazione e dello sviluppo di
 un'applicazione da parte di un azienda.
 
 \subsection{Wireframe}
-In base ai requisiti e agli use case raccolti è stato definito il modello iniziale
+In base ai requisiti e agli \emph{use case} raccolti è stato definito il modello iniziale
  dell'applicazione tramite la realizzazione dei \textbf{wireframe} delle varie schermate. \\
 Questo studio è la prima rappresentazione visuale dell'applicazione ed ha lo 
 scopo di identificare la struttura, l'architettura dell'informazione e la 
@@ -85,8 +85,8 @@ importanti di \emph{Teamwork}:
 	\label{subsec:wireframe}
 \end{figure}
 Come possiamo notare dagli esempi riportati, in questa fase non è stato deciso 
-nulla riguardo la rappresentazione grafica dei vari elementi. Infatti 
-È stata definita soltanto la struttura delle varie schermate, il collegamento
+nulla riguardo la rappresentazione grafica dei vari elementi, infatti 
+è stata definita soltanto la struttura delle varie schermate, il collegamento
 tra di esse e quali elementi realmente soddisfino i requisiti già studiati. 
 Il risultato, comunque, è stato molto vicino alla \emph{\textbf{G}raphical \textbf{U}ser \textbf{I}nterface} (\acrshort{GUI}) ottenuta alla fine della 
 codifica in quando i \emph{wireframe} sono stati disegnati tenendo conto della 
@@ -102,7 +102,7 @@ Nello specifico le \emph{guidelines} toccano temi come:
 	\item i colori da utilizzare;
 	\item le definizioni di alcuni elementi base;
 \end{itemize}
-Questo serve per avere uno stile comune tra le varie applicazioni che 
+Questo consente di avere uno stile comune tra le varie applicazioni che 
 l'azienda sviluppa. \\
 Un esempio è la definizione del componente \emph{card}, destinato alla 
 visualizzazione dei dettagli relativi ad un \emph{buddy}:
@@ -116,7 +116,7 @@ proporzioni tra gli spazi. In questo modo la successiva codifica dello stile
 dovrà assolutamente rispettare tali regole, in modo da non dover interagire
 continuamente con il responsabile grafico del progetto. \\
 L'applicazione delle \emph{guidelines} nel codice è avvenuta in parallelo con lo sviluppo 
-in quando, seguendo una metodologia \emph{agile}, si è ritenuto opportuno che le varie 
+in quanto, seguendo una metodologia \emph{agile}, si è ritenuto opportuno che le varie 
 versioni prototipali dell'applicazione avessero anche una progressiva applicazione 
 delle regole di stile.\\
 Approvati i \emph{wireframe} è stato possibile proseguire alla definizione di tutti 
@@ -143,8 +143,10 @@ Prendiamo come esempio lo \emph{screen Buddylist}:
 Possiamo vedere come lo \emph{screen buddylist} sia un componente che renderizza altre tre tipi di componenti: 
 \begin{itemize}
 	\item \texttt{<TopBar>}, che viene a sua volta renderizzato con \texttt{<StatusBar>} (componente difficilmente gestibile in quanto subisce forti variazioni a seconda del sistema operativo), un semplice componente di testo e due componenti \texttt{<Icon>}. Quest'ultimi possiedono anche una proprietà \emph{navigation} che permette la navigazione verso altri screen;
-	\item \texttt{<CardBuddy>}, caricata \emph{n} volte sullo \emph{screen buddylist} dipendente dal numero di buddy. Anche questa componente è complessa e costituita da più componenti \texttt{<Text>}, \texttt{<Img>} e un altro componente complesso \texttt{<ProPic>};
-	\item \texttt{<BottomTab>} che gestisce la navigazione verso i due stack principali, \texttt{ChatStack} e \texttt{SettingsStack}. Il suo render,
-	però, viene gestito solamente da due componenti semplici: \texttt{<Icon>} e \texttt{<Text>}.
+	\item \texttt{<CardBuddy>}, caricata \emph{n} volte sullo \emph{screen buddylist} dipendente dal numero di \emph{buddy}. Anche questa componente è complessa e costituita da più componenti \texttt{<Text>}, \texttt{<Img>} e un altro componente complesso \texttt{<ProPic>};
+	\item \texttt{<BottomTab>} che gestisce la navigazione verso i due
+	\emph{stack} principali, \texttt{ChatStack} e \texttt{SettingsStack}. Il
+	suo rendering,però, viene gestito solamente da due componenti semplici:
+	\texttt{<Icon>} e \texttt{<Text>}.
 \end{itemize}
 
