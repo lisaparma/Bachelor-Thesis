@@ -3,9 +3,8 @@
 
 \section {Progettazione architetturale e di dettaglio}
 \subsection{Architettura OpenChat}
-Dal momento che l'applicazione sviluppata è basata su una soluzione già implementata per il web dalla \emph{zimlet OpenChat} è utile approfondire la sua \gl{architettura}{architettura} per comprendere quali sono le differenze che sono state applicate.\\
-La comunicazione tra il server \emph{Zimbra} e la \emph{zimlet OpenChat} avviene attraverso una struttura \emph{\textbf{S}imple \textbf{O}bject \textbf{A}ccess \textbf{P}rotocol} (\acrshort{SOAP}), protocollo per lo scambio di messaggi tra componenti hardware.
-Questa struttura, nel caso della \emph{zimlet OpenChat}, permette indirettamente la comunicazione con il server facendo passare gli eventi per il \emph{web client Zimbra} che li gestisce in base ai propri bisogni prima di inviarli al server. \\
+Dal momento che l'applicazione sviluppata è basata su una soluzione già implementata per il web dalla \emph{zimlet OpenChat} è utile approfondire la sua \gl{architettura}{architettura} per comprendere quali siano le differenze che sono state applicate.\\
+La comunicazione tra il server \emph{Zimbra} e la \emph{zimlet OpenChat} avviene attraverso una struttura \emph{\textbf{S}imple \textbf{O}bject \textbf{A}ccess \textbf{P}rotocol} (\acrshort{SOAP}), protocollo per lo scambio di messaggi tra componenti hardware. Questa struttura, nel caso della \emph{zimlet OpenChat}, permette indirettamente la comunicazione con il server facendo passare gli eventi per il \emph{web client Zimbra} che li gestisce in base ai propri bisogni prima di inviarli al server. \\
 \begin{figure}[H] 
 	\centering
 	\includegraphics[scale=0.45]{architettura2}
@@ -14,7 +13,7 @@ Questa struttura, nel caso della \emph{zimlet OpenChat}, permette indirettamente
 Dato che l'applicazione \emph{Teamwork} non interagisce con \emph{Zimbra web client} è stata modificata la modalità di ricezione ed invio dei messaggi SOAP e la gestione tramite \emph{connection manager} in modo da far comunicare direttamente \emph{Teamwork} e il server \emph{Zimbra} (con \emph{Zextras core} integrato).
 
 \subsection{Gestione eventi}
-Per gestire in modo ottimale ed efficacie la comunicazione tra server e client è stata strutturata secondo un'architettura capace di reagire alla ricezione e all'invio di eventi. \\
+Per gestire in modo ottimale ed efficacie la comunicazione tra server e client è stata strutturata un'architettura capace di reagire alla ricezione e all'invio di eventi. \\
 Questa struttura permette la sincronizzazione dei dati tra il server e tutte le sessioni aperte facendo in modo di tenere aggiornato lo \emph{store} Redux di ogni applicazione connessa.\\
 Di seguito un'approfondimento delle varie componenti che permettono questa interazione:
 \begin{figure}[H] 
