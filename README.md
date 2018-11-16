@@ -1,8 +1,8 @@
 # Bachelor-Thesis
 The thesis for my Bachelor's degree at the University of Padua.
 
-## :exclamation::warning::exclamation: Work in Progress :exclamation::warning::exclamation:
-Comandi per lasciare commenti durante la scrittura della tesi e/o la sua correzione:
+
+Potete aiutarmi segnalandomi gli errori con i seguenti comandi:
 * \note{#1}
    > Per lasciare lunghi commenti sul paragrafo / spunti / frasi da editare.
 * \unsure{#1}
